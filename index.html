@@ -97,6 +97,17 @@
     ></script>
     <!-- BTN IR ARIIBA -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script
+      src="src/components/header.js"
+      type="text/javascript"
+      defer
+    ></script>
+    <script
+      src="src/components/footer.js"
+      type="text/javaScript"
+      defer
+    ></script>
+
     <script type="text/javascript">
       $(document).ready(function () {
         $(window).scroll(function () {
@@ -114,42 +125,9 @@
     </script>
   </head>
   <body>
+    <header-component brand-href="index.html"></header-component>
     <!-- HEADER - NAVBAR -->
-    <div class="header">
-      <div class="container header-container">
-        <a href="index.html" class="logotype-abrahamcalsin"
-          ><img
-            src="Recursos/Img - Logotype/logotype-vector.svg"
-            alt=""
-            class="img-lo-ac"
-        /></a>
-        <div class="menu_navbar">
-          <input type="checkbox" id="btn_menu" />
-          <label for="btn_menu" class="btn_menu"
-            ><i class="fa fa-bars active"></i
-          ></label>
-          <nav class="navbar">
-            <ul>
-              <li>
-                <a
-                  href="index.html"
-                  class="navbar-inicio"
-                  style="color: #ff7f2aff"
-                  >Inicio</a
-                >
-              </li>
-              <li>
-                <a href="Pages/motivation.html" class="navbar-motivacion"
-                  >motivación</a
-                >
-              </li>
-              <li><a href="#" class="sobre-mi">sobre mi</a></li>
-              <li class="contact-abrahamcalsin"><a href="#">contacto</a></li>
-            </ul>
-          </nav>
-        </div>
-      </div>
-    </div>
+
     <!-- LAYOUT - QUOTE -->
     <div class="layout-quote">
       <div class="layout-quote-musk">
@@ -301,53 +279,7 @@
       </div>
     </div>
     <!-- FOOTER -->
-    <div class="footer">
-      <div class="footer-content">
-        <div class="autor-copyright">
-          <p class="autor-abraham-calsin">©ABRAHAM CALSIN</p>
-          <span class="frontend-developer">Frontend Developer</span>
-        </div>
-        <!-- LINE - AUTOR AND SOCIAL -->
-        <div class="divide-autor-social"><div></div></div>
-        <!-- BTN IR ARRIBA -->
-        <a href="javascript:void(0);" id="scroll" style="display: none"
-          ><img src="Recursos/Icons/arrow-up-icon.svg" alt=""
-        /></a>
-        <!-- SOCIAL MEDIA -->
-        <div class="social-media">
-          <a
-            href="https://github.com/abrahamcalsin"
-            target="_blank"
-            rel="noreferrer"
-            ><img src="Recursos/Social-media/fa-github.svg" alt=""
-          /></a>
-          <a
-            href="https://twitter.com/abraham_calsin"
-            target="_blank"
-            rel="noreferrer"
-            ><img src="Recursos/Social-media/fa-twitter.svg" alt=""
-          /></a>
-          <a
-            href="https://www.instagram.com/abrahamcalsin"
-            target="_blank"
-            rel="noreferrer"
-            ><img src="Recursos/Social-media/fa-instagram.svg" alt=""
-          /></a>
-          <a
-            href="https://www.facebook.com/abrahamcalsin"
-            target="_blank"
-            rel="noreferrer"
-            ><img src="Recursos/Social-media/fa-facebook.svg" alt=""
-          /></a>
-          <a
-            href="https://www.linkedin.com/in/abrahamcalsin"
-            target="_blank"
-            rel="noreferrer"
-            ><img src="Recursos/Social-media/fa-linkedin.svg" alt=""
-          /></a>
-        </div>
-      </div>
-    </div>
+    <footer-component></footer-component>
     <!----------------------->
   </body>
 </html>
