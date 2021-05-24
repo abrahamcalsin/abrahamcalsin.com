@@ -121,56 +121,90 @@ body {
 #not {
   pointer-events: none;
 }
-/* VER MAS LECCIONES */
-.ver-mas-lecciones {
+/* IR A LA SIGUIENTE PÁGINA */
+body{
+  padding-top: 60px;
+}
+.flex-next-pages-lessons{
   display: flex;
-  padding-top: 45px;
-  padding-bottom: 45px;
   align-items: center;
-  justify-content: flex-end;
-  width: 100%;
+  justify-content: center;
+  position: relative;
 }
-.ver-mas-lecciones a {
-  text-decoration: none;
+.next-page{
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0 10px;
+}
+.next-page div{
+  width: 27px;
+  height: 27px;
+  overflow: hidden;
+  border-radius: 2px;
+  background: rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all .3s ease;
+}
+.next-page div:hover{
+  transform: scale(1.1);
+}
+.funct-disabled{
+  pointer-events: none;
+  color: red;
+}
+.disabled-color{
+  color: rgba(59, 61, 68, 0.20) !important;
+}
+.next-page a{
   font-family: 'Poppins', sans-serif;
-  color: rgba(59, 61, 68, 0.7);
-  font-size: 13px;
-  font-weight: 700;
-  margin: 0;
-  width: auto;
-  height: auto;
-  transition: 0.3s all;
-  animation: 0.4s infinite linear;
+  text-decoration: none;
+  font-size: .8rem;
+  padding: 50px 50px;
+  font-weight: bolder;
+  color: rgba(59, 61, 68, 0.50);
+  transition: all .3s ease;
 }
-.ver-mas-lecciones a:hover {
-  -webkit-animation-name: yx;
-  color: #3b3d44;
-}
-.ver-mas-lecciones a::selection {
-  background-color: #3b3d44;
+.next-page a:hover{
+  background: #3b3d44;
   color: #fff;
 }
-.ver-mas-lecciones a:focus {
-  outline: none;
+.back-fath-selec{
+  transform: scale(1.1);
+  pointer-events: none;
 }
-@keyframes yx {
-  0%,
-  100% {
-    padding-right: 0px;
-  }
-  50% {
-    padding-right: 3px;
-  }
+.back-link-selec{
+  background: #3b3d44 !important;
+  color: #fff !important;
 }
-@media (max-width: 615px) {
-  .ver-mas-lecciones {
-    padding-bottom: 45px;
-    padding-right: 0px;
-    justify-content: center;
-  }
-  .ver-mas-lecciones a {
-    font-size: 12px;
-    margin-right: 0;
-  }
+/*---------*/
+.style-icon-carot-left{
+  margin-right: 15px;
+  font-size: 1.8rem;
+  transition: all .3s ease;
+  position: absdolute;
+}
+.style-icon-carot-right{
+  font-size: 1.8rem;
+  margin-left: 15px;
+  transition: all .3s ease;
+  position: absdolute;
+}
+.style-icon-carot-left a{
+  color: rgba(59, 61, 68, 0.50);
+  transition: all .3s ease;
+}
+.style-icon-carot-left a:hover{
+  color: #3b3d44;
+}
+.style-icon-carot-right a{
+  color: rgba(59, 61, 68, 0.50);
+  transition: all .3s ease;
+}
+.style-icon-carot-right a:hover{
+  color: #3b3d44;
 }
 /* ------------------ */
