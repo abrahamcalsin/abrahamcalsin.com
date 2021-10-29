@@ -156,7 +156,7 @@ module.exports = {
       "rds-0.1": "4px",
       "rds-1": "7px",
       "rds-1.1": "999px",
-      // Px radius desk
+
       "rds-2-desk": "10px",
       "rds-3-desk": "20px",
       "rds-4-desk": "15px",
