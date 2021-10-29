@@ -22,6 +22,23 @@
   transition: all 0.3s ease-in-out;
 }
 
+.timeline::before {
+  content: "";
+  position: absolute;
+  top: 0px;
+  width: 6px;
+  height: 100%;
+  background-color: #183153;
+  left: 30px;
+}
+@media (min-width: 640px) {
+  .timeline::before {
+    left: 48px;
+  }
+  .w-710px {
+    width: 710px;
+  }
+}
 .video-responsive {
   overflow: hidden;
   padding-bottom: 56.25%;

@@ -1,37 +1,31 @@
-import * as dayjs from "dayjs";
-import React from "react";
-import clsx from "clsx";
-import MainLayout from "../../components/layout";
-import Head from "next/head";
+import React from "react"
+import MainLayout from "../../components/layout"
+import Head from "next/head"
 // Font Awesome icons
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTags, faExternalLinkAlt } from "@fortawesome/free-solid-svg-icons";
-import { faGithub } from "@fortawesome/free-brands-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faTags, faExternalLinkAlt } from "@fortawesome/free-solid-svg-icons"
+import { faGithub } from "@fortawesome/free-brands-svg-icons"
+
+import Timline from "../../components/timeline"
 
 const ContentProject = (props) => {
-  const projectFormatDate = "D MMM, YYYY";
   const {
-    dateProject = new Date(),
     titleProject,
     descriptionProject,
     tagLanguajes,
     hrefProjectDemo,
     hrefProjectCode,
-  } = props;
+  } = props
 
   return (
-    <div className="flex gap-6 sm:gap-10 mb-17">
-      <div>
-        <div className="relative text-xs-1.1 sm:text-xs text-white italic bg-primary h-8 sm:h-10 w-21 sm:w-32 px-0 py-0 sm:py-5 flex items-center justify-center rounded-rds-0.1 after:[' '] after:absolute after:-right-7 after:bg-transparent after:border-l-transparent after:border-r-transparent after:border-t-primary after:border-b-transparent after:border-l-9 after:border-r-9 after:border-t-12 after:border-b-12 after:transform after:-rotate-90">
-          <span>{dayjs(dateProject).format(projectFormatDate)}</span>
-        </div>
-      </div>
-      <div className="mt-0 sm:-mt-2">
+    <div className="flex gap-2.2 sm:gap-3.7 mb-6.5">
+      <Timline />
+      <div className="-mt-0.7">
         <h1 className="leading-1.2 sm:leading-normal text-xsm-1.3 sm:text-3xl font-extraBold">
           {titleProject}
         </h1>
-        <div className="flex items-center text-secondary-600 border-1 border-sec text-xs sm:text-sm">
-          <span className="transform -scale-x-1 mr-1.5 text-xs-1.3 sm:text-xs">
+        <div className="flex items-center text-secondary-600 text-xs sm:text-sm">
+          <span className="transform -scale-x-1 mr-1 text-xs-1.3 sm:text-xs">
             <FontAwesomeIcon icon={faTags} />
           </span>{" "}
           <p className="font-extraBold">{tagLanguajes}</p>
@@ -41,10 +35,10 @@ const ContentProject = (props) => {
           href={hrefProjectDemo}
           target="__blank"
           rel="noreferrer"
-          className="underline font-extraBold mr-3 mt-3 inline-block bg-secondary py-3 px-5 rounded-rds-1.1 shadow-sm text-xs-1.3 transition duration-300 hover:opacity-80 sm:text-sm"
+          className="underline font-extraBold mr-1 mt-1 inline-block bg-secondary py-1 px-2 rounded-rds-1.1 shadow-sm text-xs-1.3 transition duration-300 hover:opacity-80 sm:text-sm"
         >
           VER DEMO{" "}
-          <span className="text-xs ml-1">
+          <span className="text-xs ml-px">
             <FontAwesomeIcon icon={faExternalLinkAlt} />
           </span>
         </a>
@@ -53,18 +47,18 @@ const ContentProject = (props) => {
             href={hrefProjectCode}
             target="__blank"
             rel="noreferrer"
-            className="underline font-extraBold mt-3 inline-block bg-secondary py-3 px-5 rounded-rds-1.1 shadow-sm text-xs-1.3 transition duration-300 hover:opacity-80 sm:text-sm"
+            className="underline font-extraBold mt-1 inline-block bg-secondary py-1 px-2 rounded-rds-1.1 shadow-sm text-xs-1.3 transition duration-300 hover:opacity-80 sm:text-sm"
           >
             VER CÓDIGO{" "}
-            <span className="text-xs ml-1">
+            <span className="text-xs ml-px">
               <FontAwesomeIcon icon={faGithub} />
             </span>
           </a>
         ) : null}
       </div>
     </div>
-  );
-};
+  )
+}
 
 const Projects = () => {
   return (
@@ -72,12 +66,12 @@ const Projects = () => {
       <Head>
         <title>Proyectos - Abraham Calsin</title>
       </Head>
-      <div className="mt-0 sm:mt-20 sm:mb-10">
-        <div className="bg-primary w-25 h-1-2 my-2 sm:m-0 sm:mb-3 sm:h-2-6 sm:w-35"></div>
+      <div className="mt-0 mb-3.7 sm:pt-7.5">
+        <div className="bg-primary w-9.5 h-0.2 my-0.7 sm:m-0 sm:mb-1 sm:h-0.5 sm:w-13"></div>
         <h1 className="font-extraBold text-xsm-1.3 sm:text-sm-1.4">
           {"{"}Proyectos{"}"}
         </h1>
-        <p className="text-sm leading-loose font-medium mt-2 px-0 sm:text-xl">
+        <p className="text-sm leading-loose font-medium mt-0.7 px-0 sm:text-xl">
           En esta sección puedes ver algunos de mis proyectos más destacados. También
           puedes ver más proyectos en mi{" "}
           <a
@@ -89,7 +83,7 @@ const Projects = () => {
             GitHub.
           </a>
         </p>
-        <div className="relative my-15 sm:my-25 before:[' '] before:absolute before:bg-primary before:top-0 before:left-10 sm:before:left-16 before:h-full before:w-2">
+        <div className="relative my-5.5 sm:my-9.5 timeline">
           <ContentProject
             dateProject={new Date("09/22/2021")}
             titleProject="Tasks List"
@@ -140,6 +134,6 @@ const Projects = () => {
         </div>
       </div>
     </MainLayout>
-  );
-};
-export default Projects;
+  )
+}
+export default Projects

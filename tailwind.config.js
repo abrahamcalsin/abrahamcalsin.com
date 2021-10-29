@@ -1,31 +1,25 @@
 module.exports = {
   mode: "jit",
-  purge: ["./pages/**/*.{js,ts,jsx,tsx}", "./components/**/*.{js,ts,jsx,tsx}"],
+  purge: ["./src/**/*.{js,ts,jsx,tsx}", "./components/**/*.{js,ts,jsx,tsx}"],
   darkMode: false, // or 'media' or 'class'
   theme: {
     screens: {
-      // => @media (min-width: 640px) { ... }
       sm: "640px",
-
-      // => @media (min-width: 768px) { ... }
       md: "768px",
-
-      // => @media (min-width: 1024px) { ... }
       lg: "1024px",
-
-      // => @media (min-width: 1280px) { ... }
       xl: "1280px",
-
-      // => @media (min-width: 1536px) { ... }
       "2xl": "1536px",
     },
+
     maxWidth: {
       70: "65rem",
       500: "500px",
     },
+
     letterSpacing: {
       "ltr-1": "0.02em",
     },
+
     fontWeight: {
       thin: "100",
       extraLight: "200",
@@ -37,10 +31,12 @@ module.exports = {
       extraBold: "800",
       black: "900",
     },
+
     fontFamily: {
       montserrat: "Montserrat",
       notoSerif: "Noto Serif TC",
     },
+
     zIndex: {
       0: 0,
       10: 10,
@@ -54,11 +50,13 @@ module.exports = {
       100: 100,
       auto: "auto",
     },
+
     boxShadow: {
       sm: "0px 5px 14px rgba(204, 209, 230, 0.4)",
       sml: "0px -5px 50px rgba(204, 209, 230, 0.46)",
       none: "none",
     },
+
     colors: {
       black: "#000",
       inherit: "inherit",
@@ -153,6 +151,7 @@ module.exports = {
       11: "14px",
       12: "16px",
     },
+
     borderRadius: {
       "rds-0.1": "4px",
       "rds-1": "7px",
@@ -172,12 +171,15 @@ module.exports = {
       backgroundColor: {
         inherit: "inherit",
       },
+
       textColor: {
         inherit: "inherit",
       },
+
       borderColor: {
         inherit: "inherit",
       },
+
       fontSize: {
         0: "0px",
         "xs-1.1": "8px",
@@ -190,63 +192,48 @@ module.exports = {
         "xsm-1.2": "17px",
         "xsm-1.3": "22px",
       },
+
       spacing: {
-        auto: "auto",
-        "0-1": "-3px",
         0: "0px",
-        1: "1px",
-        "1-2": "2px",
-        "1-3": "5px",
-        2: "6px",
-        "2-6": "3px",
-        "2-8": "4px",
-        3: "9px",
-        4: "12px",
-        5: "15px",
-        6: "18px",
-        7: "21px",
-        8: "24px",
-        9: "27px",
-        10: "30px",
-        11: "33px",
-        12: "36px",
-        13: "39px",
-        14: "42px",
-        15: "45px",
-        16: "48px",
-        17: "51px",
-        18: "54px",
-        19: "57px",
-        20: "60px",
-        21: "63px",
-        22: "66px",
-        23: "69px",
-        24: "72px",
-        25: "75px",
-        26: "78px",
-        27: "81px",
-        28: "84px",
-        29: "87px",
-        30: "90px",
-        31: "93px",
-        32: "96px",
-        33: "99px",
-        34: "102px",
-        35: "105px",
-        // Px desk
-        "36-dek": "200px",
-        "36.1-desk": "205px",
-        "36.2-desk": "120px",
-        "36.3-desk": "250px",
-        // Px others
-        37: "139px",
-        285: "285px",
-        710: "710px",
+        px: "1px",
+        0.2: "2px",
+        0.5: "4px",
+        0.7: "6px",
+        1: "8px",
+        1.5: "12px",
+        1.7: "14px",
+        2: "16px",
+        2.2: "18px",
+        2.5: "20px",
+        3: "24px",
+        3.5: "28px",
+        3.7: "30px",
+
+        4.5: "36px",
+
+        5.2: "42px",
+        5.5: "44px",
+        6: "48px",
+        6.5: "52px",
+
+        7.5: "60px",
+        8: "64px",
+        9.5: "76px",
+
+        11.2: "90px",
+        12: "96px",
+        13: "104px",
+
+        15: "120px",
+
+        25: "200px",
+        25.5: "204px",
+
+        31.2: "250px",
+
+        35.5: "284px",
       },
-      gridTemplateColumns: {
-        // pjectsCards: "repeat(auto-fill, minmax(14rem, 1fr))",
-        videoYoutube: "repeat(auto-fill, minmax(20rem, 1fr))",
-      },
+
       transitionDuration: {
         300: ".3s",
       },
@@ -262,6 +249,7 @@ module.exports = {
       },
     },
   },
+
   variants: {
     extend: {
       borderWidth: ["hover", "focus"],
@@ -271,5 +259,6 @@ module.exports = {
       margin: ["group-hover"],
     },
   },
+
   plugins: [],
-};
+}
