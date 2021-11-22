@@ -234,10 +234,6 @@ module.exports = {
         35.5: "284px",
       },
 
-      transitionDuration: {
-        300: ".3s",
-      },
-
       lineHeight: {
         1: "1",
         1.2: "1.2",
