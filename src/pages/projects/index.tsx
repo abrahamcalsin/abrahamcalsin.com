@@ -12,7 +12,7 @@ const Projects = () => {
       </Head>
 
       <div className="mt-0 mb-3.7 sm:pt-11.2">
-        <div className="bg-primary w-9.5 h-0.2 my-0.7 sm:m-0 sm:mb-1 sm:h-0.5 sm:w-13"></div>
+        <div className="bg-primary dark:bg-white w-9.5 h-0.2 my-0.7 sm:m-0 sm:mb-1 sm:h-0.5 sm:w-13"></div>
 
         <h1 className="font-extraBold text-xsm-1.3 sm:text-sm-1.4">
           {"{"}Proyectos{"}"}

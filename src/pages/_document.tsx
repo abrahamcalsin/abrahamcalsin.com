@@ -1,11 +1,8 @@
 import Document, { Html, Head, Main, NextScript, DocumentContext } from "next/document"
 
-class MyDocument extends Document {
-  static async getInitialProps(ctx: DocumentContext) {
-    const initialProps = await Document.getInitialProps(ctx)
-    return { ...initialProps }
-  }
+import { cookieNames } from "~/utils/constants"
 
+class MyDocument extends Document {
   render() {
     return (
       <Html>
@@ -65,8 +62,15 @@ class MyDocument extends Document {
             name="twitter:image"
             content="https://avatars.githubusercontent.com/u/77748010?v=4"
           />
+
+          <script
+            id="theme-mode-script"
+            dangerouslySetInnerHTML={{
+              __html: `!function(){"use strict";var e="string"==typeof(e=localStorage.getItem("${cookieNames.THEME_MODE}"))?e:"boolean"==typeof(e=matchMedia("(prefers-color-scheme: dark)")).matches&&e.matches?"dark":"light";"dark"===e?document.documentElement.classList.add("dark"):document.documentElement.classList.remove("dark"),localStorage.setItem("${cookieNames.THEME_MODE}",e)}();`,
+            }}
+          />
         </Head>
-        <body className="bg-grayBlue">
+        <body className="bg-grayBlue dark:bg-primary font-montserrat text-primary dark:text-white">
           <Main />
 
           <NextScript />
