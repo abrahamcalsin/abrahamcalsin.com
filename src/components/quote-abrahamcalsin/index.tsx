@@ -1,7 +1,7 @@
 const QuoteAbrahamCalsin = () => {
   return (
-    <div className="mt-11.2 mb-7.5 px-1.5 sm:my-15">
-      <div className="w-full max-w-500 mx-auto bg-white shadow-sm px-3.5 py-2.5 rounded-rds-1 relative italic text-sm sm:text-lg sm:py-4.5 sm:px-4.5 sm:rounded-rds-2-desk">
+    <div className="mt-11 sm:mt-13 mb-6.5 sm:mb-13 sm:py-1.7 px-1.5">
+      <div className="w-full max-w-500 mx-auto bg-white dark:bg-primary-800 shadow-sm dark:shadow-sm-dark  px-3.5 py-2.5 rounded-rds-1 relative italic text-sm sm:text-lg sm:py-4.5 sm:px-4.5 sm:rounded-rds-2-desk">
         <span className="absolute -mt-1 -ml-5.2 text-xs-1.7 font-notoSerif font-black not-italic sm:-mt-2.5 sm:-ml-7.5 sm:text-sm-1.5">
           “
         </span>

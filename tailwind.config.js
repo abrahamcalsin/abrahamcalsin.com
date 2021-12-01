@@ -1,7 +1,7 @@
 module.exports = {
   mode: "jit",
   purge: ["./src/**/*.{js,ts,jsx,tsx}", "./components/**/*.{js,ts,jsx,tsx}"],
-  darkMode: false, // or 'media' or 'class'
+  darkMode: "class", // or 'media' or 'class'
   theme: {
     screens: {
       sm: "640px",
@@ -53,6 +53,7 @@ module.exports = {
 
     boxShadow: {
       sm: "0px 5px 14px rgba(204, 209, 230, 0.4)",
+      "sm-dark": "0px 5px 10px #142743",
       sml: "0px -5px 50px rgba(204, 209, 230, 0.46)",
       none: "none",
     },
@@ -200,6 +201,7 @@ module.exports = {
         0.5: "4px",
         0.7: "6px",
         1: "8px",
+        1.2: "10px",
         1.5: "12px",
         1.7: "14px",
         2: "16px",
@@ -220,6 +222,7 @@ module.exports = {
         8: "64px",
         9.5: "76px",
 
+        11: "88px",
         11.2: "90px",
         12: "96px",
         13: "104px",

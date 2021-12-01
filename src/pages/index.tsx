@@ -14,7 +14,7 @@ const SocialMediaStyles = (props: any) => {
       <a
         target="_blank"
         rel="noreferrer"
-        className="bg-secondary w-12 rounded-rds-1.1 shadow-sm inline-block py-1.5 px-2.2 transition duration-300 hover:opacity-80 sm:w-13"
+        className="bg-secondary w-12 rounded-rds-1.1 shadow-sm dark:shadow-sm-dark inline-block py-1.5 px-2.2 transition-opacity duration-300 hover:opacity-80 sm:w-13"
       >
         <img src={logoSrc} alt={alt} className="w-full block" />
       </a>
@@ -31,7 +31,7 @@ const Home: NextPage = () => {
 
       <div className="max-w-70">
         <div className="text-center sm:flex flex-row-reverse sm:text-left sm:pt-11.2">
-          <div className="w-25 max-w-full mx-auto pb-3 sm:w-35.5">
+          <div className="w-25 max-w-full mx-auto pb-3 hidden sm:inline-block sm:w-35.5">
             <Image
               src="/images/abraham-calsin-picture.png"
               alt="Abraham Calsin"
@@ -46,15 +46,15 @@ const Home: NextPage = () => {
               BIENVENIDO A MI PORTAFOLIO
             </h3>
 
-            <div className="bg-primary w-13 h-0.2 mx-auto my-0.7 sm:m-0 sm:my-1 sm:h-0.5 sm:w-25.5"></div>
+            <div className="bg-primary dark:bg-white w-13 h-0.2 mx-auto my-0.7 sm:m-0 sm:my-1 sm:h-0.5 sm:w-25.5"></div>
 
             <h1 className="font-extraBold text-xsm-1.3 sm:text-sm-1.4">
               {"{"}Abraham Calsin{"}"}
             </h1>
 
             <p className="text-base font-medium mt-0.7 sm:px-0 sm:text-xl leading-1.7 sm:leading-9">
-              Soy un desarrollador frontend, apasionado por la programación,
-              creo proyectos de código abierto.
+              Soy un desarrollador frontend, apasionado por la programación, creo
+              proyectos de código abierto.
             </p>
 
             <div className="flex justify-center sm:justify-start gap-1.7 mt-3.7">
