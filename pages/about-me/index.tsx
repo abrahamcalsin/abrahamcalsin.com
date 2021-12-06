@@ -3,19 +3,27 @@ import Head from "next/head"
 
 import MainLayout from "~/components/layout"
 
-const ContactSocialMedia = (props: any) => {
-  const { href, iconSocialSrc, alt, contentSpan, contentLinkIcons } = props
+interface ContactLinkProps {
+  href: string
+  iconSrc: string
+  alt: string
+  content: string
+  iconLink: string
+}
+
+const ContactLink = (props: ContactLinkProps) => {
+  const { href, iconSrc, alt, content, iconLink } = props
 
   return (
     <li className="flex items-center my-0.7 sm:text-xsm-1.2 text-sm">
       <img
-        src={iconSocialSrc}
+        src={iconSrc}
         className="w-2.2 sm:w-2.5 dark:filter dark:brightness-0 dark:contrast-200 dark:invert"
         alt={alt}
       />
-      <span className="font-extraBold mx-1">{contentSpan}</span>
+      <span className="font-extraBold mx-1">{content}</span>
       <a href={href} target="_blank" rel="noreferrer" className="underline">
-        {contentLinkIcons}
+        {iconLink}
       </a>
     </li>
   )
@@ -59,33 +67,33 @@ const AboutMe = () => {
         </p>
 
         <div className="font-semiBold my-1 mb-5.5 sm:mb-0">
-          <ContactSocialMedia
-            iconSocialSrc="/icons/email.svg"
+          <ContactLink
+            iconSrc="/icons/email.svg"
             alt="Email"
-            contentSpan="Email:"
-            contentLinkIcons="@abrahamcalsin"
+            content="Email:"
+            iconLink="@abrahamcalsin"
             href="mailto:hello.abrahamcalsin@gmail.com"
           />
-          <ContactSocialMedia
-            iconSocialSrc="/icons/linkedin.svg"
+          <ContactLink
+            iconSrc="/icons/linkedin.svg"
             alt="LinkedIn"
-            contentSpan="LinkedIn:"
+            content="LinkedIn:"
             href="https://www.linkedin.com/in/abrahamcalsin"
-            contentLinkIcons="@abrahamcalsin"
+            iconLink="@abrahamcalsin"
           />
-          <ContactSocialMedia
-            iconSocialSrc="/icons/twitter.svg"
+          <ContactLink
+            iconSrc="/icons/twitter.svg"
             alt="Twitter"
-            contentSpan="Twitter:"
+            content="Twitter:"
             href="https://twitter.com/abraham_calsin"
-            contentLinkIcons="@abraham_calsin"
+            iconLink="@abraham_calsin"
           />
-          <ContactSocialMedia
-            iconSocialSrc="/icons/github.svg"
+          <ContactLink
+            iconSrc="/icons/github.svg"
             alt="GitHub"
-            contentSpan="GitHub:"
+            content="GitHub:"
             href="https://github.com/abrahamcalsin"
-            contentLinkIcons="@abrahamcalsin"
+            iconLink="@abrahamcalsin"
           />
         </div>
       </div>

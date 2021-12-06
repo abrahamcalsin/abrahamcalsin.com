@@ -7,7 +7,16 @@ import { faGithub } from "@fortawesome/free-brands-svg-icons"
 
 import Tag from "~/components/tag"
 
-const Project = (props: any) => {
+export interface ProjectProps {
+  projectTitle: string
+  projectDescription: string
+  tags: string
+  hrefProjectDemo: string
+  hrefProjectCode: string
+  projectDate: Date
+}
+
+const Project = (props: ProjectProps) => {
   const {
     projectTitle,
     projectDescription,
@@ -115,6 +124,7 @@ const ContProjects = () => {
         tags="HTML, CSS, JavaScript"
         projectDescription="Lecciones del día, en imágenes, sobre desarrollo personal, negocios, liderazgo, trabajo en equipo, etc. Sólo hay que hacer un clic para descargarlas."
         hrefProjectDemo="https://motivation-image.abrahamcalsin.com"
+        hrefProjectCode="https://github.com/abrahamcalsin/motivation"
       />
       <Project
         projectDate={new Date("05/13/2021")}
