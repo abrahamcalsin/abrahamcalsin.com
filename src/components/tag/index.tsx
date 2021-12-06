@@ -1,7 +1,11 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faTags } from "@fortawesome/free-solid-svg-icons"
 
-const Tag = (props: any) => {
+interface TagProps {
+  label: string
+}
+
+const Tag = (props: TagProps) => {
   const { label } = props
 
   return (

@@ -1,24 +1,28 @@
 import type { NextPage } from "next"
-import Link from "next/link"
 import Head from "next/head"
 import Image from "next/image"
 
 import MainLayout from "~/components/layout"
 import QuoteAbrahamCalsin from "~/components/quote-abrahamcalsin"
 
-const SocialMediaStyles = (props: any) => {
+interface socialMediaProps {
+  href: string
+  logoSrc: string
+  alt: string
+}
+
+const SocialMedia = (props: socialMediaProps) => {
   const { href, logoSrc, alt } = props
 
   return (
-    <Link href={href}>
-      <a
-        target="_blank"
-        rel="noreferrer"
-        className="bg-secondary w-12 rounded-rds-1.1 shadow-sm dark:shadow-sm-dark inline-block py-1.5 px-2.2 transition-opacity duration-300 hover:opacity-80 sm:w-13"
-      >
-        <img src={logoSrc} alt={alt} className="w-full block" />
-      </a>
-    </Link>
+    <a
+      className="bg-secondary w-12 rounded-rds-1.1 shadow-sm dark:shadow-sm-dark inline-block py-1.5 px-2.2 transition-opacity duration-300 hover:opacity-80 sm:w-13"
+      href={href}
+      target="_blank"
+      rel="noreferrer"
+    >
+      <img src={logoSrc} alt={alt} />
+    </a>
   )
 }
 
@@ -58,12 +62,12 @@ const Home: NextPage = () => {
             </p>
 
             <div className="flex justify-center sm:justify-start gap-1.7 mt-3.7">
-              <SocialMediaStyles
+              <SocialMedia
                 href="https://github.com/abrahamcalsin"
                 logoSrc="/icons/github_icon.svg"
                 alt="GitHub"
               />
-              <SocialMediaStyles
+              <SocialMedia
                 href="https://www.linkedin.com/in/abrahamcalsin/"
                 logoSrc="/icons/linkedin_icon.svg"
                 alt="LinkedIn"

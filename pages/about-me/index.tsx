@@ -3,7 +3,15 @@ import Head from "next/head"
 
 import MainLayout from "~/components/layout"
 
-const ContactSocialMedia = (props: any) => {
+interface ContactLinkProps {
+  href: string
+  iconSocialSrc: string
+  alt: string
+  contentSpan: string
+  contentLinkIcons: string
+}
+
+const ContactLink = (props: ContactLinkProps) => {
   const { href, iconSocialSrc, alt, contentSpan, contentLinkIcons } = props
 
   return (
@@ -59,28 +67,28 @@ const AboutMe = () => {
         </p>
 
         <div className="font-semiBold my-1 mb-5.5 sm:mb-0">
-          <ContactSocialMedia
+          <ContactLink
             iconSocialSrc="/icons/email.svg"
             alt="Email"
             contentSpan="Email:"
             contentLinkIcons="@abrahamcalsin"
             href="mailto:hello.abrahamcalsin@gmail.com"
           />
-          <ContactSocialMedia
+          <ContactLink
             iconSocialSrc="/icons/linkedin.svg"
             alt="LinkedIn"
             contentSpan="LinkedIn:"
             href="https://www.linkedin.com/in/abrahamcalsin"
             contentLinkIcons="@abrahamcalsin"
           />
-          <ContactSocialMedia
+          <ContactLink
             iconSocialSrc="/icons/twitter.svg"
             alt="Twitter"
             contentSpan="Twitter:"
             href="https://twitter.com/abraham_calsin"
             contentLinkIcons="@abraham_calsin"
           />
-          <ContactSocialMedia
+          <ContactLink
             iconSocialSrc="/icons/github.svg"
             alt="GitHub"
             contentSpan="GitHub:"
