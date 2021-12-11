@@ -1,7 +1,7 @@
 module.exports = {
   mode: "jit",
-  purge: ["./src/**/*.{js,ts,jsx,tsx}", "./pages/**/*.{js,ts,jsx,tsx}"],
-  darkMode: "class", // or 'media' or 'class'
+  content: ["./src/**/*.{js,ts,jsx,tsx}", "./pages/**/*.{js,ts,jsx,tsx}"],
+  darkMode: "class",
   theme: {
     screens: {
       sm: "640px",
@@ -246,16 +246,6 @@ module.exports = {
         1.6: "1.6",
         1.7: "1.7",
       },
-    },
-  },
-
-  variants: {
-    extend: {
-      borderWidth: ["hover", "focus"],
-      opacity: ["hover", "active"],
-      textColor: ["hover, active"],
-      translate: ["active", "hover"],
-      margin: ["group-hover"],
     },
   },
 

@@ -18,7 +18,7 @@ const ContactLink = (props: ContactLinkProps) => {
     <li className="flex items-center my-0.7 sm:text-xsm-1.2 text-sm">
       <img
         src={iconSrc}
-        className="w-2.2 sm:w-2.5 dark:filter dark:brightness-0 dark:contrast-200 dark:invert"
+        className="w-2.2 sm:w-2.5 dark:brightness-0 dark:contrast-200 dark:invert"
         alt={alt}
       />
       <span className="font-extraBold mx-1">{content}</span>

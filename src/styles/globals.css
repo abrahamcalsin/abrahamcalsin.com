@@ -45,6 +45,8 @@
 
 .arrow-left:after {
   content: " ";
+  transform: rotate(-90deg);
+
   @apply absolute -right-1.2 sm:-right-1.5;
   @apply bg-transparent;
   @apply border-l-transparent
@@ -54,7 +56,6 @@
   @apply border-l-6 sm:border-l-8
          border-r-6 sm:border-r-8
          border-t-8 sm:border-t-10;
-  @apply transform -rotate-90;
 
   @apply dark:border-t-white;
 }

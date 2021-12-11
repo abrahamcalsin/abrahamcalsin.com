@@ -14,14 +14,14 @@ const NavigationLink = (props: NavigationLinkProps) => {
 
   const router = useRouter()
 
-  const activeLinkSelect = router.pathname === href
+  const isActive = router.pathname === href
 
   return (
     <Link href={href}>
       <a
         className={clsx(
           "relative after:content-[' '] after:block after:h-0.5 after:bg-primary dark:after:bg-white after:w-full pb-0.5 hover:after:w-full hover:after:right-auto hover:after:left-0 after:transition-all after:duration-300",
-          !activeLinkSelect && "after:w-0 after:right-0"
+          isActive ? "pointer-events-none" : "after:w-0 after:right-0 "
         )}
       >
         {textLink}
@@ -38,7 +38,7 @@ const NavbarDesktop = () => {
           <img
             src="/svg_image/logo-abraham-calsin.svg"
             alt="Abraham Calsin"
-            className="w-full block dark:filter dark:brightness-0 dark:contrast-200 dark:invert"
+            className="w-full block dark:brightness-0 dark:contrast-200 dark:invert"
           />
         </a>
       </Link>

@@ -14,7 +14,7 @@ const NavigationTop = () => {
             <img
               src="/svg_image/logo-abraham-calsin.svg"
               alt="Abraham Calsin"
-              className="w-full block dark:filter dark:brightness-0 dark:contrast-200 dark:invert"
+              className="w-full block dark:brightness-0 dark:contrast-200 dark:invert"
             />
           </a>
         </Link>
@@ -60,7 +60,7 @@ const NavigationBottom = (props: NavigationBottomProps) => {
         <img
           src={iconSrc}
           alt={alt}
-          className="-mt-0.5 block dark:filter dark:brightness-0 dark:contrast-200 dark:invert"
+          className="-mt-0.5 block dark:brightness-0 dark:contrast-200 dark:invert"
         />
         <span className="text-xs-1.2 pt-px font-semiBold">{textLink}</span>
       </a>
