@@ -7,8 +7,8 @@ import DarkThemeButton from "~/components/dark-theme-button"
 
 const NavigationTop = () => {
   return (
-    <div className="fixed bg-white dark:bg-primary-800 shadow-sm dark:shadow-sm-dark h-7.5 w-full flex justify-center items-center z-10">
-      <div className="w-full max-w-70 flex justify-between items-center px-2.5">
+    <div className="fixed bg-white dark:bg-primary-800 shadow-lg shadow-primary/5 dark:shadow-gray-900/30 h-7.5 w-full flex justify-center items-center z-10">
+      <div className="w-full max-w-65 flex justify-between items-center px-2.5">
         <Link href="/">
           <a className="w-11.2">
             <img
@@ -23,7 +23,7 @@ const NavigationTop = () => {
           <a
             href="https://resume.abrahamcalsin.com"
             target="_blank"
-            className="bg-secondary dark:text-primary px-1.5 py-0.5 shadow-sm dark:shadow-sm-dark rounded-rds-1.1 font-extraBold"
+            className="bg-secondary dark:text-primary px-1.5 py-0.5 shadow-lg shadow-primary/5 dark:shadow-gray-900/30 rounded-full font-extraBold"
           >
             Resume
           </a>
@@ -73,7 +73,7 @@ const NavbarMobile = () => {
     <div className="sm:hidden">
       <NavigationTop />
 
-      <div className="flex justify-evenly fixed bg-white dark:bg-primary-800 shadow-sml dark:shadow-sm-dark w-full h-7.5 bottom-0 z-20">
+      <div className="flex justify-evenly fixed bg-white dark:bg-primary-800 w-full h-7.5 bottom-0 z-20 shadow-2xl shadow-primary dark:shadow-gray-900/30">
         <NavigationBottom
           href="/"
           iconSrc="/icons/home-icon.svg"

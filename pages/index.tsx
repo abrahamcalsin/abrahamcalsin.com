@@ -20,7 +20,7 @@ const SocialMedia = (props: SocialMediaProps) => {
       <a
         target="_blank"
         rel="noreferrer"
-        className="bg-secondary w-12 rounded-rds-1.1 shadow-sm dark:shadow-sm-dark inline-block py-1.5 px-2.2 transition-opacity duration-300 hover:opacity-80 sm:w-13"
+        className="bg-secondary w-12 rounded-full shadow-lg shadow-primary/5 dark:shadow-gray-900/30 inline-block py-1.5 px-2.2 transition-opacity duration-300 hover:opacity-80 sm:w-13"
       >
         <img src={logoSrc} alt={alt} className="w-full block" />
       </a>
@@ -35,7 +35,7 @@ const Home: NextPage = () => {
         <title>Abraham Calsin</title>
       </Head>
 
-      <div className="max-w-70">
+      <div className="max-w-65">
         <div className="text-center sm:flex flex-row-reverse sm:text-left sm:pt-11.2">
           <div className="w-25 max-w-full mx-auto pb-3 hidden sm:inline-block sm:w-35.5">
             <Image
@@ -48,7 +48,7 @@ const Home: NextPage = () => {
           </div>
 
           <div className="w-710px">
-            <h3 className="text-xs-1.2 font-medium tracking-ltr-1 sm:text-xsm-1.1">
+            <h3 className="text-xs-1.2 font-medium tracking-wide sm:text-xsm-1.1">
               BIENVENIDO A MI PORTAFOLIO
             </h3>
 
@@ -58,7 +58,7 @@ const Home: NextPage = () => {
               {"{"}Abraham Calsin{"}"}
             </h1>
 
-            <p className="text-base font-medium mt-0.7 sm:px-0 sm:text-xl leading-1.7 sm:leading-9">
+            <p className="text-base font-medium mt-0.7 sm:px-0 sm:text-xl leading-7 sm:leading-9">
               Soy un desarrollador frontend, apasionado por la programación, creo
               proyectos de código abierto.
             </p>

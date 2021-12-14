@@ -11,7 +11,7 @@ const custom404 = () => {
         <p>Página No Encontrada</p>
 
         <Link href="/">
-          <a className="bg-secondary w-25.5 text-base rounded-rds-1.1 shadow-sm py-1.5 px-2.2 mt-2.2 hover:opacity-80 sm:w-31.2 sm:text-xsm-1.3">
+          <a className="bg-secondary w-25.5 text-base rounded-full shadow-lg shadow-primary/5 py-1.5 px-2.2 mt-2.2 hover:opacity-80 sm:w-31.2 sm:text-xsm-1.3">
             {" "}
             Volver a Inicio
           </a>

@@ -18,14 +18,14 @@ const Projects = () => {
           {"{"}Proyectos{"}"}
         </h1>
 
-        <p className="text-sm leading-1.7 sm:leading-9 font-medium mt-0.7 px-0 sm:text-xl">
+        <p className="text-sm leading-6 sm:leading-9 font-medium mt-0.7 px-0 sm:text-xl">
           En esta sección puedes ver algunos de mis proyectos más destacados. También
           puedes ver más proyectos en mi{" "}
           <a
             href="https://github.com/abrahamcalsin"
             target="__blank"
             rel="noreferrer"
-            className="font-bold underline"
+            className="font-bold link-underline"
           >
             GitHub.
           </a>

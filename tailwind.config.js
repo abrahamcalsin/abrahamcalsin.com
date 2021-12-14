@@ -12,12 +12,8 @@ module.exports = {
     },
 
     maxWidth: {
-      70: "65rem",
+      65: "65rem",
       500: "500px",
-    },
-
-    letterSpacing: {
-      "ltr-1": "0.02em",
     },
 
     fontWeight: {
@@ -35,27 +31,6 @@ module.exports = {
     fontFamily: {
       montserrat: "Montserrat",
       notoSerif: "Noto Serif TC",
-    },
-
-    zIndex: {
-      0: 0,
-      10: 10,
-      20: 20,
-      30: 30,
-      40: 40,
-      50: 50,
-      25: 25,
-      50: 50,
-      75: 75,
-      100: 100,
-      auto: "auto",
-    },
-
-    boxShadow: {
-      sm: "0px 5px 14px rgba(204, 209, 230, 0.4)",
-      "sm-dark": "0px 5px 10px #142743",
-      sml: "0px -5px 50px rgba(204, 209, 230, 0.46)",
-      none: "none",
     },
 
     colors: {
@@ -141,7 +116,7 @@ module.exports = {
     },
     borderWidth: {
       0: "0",
-      "2/1": "1px",
+      px: "1px",
       2: "2px",
       3: "3px",
       4: "4px",
@@ -153,19 +128,8 @@ module.exports = {
       12: "16px",
     },
 
-    borderRadius: {
-      "rds-0.1": "4px",
-      "rds-1": "7px",
-      "rds-1.1": "999px",
-
-      "rds-2-desk": "10px",
-      "rds-3-desk": "20px",
-      "rds-4-desk": "15px",
-    },
-
     scale: {
       1: "1",
-      "-1": "-1",
     },
 
     extend: {
@@ -235,16 +199,6 @@ module.exports = {
         31.2: "250px",
 
         35.5: "284px",
-      },
-
-      lineHeight: {
-        1: "1",
-        1.2: "1.2",
-        1.3: "1.3",
-        1.4: "1.4",
-        1.5: "1.5",
-        1.6: "1.6",
-        1.7: "1.7",
       },
     },
   },
