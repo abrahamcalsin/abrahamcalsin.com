@@ -20,8 +20,8 @@ const NavigationLink = (props: NavigationLinkProps) => {
     <Link href={href}>
       <a
         className={clsx(
-          "relative after:content-[' '] after:block after:h-0.5 after:bg-primary dark:after:bg-white after:w-full pb-0.5 hover:after:w-full hover:after:right-auto hover:after:left-0 after:transition-all after:duration-300",
-          isActive ? "pointer-events-none" : "after:w-0 after:right-0 "
+          "line-after",
+          isActive && "pointer-events-none line-after-active"
         )}
       >
         {textLink}
@@ -32,7 +32,7 @@ const NavigationLink = (props: NavigationLinkProps) => {
 
 const NavbarDesktop = () => {
   return (
-    <div className="hidden sm:flex justify-between items-center max-w-70 m-auto px-5.5">
+    <div className="hidden sm:flex justify-between items-center max-w-65 m-auto px-5.5">
       <Link href="/">
         <a className="w-11.2">
           <img
@@ -50,7 +50,7 @@ const NavbarDesktop = () => {
 
         <a
           href="https://resume.abrahamcalsin.com"
-          className="bg-secondary dark:text-primary px-2 py-1 rounded-rds-1.1 shadow-sm dark:shadow-sm-dark transition-opacity duration-300 hover:opacity-80"
+          className="bg-secondary dark:text-primary px-2 py-1 rounded-full shadow-lg shadow-primary/5 dark:shadow-gray-900/30 transition-opacity duration-300 hover:opacity-80"
           target="_blank"
         >
           Resume

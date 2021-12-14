@@ -23,6 +23,32 @@
   @apply dark:bg-white;
 }
 
+.line-after {
+  @apply relative pb-0.5 mb-0.5;
+}
+
+.line-after::after {
+  content: "";
+  @apply absolute w-0 h-0.5 right-0 bottom-0 bg-primary dark:bg-white;
+  @apply transition-all duration-300;
+}
+
+.line-after:hover::after {
+  @apply w-full right-auto left-0;
+}
+
+.line-after-active::after {
+  @apply w-full dark:bg-white;
+}
+
+.link-underline {
+  @apply border-b-2 border-primary dark:border-white;
+  @apply hover:bg-primary
+        hover:text-secondary
+        dark:hover:bg-white
+        dark:hover:text-primary;
+}
+
 .timeline::before {
   content: "";
   position: absolute;

@@ -7,13 +7,13 @@ import { faGithub } from "@fortawesome/free-brands-svg-icons"
 
 import Tag from "~/components/tag"
 
-export interface ProjectProps {
-  projectTitle: string
-  projectDescription: string
-  tags: string
-  hrefProjectDemo: string
-  hrefProjectCode: string
-  projectDate: Date
+interface ProjectProps {
+  projectTitle?: string
+  projectDescription?: string
+  tags?: string
+  hrefProjectDemo?: string
+  hrefProjectCode?: string
+  projectDate?: Date
 }
 
 const Project = (props: ProjectProps) => {
@@ -29,13 +29,13 @@ const Project = (props: ProjectProps) => {
   return (
     <div className="flex gap-2.2 sm:gap-3.7 mb-6.5">
       <div>
-        <div className="relative text-xs-1.1 sm:text-xs text-white dark:text-primary dark:font-semiBold italic bg-primary dark:bg-white h-3 w-8 sm:w-12 px-0 py-0.7 sm:py-2 flex items-center justify-center rounded-rds-0.1 arrow-left">
+        <div className="relative text-xs-1.1 sm:text-xs text-white dark:text-primary dark:font-semiBold italic bg-primary dark:bg-white h-3 w-8 sm:w-12 px-0 py-0.7 sm:py-2 flex items-center justify-center rounded arrow-left">
           <span>{dayjs(projectDate).format(dateFormat.project)}</span>
         </div>
       </div>
 
       <div className="mt-0.2 sm:-mt-0.7">
-        <h1 className="leading-1.2 sm:leading-normal text-base sm:text-3xl font-extraBold">
+        <h1 className="leading-6 sm:leading-normal text-base sm:text-3xl font-extraBold">
           {projectTitle}
         </h1>
 
@@ -43,12 +43,12 @@ const Project = (props: ProjectProps) => {
 
         <p className="text-sm sm:text-xl font-medium mb-0.5">{projectDescription}</p>
 
-        {hrefProjectCode ? (
+        {hrefProjectDemo ? (
           <a
             href={hrefProjectDemo}
             target="__blank"
             rel="noreferrer"
-            className="underline font-extraBold mr-1 mt-1 inline-block bg-secondary py-1 px-2 rounded-rds-1.1 shadow-sm dark:shadow-sm-dark text-xs-1.3 dark:text-primary transition-opacity duration-300 hover:opacity-80 sm:text-sm"
+            className="underline font-extraBold mr-1 mt-1 inline-block bg-secondary py-1 px-2 rounded-full shadow-lg shadow-primary/5 dark:shadow-gray-900/30 text-xs-1.3 dark:text-primary transition-opacity duration-300 hover:opacity-80 sm:text-sm"
           >
             VER DEMO{" "}
             <span className="text-xs ml-px">
@@ -62,7 +62,7 @@ const Project = (props: ProjectProps) => {
             href={hrefProjectCode}
             target="__blank"
             rel="noreferrer"
-            className="underline font-extraBold mt-1 inline-block bg-secondary py-1 px-2 rounded-rds-1.1 shadow-sm dark:shadow-sm-dark text-xs-1.3 dark:text-primary transition-opacity duration-300 hover:opacity-80 sm:text-sm"
+            className="underline font-extraBold mt-1 inline-block bg-secondary py-1 px-2 rounded-full shadow-lg shadow-primary/5 dark:shadow-gray-900/30 text-xs-1.3 dark:text-primary transition-opacity duration-300 hover:opacity-80 sm:text-sm"
           >
             VER CÓDIGO{" "}
             <span className="text-xs ml-px">
@@ -124,7 +124,6 @@ const ContProjects = () => {
         tags="HTML, CSS, JavaScript"
         projectDescription="Lecciones del día, en imágenes, sobre desarrollo personal, negocios, liderazgo, trabajo en equipo, etc. Sólo hay que hacer un clic para descargarlas."
         hrefProjectDemo="https://motivation-image.abrahamcalsin.com"
-        hrefProjectCode="https://github.com/abrahamcalsin/motivation"
       />
       <Project
         projectDate={new Date("05/13/2021")}

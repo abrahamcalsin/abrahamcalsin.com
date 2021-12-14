@@ -6,7 +6,7 @@ const DarkThemeButton = () => {
   return (
     <div
       onClick={onToggle}
-      className="relative w-3.7 h-3.7 p-0.7 border-2/1 border-primary dark:border-white cursor-pointer text-primary dark:text-white rounded-rds-0.1 overflow-hidden select-none"
+      className="relative w-3.7 h-3.7 p-0.7 border-px border-primary dark:border-white cursor-pointer text-primary dark:text-white rounded overflow-hidden select-none"
     >
       <svg
         className="absolute w-2 h-2 transition-all duration-300 dark:-ml-0.7 opacity-100 dark:opacity-0"
