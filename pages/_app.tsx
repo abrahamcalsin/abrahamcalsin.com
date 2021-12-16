@@ -1,4 +1,4 @@
-import { AppProps } from "next/dist/next-server/lib/router/router"
+import type { AppProps } from "next/dist/shared/lib/router/router"
 import "~/assets/css/tailwind-css.css"
 import "~/styles/globals.css"
 
