@@ -2,6 +2,7 @@ import Link from "next/link"
 import Head from "next/head"
 
 import MainLayout from "~/components/layout"
+import { Meta } from "~/components/meta"
 
 interface ContactLinkProps {
   href: string
@@ -32,9 +33,7 @@ const ContactLink = (props: ContactLinkProps) => {
 const AboutMe = () => {
   return (
     <MainLayout>
-      <Head>
-        <title>Sobre Mi - Abraham Calsin</title>
-      </Head>
+      <Meta title="Sobre Mi" />
 
       <div className="mt-0 sm:mt-11.2 sm:mb-3.7">
         <div className="bg-primary dark:bg-white w-9.5 h-0.2 my-0.7 sm:m-0 sm:mb-1 sm:h-0.5 sm:w-13"></div>

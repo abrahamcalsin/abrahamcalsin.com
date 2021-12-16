@@ -1,10 +1,12 @@
 import Link from "next/link"
 import MainLayout from "~/components/layout"
+import { Meta } from "~/components/meta"
 
 const custom404 = () => {
   return (
     <MainLayout>
-      <title>404 Error!</title>
+      <Meta title="404" />
+
       <div className="flex flex-col justify-center items-center text-3xl text-center mx-auto mb-9.5 mt-0.7 sm:my-13 sm:text-sm-1.4 font-black">
         <h1>404</h1>
 

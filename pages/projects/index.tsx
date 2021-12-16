@@ -3,13 +3,12 @@ import Head from "next/head"
 
 import MainLayout from "~/components/layout"
 import ContProjects from "~/components/cont-projects"
+import { Meta } from "~/components/meta"
 
 const Projects = () => {
   return (
     <MainLayout>
-      <Head>
-        <title>Proyectos - Abraham Calsin</title>
-      </Head>
+      <Meta title="Proyectos" />
 
       <div className="mt-0 mb-3.7 sm:pt-11.2">
         <div className="bg-primary dark:bg-white w-9.5 h-0.2 my-0.7 sm:m-0 sm:mb-1 sm:h-0.5 sm:w-13"></div>

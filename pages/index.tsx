@@ -5,6 +5,7 @@ import Image from "next/image"
 
 import MainLayout from "~/components/layout"
 import QuoteAbrahamCalsin from "~/components/quote-abrahamcalsin"
+import { Meta } from "~/components/meta"
 
 interface SocialMediaProps {
   href: string
@@ -31,9 +32,7 @@ const SocialMedia = (props: SocialMediaProps) => {
 const Home: NextPage = () => {
   return (
     <MainLayout>
-      <Head>
-        <title>Abraham Calsin</title>
-      </Head>
+      <Meta />
 
       <div className="max-w-65">
         <div className="text-center sm:flex flex-row-reverse sm:text-left sm:pt-11.2">
