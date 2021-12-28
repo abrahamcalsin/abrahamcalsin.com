@@ -31,7 +31,6 @@ class MyDocument extends Document {
           `,
 						}}
 					/>
-					{/* - - - */}
 				</Head>
 				<body className="bg-grayBlue dark:bg-primary font-montserrat text-primary dark:text-white">
 					<Main />
