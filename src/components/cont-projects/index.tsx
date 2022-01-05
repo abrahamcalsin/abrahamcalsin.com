@@ -79,6 +79,13 @@ const ContProjects = () => {
 	return (
 		<div className="relative my-5.5 sm:my-9.5 timeline">
 			<Project
+				projectDate={new Date('1/04/2022')}
+				projectTitle="React GitHub Fork Banner"
+				tags="Npm, TSDX, Styled Components, Storybook."
+				projectDescription="Add a github banner with a link to the fork or repository of your project."
+				hrefProjectCode="https://github.com/abrahamcalsin/github-fork-banner"
+			/>
+			<Project
 				projectDate={new Date('12/12/2021')}
 				projectTitle="Screen Quotes"
 				tags="Next.js, TailwindCSS, QuotableAPI."
