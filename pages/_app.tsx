@@ -10,38 +10,38 @@ import '~/styles/scrollbar.css'
 import '~/styles/nprogress.css'
 
 function MyApp({ Component, pageProps }: AppProps) {
-	const router = useRouter()
+  const router = useRouter()
 
-	useEffect(() => {
-		const handleRouteChange = (url: any) => {
-			ga.pageview(url)
-		}
+  useEffect(() => {
+    const handleRouteChange = (url: any) => {
+      ga.pageview(url)
+    }
 
-		router.events.on('routeChangeComplete', handleRouteChange)
+    router.events.on('routeChangeComplete', handleRouteChange)
 
-		return () => {
-			router.events.off('routeChangeComplete', handleRouteChange)
-		}
-	}, [router.events])
+    return () => {
+      router.events.off('routeChangeComplete', handleRouteChange)
+    }
+  }, [router.events])
 
-	useEffect(() => {
-		const handleStart = () => {
-			NProgress.start()
-		}
-		const handleStop = () => {
-			NProgress.done()
-		}
+  useEffect(() => {
+    const handleStart = () => {
+      NProgress.start()
+    }
+    const handleStop = () => {
+      NProgress.done()
+    }
 
-		router.events.on('routeChangeStart', handleStart)
+    router.events.on('routeChangeStart', handleStart)
 
-		router.events.on('routeChangeComplete', handleStop)
+    router.events.on('routeChangeComplete', handleStop)
 
-		return () => {
-			router.events.off('routeChangeStart', handleStop)
-		}
-	}, [])
+    return () => {
+      router.events.off('routeChangeStart', handleStop)
+    }
+  }, [])
 
-	return <Component {...pageProps} />
+  return <Component {...pageProps} />
 }
 
 export default MyApp

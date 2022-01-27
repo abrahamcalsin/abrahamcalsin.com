@@ -1,5 +1,5 @@
-import * as React from "react"
-import Head from "next/head"
+import * as React from 'react'
+import Head from 'next/head'
 
 type MetaProps = {
   title?: string
@@ -7,15 +7,15 @@ type MetaProps = {
 
 export const Meta = (props: MetaProps) => {
   const { titleTemplate, defaultTitle } = {
-    titleTemplate: "%s - Abraham Calsin",
-    defaultTitle: "Abraham Calsin",
+    titleTemplate: '%s - Abraham Calsin',
+    defaultTitle: 'Abraham Calsin',
   }
 
   const schemaOrgJSONLD = [
     {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      url: "https://www.abrahamcalsin.com",
+      '@context': 'https://schema.org',
+      '@type': 'Organization',
+      url: 'https://www.abrahamcalsin.com',
       name: defaultTitle,
       alternateName: defaultTitle,
     },
@@ -42,10 +42,7 @@ export const Meta = (props: MetaProps) => {
         property="og:description"
         content="Desarrollador frontend, creador de proyectos de código abierto, escribiendo en JavaScript moderno, React.js, Next.js y TypeScript."
       />
-      <meta
-        property="og:image"
-        content="https://avatars.githubusercontent.com/u/77748010?v=4"
-      />
+      <meta property="og:image" content="https://avatars.githubusercontent.com/u/77748010?v=4" />
 
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:creator" content="@abraham_calsin" />
@@ -54,14 +51,9 @@ export const Meta = (props: MetaProps) => {
         name="twitter:description"
         content="Desarrollador frontend, creador de proyectos de código abierto, escribiendo en JavaScript moderno, React.js, Next.js y TypeScript."
       />
-      <meta
-        name="twitter:image"
-        content="https://avatars.githubusercontent.com/u/77748010?v=4"
-      />
+      <meta name="twitter:image" content="https://avatars.githubusercontent.com/u/77748010?v=4" />
 
-      <title>
-        {props.title ? titleTemplate.replace("%s", props.title) : "Abraham Calsin"}
-      </title>
+      <title>{props.title ? titleTemplate.replace('%s', props.title) : 'Abraham Calsin'}</title>
     </Head>
   )
 }

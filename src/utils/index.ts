@@ -1,7 +1,7 @@
 export const cookieNames = {
-    THEME_MODE: 'theme'
-} 
+  THEME_MODE: 'theme',
+}
 
 export const dateFormat = {
-    project: "D MMM, YYYY"
+  project: 'D MMM, YYYY',
 }

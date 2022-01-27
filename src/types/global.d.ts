@@ -1,3 +1,3 @@
 interface Window {
-    gtag: any
-  }
+  gtag: any
+}
