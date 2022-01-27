@@ -9,7 +9,8 @@
     "start": "next start",
     "prettier": "prettier \"**/*.{js,json,ts,tsx,scss,css,md}\"",
     "format": "npm run prettier -- --write",
-    "check:format": "npm run prettier -- --list-different"
+    "check:format": "npm run prettier -- --list-different",
+    "clean": "rimraf .next"
   },
   "dependencies": {
     "@types/react": "17.0.33",
