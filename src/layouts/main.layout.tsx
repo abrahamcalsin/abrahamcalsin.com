@@ -1,12 +1,18 @@
-import * as React from 'react'
+import React, { useState, useEffect } from 'react'
 
 import Navbar from '~/components/navbar'
 import Footer from '~/components/footer'
 
-const MainLayout = (props: any) => {
-	const [fullLoad, setFullLoad] = React.useState(false)
+type MainLayoutProps = {
+	children: React.ReactNode
+}
 
-	React.useEffect(() => {
+export const MainLayout = (props: MainLayoutProps) => {
+	const { children } = props
+
+	const [fullLoad, setFullLoad] = useState(false)
+
+	useEffect(() => {
 		setFullLoad(true)
 	}, [])
 
@@ -18,15 +24,14 @@ const MainLayout = (props: any) => {
 		<div>
 			<Navbar />
 			<main
-				className={`mx-auto max-w-65 pt-13 sm:pt-0 py-3.7 px-2.5 sm:px-5.5  ${
+				className={`container pt-11 sm:pt-0 ${
 					fullLoad ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'
 				}`}
 				style={style}
 			>
-				{props.children}
+				{children}
 			</main>
 			<Footer />
 		</div>
 	)
 }
-export default MainLayout
