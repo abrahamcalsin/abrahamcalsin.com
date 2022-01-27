@@ -1,18 +1,18 @@
 const Footer = () => {
-  return (
-    <div className="mb-11.2 mx-auto w-full max-w-65 px-2.5 sm:px-5.5">
-      <div className="block sm:flex px-3.7 sm:px-3.7 sm:justify-between text-center items-center border-t-px border-primary-500 pb-0 pt-2.5 text-xs sm:text-sm sm:pt-3.7">
-        <p>
-          {"{"}Developed by
-          <span className="font-bold"> ©Abraham Calsin{"}"}</span>
-        </p>
+	return (
+		<div className="container mt-8 mb-11 sm:mb-10 text-primary-600 dark:text-primary-400">
+			<div className="items-center block px-4.5 py-1.7 sm:py-3.2 text-center bg-white/80 dark:bg-transparent sm:flex sm:justify-between border-t-2 border-primary-400">
+				<p className="mb-0">
+					<small>
+						{'{'}Developed by <span className="font-bold">Abraham Calsin{'}'}</span>
+					</small>
+				</p>
 
-        <p className="mt-0.5 flex justify-center">
-          With Next.js and Tailwind.{" "}
-          <img src="/icons/heart_icon.svg" alt="❤" className="w-2 ml-0.5 block" />
-        </p>
-      </div>
-    </div>
-  )
+				<p className="mb-0 -mt-0.5 sm:mt-0">
+					<small>With Next.js, Tailwind and Vercel</small>
+				</p>
+			</div>
+		</div>
+	)
 }
 export default Footer

@@ -1,100 +1,84 @@
-import React from "react"
-import { useRouter } from "next/router"
-import Link from "next/dist/client/link"
-import clsx from "clsx"
+import React from 'react'
+import { useRouter } from 'next/router'
+import Link from 'next/dist/client/link'
+import clsx from 'clsx'
 
-import DarkThemeButton from "~/components/dark-theme-button"
+import DarkThemeButton from '~/components/dark-theme-button'
+import { LogoAbrahamCalsin } from '~/components/svgs/logo-abrahamcalsin'
+import { HomeIcon } from '~/components/svgs/icons/home-icon'
+import { AboutMeIcon } from '~/components/svgs/icons/about-me-icon'
+import { ProjectsIcon } from '~/components/svgs/icons/projects-icon'
 
 const NavigationTop = () => {
-  return (
-    <div className="fixed bg-white dark:bg-primary-800 shadow-lg shadow-primary/5 dark:shadow-gray-900/30 h-7.5 w-full flex justify-center items-center z-10">
-      <div className="w-full max-w-65 flex justify-between items-center px-2.5">
-        <Link href="/">
-          <a className="w-11.2">
-            <img
-              src="/svg_image/logo-abraham-calsin.svg"
-              alt="Abraham Calsin"
-              className="w-full block dark:brightness-0 dark:contrast-200 dark:invert"
-            />
-          </a>
-        </Link>
+	return (
+		<div className="fixed backdrop-filter backdrop-blur-md bg-grayBlue/50 dark:bg-primary/50 border-b-px border-b-primary-500/60 h-6.5 w-full flex justify-center items-center z-10">
+			<div className="container flex items-center justify-between w-full">
+				<Link href="/">
+					<a className="w-9.5 sm:w-11.2">
+						<LogoAbrahamCalsin className="block w-full" />
+					</a>
+				</Link>
 
-        <div className="flex items-center justify-center gap-1.5">
-          <a
-            href="https://resume.abrahamcalsin.com"
-            target="_blank"
-            className="bg-secondary dark:text-primary px-1.5 py-0.5 shadow-lg shadow-primary/5 dark:shadow-gray-900/30 rounded-full font-extraBold"
-          >
-            Resume
-          </a>
-
-          <DarkThemeButton />
-        </div>
-      </div>
-    </div>
-  )
+				<DarkThemeButton />
+			</div>
+		</div>
+	)
 }
 
 interface NavigationBottomProps {
-  href: string
-  iconSrc: string
-  alt: string
-  textLink: string
+	href: string
+	svgIcon: React.ReactElement
+	textLink: string
 }
 
 const NavigationBottom = (props: NavigationBottomProps) => {
-  const { href, iconSrc, alt, textLink } = props
+	const { href, svgIcon, textLink } = props
 
-  const router = useRouter()
+	const router = useRouter()
 
-  const isActiveSelect = router.pathname === href
+	const isActiveSelect = router.pathname === href
 
-  return (
-    <Link href={href}>
-      <a
-        className={clsx(
-          "flex justify-center items-center h-full w-6 border-t-4 transition border-primary dark:border-white duration-300 flex-col",
-          !isActiveSelect && "opacity-50 hover:border-primary hover:opacity-100"
-        )}
-      >
-        <img
-          src={iconSrc}
-          alt={alt}
-          className="-mt-0.5 block dark:brightness-0 dark:contrast-200 dark:invert"
-        />
-        <span className="text-xs-1.2 pt-px font-semiBold">{textLink}</span>
-      </a>
-    </Link>
-  )
+	return (
+		<Link href={href}>
+			<a
+				className={clsx(
+					'flex justify-center items-center h-full w-7.7 text-xs border-t-4 border-primary-800 dark:border-primary-200 flex-col',
+					!isActiveSelect &&
+						'text-primary-500 dark:text-primary-600 border-t-primary/0 dark:border-t-white/0'
+				)}
+			>
+				{svgIcon}
+
+				<span className="pt-px font-bold">{textLink}</span>
+			</a>
+		</Link>
+	)
 }
 
 const NavbarMobile = () => {
-  return (
-    <div className="sm:hidden">
-      <NavigationTop />
+	return (
+		<div className="sm:hidden">
+			<NavigationTop />
 
-      <div className="flex justify-evenly fixed bg-white dark:bg-primary-800 w-full h-7.5 bottom-0 z-20 shadow-2xl shadow-primary dark:shadow-gray-900/30">
-        <NavigationBottom
-          href="/"
-          iconSrc="/icons/home-icon.svg"
-          alt="Inicio"
-          textLink="Inicio"
-        />
-        <NavigationBottom
-          href="/about-me"
-          iconSrc="/icons/aboutme-icon.svg"
-          alt="Sobre mi"
-          textLink="Sobre mi"
-        />
-        <NavigationBottom
-          href="/projects"
-          iconSrc="/icons/projects-icon.svg"
-          alt="Proyectos"
-          textLink="Proyectos"
-        />
-      </div>
-    </div>
-  )
+			<div className="flex justify-evenly fixed backdrop-filter backdrop-blur-md bg-grayBlue/50 dark:bg-primary/50 border-t-px border-t-primary-500/60 w-full h-7.5 bottom-0 z-20">
+				<NavigationBottom
+					href="/"
+					svgIcon={<HomeIcon className="block w-2.2" />}
+					textLink="Inicio"
+				/>
+				<NavigationBottom
+					href="/about-me"
+					svgIcon={<AboutMeIcon className="block w-2.2" />}
+					textLink="Sobre mi"
+				/>
+				<NavigationBottom
+					href="/projects"
+					svgIcon={<ProjectsIcon className="block w-2.2" />}
+					textLink="Proyectos"
+				/>
+			</div>
+		</div>
+	)
 }
 
 export default NavbarMobile

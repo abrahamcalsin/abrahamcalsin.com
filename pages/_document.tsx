@@ -32,7 +32,7 @@ class MyDocument extends Document {
 						}}
 					/>
 				</Head>
-				<body className="bg-grayBlue dark:bg-primary font-montserrat text-primary dark:text-white">
+				<body className="bg-grayBlue dark:bg-primary text-primary-800 dark:text-primary-400">
 					<Main />
 
 					<NextScript />

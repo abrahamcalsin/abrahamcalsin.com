@@ -5,8 +5,8 @@ import NProgress from 'nprogress'
 
 import * as ga from '~/lib/ga'
 
-import '~/assets/css/tailwind-css.css'
 import '~/styles/globals.css'
+import '~/styles/scrollbar.css'
 import '~/styles/nprogress.css'
 
 function MyApp({ Component, pageProps }: AppProps) {
