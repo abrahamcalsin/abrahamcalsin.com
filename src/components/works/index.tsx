@@ -8,7 +8,7 @@ export const Works = () => {
       <WorkItem
         date={new Date('1/04/2022')}
         title="React GitHub Fork Banner"
-        tags="Npm, TSDX, Styled Components, Storybook."
+        tags="Npm, TSDX, Styled Components, Storybook"
         description="Add a github banner with a link to the fork or repository of your project."
         repositoryHref="https://github.com/abrahamcalsin/github-fork-banner"
         packageHref="https://www.npmjs.com/package/react-github-fork-banner"
@@ -16,7 +16,7 @@ export const Works = () => {
       <WorkItem
         date={new Date('12/12/2021')}
         title="Screen Quotes"
-        tags="Next.js, TailwindCSS, QuotableAPI."
+        tags="Next.js, TailwindCSS, QuotableAPI"
         description="Generate random quotes, convert them to a PNG image and download them in one click."
         webHref="https://screen-quotes.abrahamcalsin.com"
         repositoryHref="https://github.com/abrahamcalsin/screen-quotes"
@@ -24,7 +24,7 @@ export const Works = () => {
       <WorkItem
         date={new Date('09/22/2021')}
         title="Tasks List"
-        tags="React.js, TailwindCSS."
+        tags="React.js, TailwindCSS"
         description="Tasks List is an open source web application that allows you to manage your day to day tasks. Create new tasks, mark them as completed and even delete them."
         webHref="https://tasks-list.abrahamcalsin.com"
         repositoryHref="https://github.com/abrahamcalsin/task-list"
@@ -67,6 +67,13 @@ export const Works = () => {
         tags="HTML, CSS, JavaScript"
         description="Lecciones del día, en imágenes, sobre desarrollo personal, negocios, liderazgo, trabajo en equipo, etc. Sólo hay que hacer un clic para descargarlas."
         webHref="https://motivation-image.abrahamcalsin.com"
+      />
+      <WorkItem
+        date={new Date('05/16/2021')}
+        title="Music Player"
+        tags="Typescript, TailwindCss, Gatsby, ReactJs, Remark, Youtube Player, Spotify Api"
+        description="Music player without database."
+        webHref="https://musica-adventista.abrahamcalsin.com"
       />
       <WorkItem
         date={new Date('05/13/2021')}
