@@ -6,9 +6,11 @@ import { ExternalLinkIcon } from '~/components/svgs/icons/external-link-icon'
 import { PackageFillIcon } from '~/components/svgs/icons/package-fill-icon'
 import { OctocatFillIcon } from '~/components/svgs/icons/octocat-fill-icon'
 import { ClockFillIcon } from '~/components/svgs/icons/clock-fill-icon'
+import { PackageDownloads } from '~/components/package-downloads'
 
 export interface WorkItemProps {
   title?: string
+  packageDownloads?: boolean
   description?: string
   tags?: string
   webHref?: string
@@ -18,7 +20,7 @@ export interface WorkItemProps {
 }
 
 export const WorkItem = (props: WorkItemProps) => {
-  const { title, description, tags, webHref, repositoryHref, packageHref, date = new Date() } = props
+  const { title, packageDownloads, description, tags, webHref, repositoryHref, packageHref, date = new Date() } = props
 
   return (
     <div className="flex gap-2.2 sm:gap-3.7 mb-6.5">
@@ -33,7 +35,9 @@ export const WorkItem = (props: WorkItemProps) => {
       </div>
 
       <div className="mt-0.2 text-sm">
-        <h3 className="mb-1 text-primary-700 dark:text-inherit">{title}</h3>
+        <h3 className="mb-1 text-primary-700 dark:text-inherit">
+          {title} <PackageDownloads visible={packageDownloads} />
+        </h3>
 
         <Tag label={tags} />
 
