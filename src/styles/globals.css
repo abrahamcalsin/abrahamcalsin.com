@@ -130,3 +130,16 @@ p {
     @apply border-t-8 border-l-8 border-r-8;
   }
 }
+
+/* React tooltip */
+.__react_component_tooltip.show {
+  @apply dark:text-primary-100 dark:bg-primary-600 !important;
+}
+
+.__react_component_tooltip {
+  @apply px-2 py-0.5 !important;
+}
+
+.place-top::after {
+  @apply dark:border-t-primary-600 !important;
+}
