@@ -8,6 +8,7 @@ export const Works = () => {
       <WorkItem
         date={new Date('1/04/2022')}
         title="React GitHub Fork Banner"
+        packageDownloads={true}
         tags="Npm, TSDX, Styled Components, Storybook"
         description="Add a github banner with a link to the fork or repository of your project."
         repositoryHref="https://github.com/abrahamcalsin/github-fork-banner"
