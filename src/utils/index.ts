@@ -4,4 +4,5 @@ export const cookieNames = {
 
 export const dateFormat = {
   project: 'D MMM, YYYY',
+  article: 'MMMM D, YYYY',
 }
