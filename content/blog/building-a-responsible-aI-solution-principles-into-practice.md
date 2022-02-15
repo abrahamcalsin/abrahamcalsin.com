@@ -15,6 +15,4 @@ My teammates have written about VerifyML in detail, so if you are interested in 
 - A Quickstart Guide to VerifyML Part 2
 - Comparing VerifyML, AI Fairness 360 and Fairlearn
 
-##
-
 In this post, I take a step back and share some of the things I have learned while developing this solution. I start from the user interviews and feedback that we have gathered, before discussing existing tools in the model governance space, and concluding with how we designed a solution that addresses the problem.

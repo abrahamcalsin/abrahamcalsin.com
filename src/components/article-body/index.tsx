@@ -1,5 +1,3 @@
-// import markdownStyles from './markdown-styles.module.css'
-
 import { DateFormatArticle } from '~/components/date-format-article'
 
 interface ArticleBodyProps {

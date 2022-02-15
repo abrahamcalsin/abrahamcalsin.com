@@ -16,7 +16,6 @@ So for the last couple of years, we at Modulz worked hard to facilitate how team
 
 If you've never heard of Stitches or Radix Primitives before, here's a little background.
 
-Stitches
 Stitches is a styling solution focusing on component architecture and developer experience.
 
 It introduces a first-class variant API, enabling design system authors to express their intent better. It's fully typed, catching potential mistakes and improving the scalability of design systems. It's lightweight, coming in at less than 5kb. And finally, it's a breeze to get up and running with it.
