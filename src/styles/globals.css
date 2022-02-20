@@ -93,8 +93,9 @@ p {
 }
 
 .link-underline {
-  @apply border-b-2 border-secondary;
-  @apply hover:bg-secondary/10 text-secondary;
+  @apply border-b-2 border-secondary-600;
+  @apply text-inherit font-semiBold px-0.5 py-px transition-colors;
+  @apply hover:bg-secondary-600 hover:text-primary-100;
 }
 
 .timeline::before {
