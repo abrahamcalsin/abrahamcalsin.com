@@ -39,7 +39,7 @@ const Article = (props: ArticleProps) => {
               title={article.title}
               date={article.date}
               content={article.content}
-              shareLinkSlug={article.slug}
+              articleSlug={article.slug}
               shareTitle={article.title}
             />
           </article>

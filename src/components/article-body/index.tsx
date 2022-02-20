@@ -1,16 +1,16 @@
 import { DateFormatArticle } from '~/components/date-format-article'
-import { ShareOnTwitter } from '../share-article'
+import { ShareArticle } from '~/components/share-article'
 
 interface ArticleBodyProps {
   title: string
   date: string
   content: string
-  shareLinkSlug: string
+  articleSlug: string
   shareTitle: string
 }
 
 export const ArticleBody = (props: ArticleBodyProps) => {
-  const { title, date, content, shareLinkSlug, shareTitle } = props
+  const { title, date, content, articleSlug, shareTitle } = props
 
   return (
     <>
@@ -19,9 +19,9 @@ export const ArticleBody = (props: ArticleBodyProps) => {
           <h1 className="text-3xl sm:text-4xl">{title}</h1>
           <div className="mt-2 mb-4">
             <DateFormatArticle dateArticle={date} />
-            <ShareOnTwitter
-              url={`https://twitter.com/share?url=https://abrahamcalsin.com/blog/${shareLinkSlug}&text=" ${shareTitle} " por @abraham_calsin`}
-            />
+            <span className="mr-1">|</span>
+            <ShareArticle articleLink={articleSlug} articleTitle={shareTitle} />
+            <span className="mx-1">|</span>
           </div>
         </div>
         <div
