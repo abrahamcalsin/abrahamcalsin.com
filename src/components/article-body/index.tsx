@@ -1,5 +1,6 @@
 import { DateFormatArticle } from '~/components/date-format-article'
 import { ShareArticle } from '~/components/share-article'
+import { EditArticle } from '~/components/edit-article'
 
 interface ArticleBodyProps {
   title: string
@@ -22,6 +23,7 @@ export const ArticleBody = (props: ArticleBodyProps) => {
             <span className="mr-1">|</span>
             <ShareArticle articleLink={articleSlug} articleTitle={shareTitle} />
             <span className="mx-1">|</span>
+            <EditArticle slug={articleSlug} />
           </div>
         </div>
         <div
