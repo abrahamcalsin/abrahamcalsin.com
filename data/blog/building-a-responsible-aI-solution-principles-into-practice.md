@@ -6,7 +6,20 @@ date: '02/10/2022'
 
 ## Introduction
 
-This is part 2 of my series of posts on fairness in AI, reflections from a participant in the Monetary Authority of Singapore's (MAS) Global Veritas Challenge. In my first post, I discussed the need to adopt a human-centric approach when dealing with issues of fairness in AI systems. After hours of brainstorming, user interviews and smashing bits of code together, we created VerifyML, an open-source framework to help organisations build fair and responsible models. The solution was one of the three winning submissions of the Veritas challenge!
+This is part 2 of my series of posts on fairness in AI, reflections from a participant in the Monetary Authority of Singapore's (MAS) Global Veritas Challenge. In my first post, I discussed the need to adopt a human-centric approach when dealing with issues of fairness in AI systems. After hours of brainstorming, user interviews and smashing bits of code together, we created VerifyML, an open-source framework to help organisations build fair and responsible models. The solution was one of the three winning submissions of the Veritas challenge! `shadows`
+
+```javascript
+import { remark } from 'remark'
+import remarkHtml from 'remark-html'
+
+async function markdownToHtml(markdown: string): Promise<string> {
+  const result = await remark().use(remarkHtml).process(markdown)
+
+  return result.toString()
+}
+
+export default markdownToHtml
+```
 
 My teammates have written about VerifyML in detail, so if you are interested in giving it a spin, check out the following introductory posts:
 

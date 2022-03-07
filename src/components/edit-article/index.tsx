@@ -11,7 +11,7 @@ export const EditArticle = (props: EditArticleProps) => {
     <div className="inline-flex items-center gap-x-1">
       <a
         className="flex items-center gap-x-0.7 not-italic text-sm mt-1 sm:mt-0 link-underline"
-        href={`https://github.com/abrahamcalsin/abrahamcalsin.com/edit/main/content/blog/${slug}.md`}
+        href={`https://github.com/abrahamcalsin/abrahamcalsin.com/edit/main/data/blog/${slug}.md`}
         target="_blank"
         rel="nofollow noopener noreferrer"
       >

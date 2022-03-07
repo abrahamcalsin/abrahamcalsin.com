@@ -1,8 +1,9 @@
+import { allBlogs } from 'contentlayer/generated'
+
 import { Meta } from '~/components/meta'
 import { CMS_NAME } from '~/libconstants'
 import { MainLayout } from '~/layouts'
 import { AllArticles } from '~/components/all-articles'
-import { getAllArticles } from '~/lib/api'
 import Article from '~/types/article'
 import { TitleSection } from '~/components/title-section'
 
@@ -32,8 +33,8 @@ const Blog = (props: BlogProps) => {
 
 export default Blog
 
-export const getStaticProps = async () => {
-  const articles = getAllArticles(['title', 'date', 'slug', 'description'])
+export async function getStaticProps() {
+  const articles = allBlogs.sort((article1, article2) => (article1.date > article2.date ? -1 : 1))
 
   return {
     props: {

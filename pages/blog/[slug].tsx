@@ -2,15 +2,16 @@ import Head from 'next/head'
 import { useRouter } from 'next/router'
 import ErrorPage from 'next/error'
 
+import { allBlogs, Blog } from 'contentlayer/generated'
+
 import ArticleType from '~/types/article'
 import { CMS_NAME } from '~/lib/constants'
 import { MainLayout } from '~/layouts'
 import { ArticleBody } from '~/components/article-body'
-import { getArticleBySlug, getAllArticles } from '~/lib/api'
-import markdownToHtml from '~/libmarkdownToHtml'
+import { GetStaticPathsResult, GetStaticPropsContext, GetStaticPropsResult } from 'next'
 
 interface ArticleProps {
-  article: ArticleType
+  article: Blog
 }
 
 const Article = (props: ArticleProps) => {
@@ -28,22 +29,25 @@ const Article = (props: ArticleProps) => {
           <p>Loading...</p>
         </div>
       ) : (
-        <MainLayout>
-          <article>
-            <Head>
-              <title>
-                {article.title} | {CMS_NAME}
-              </title>
-            </Head>
-            <ArticleBody
-              title={article.title}
-              date={article.date}
-              content={article.content}
-              articleSlug={article.slug}
-              shareTitle={article.title}
-            />
-          </article>
-        </MainLayout>
+        <>
+          <Head>
+            <title>
+              {article.title} | {CMS_NAME}
+            </title>
+          </Head>
+          <MainLayout>
+            <article>
+              <ArticleBody
+                title={article.title}
+                date={article.date}
+                readingTime={article.readingTime.text}
+                content={article.body.html}
+                articleSlug={article.slug}
+                shareTitle={article.title}
+              />
+            </article>
+          </MainLayout>
+        </>
       )}
     </>
   )
@@ -51,38 +55,47 @@ const Article = (props: ArticleProps) => {
 
 export default Article
 
-type ParamsProps = {
-  params: {
-    slug: string
+export async function getStaticPaths(): Promise<GetStaticPathsResult> {
+  const paths = allBlogs.map(article => {
+    const [, onlySlug] = article.slug.split('/')
+
+    return {
+      params: { slug: onlySlug },
+    }
+  })
+
+  return {
+    paths,
+    fallback: false,
   }
 }
 
-export async function getStaticProps({ params }: ParamsProps) {
-  const article = getArticleBySlug(params.slug, ['title', 'date', 'slug', 'content'])
+type ParamsProps = {
+  slug: string
+}
 
-  const content = await markdownToHtml(article.content || '')
+export async function getStaticProps(
+  context: GetStaticPropsContext<ParamsProps>,
+): Promise<GetStaticPropsResult<ArticleProps>> {
+  const { params } = context
+
+  const article = allBlogs.find(article => {
+    const [, onlySlug] = article.slug.split('/')
+
+    return onlySlug === params?.slug
+  })
+
+  // console.log(123, { params, hasArticle: !!article })
+
+  if (!article) {
+    return {
+      notFound: true,
+    }
+  }
 
   return {
     props: {
-      article: {
-        ...article,
-        content,
-      },
+      article,
     },
-  }
-}
-
-export async function getStaticPaths() {
-  const articles = getAllArticles(['slug'])
-
-  return {
-    paths: articles.map(article => {
-      return {
-        params: {
-          slug: article.slug,
-        },
-      }
-    }),
-    fallback: false,
   }
 }
