@@ -85,8 +85,6 @@ export async function getStaticProps(
     return onlySlug === params?.slug
   })
 
-  // console.log(123, { params, hasArticle: !!article })
-
   if (!article) {
     return {
       notFound: true,

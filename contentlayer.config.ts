@@ -3,7 +3,6 @@ import readingTime from 'reading-time'
 
 export const Blog = defineDocumentType(() => ({
   name: 'Blog',
-  // filePathPattern: `blog/*.md`,
   filePathPattern: `**/*.md`,
   fields: {
     title: {
