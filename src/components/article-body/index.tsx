@@ -1,7 +1,10 @@
+import * as React from 'react'
+
 import { DateFormatArticle } from '~/components/date-format-article'
 import { ShareArticle } from '~/components/share-article'
 import { EditArticle } from '~/components/edit-article'
 import { CoffeeStrokeIcon } from '~/components/svgs/icons/coffee-stroke-icon'
+import { useMDXComponent } from 'next-contentlayer/hooks'
 
 interface ArticleBodyProps {
   title: string
@@ -14,6 +17,8 @@ interface ArticleBodyProps {
 
 export const ArticleBody = (props: ArticleBodyProps) => {
   const { title, date, content, articleSlug, shareTitle, readingTime } = props
+
+  const Component = useMDXComponent(content)
 
   return (
     <>
@@ -34,10 +39,9 @@ export const ArticleBody = (props: ArticleBodyProps) => {
             </div>
           </div>
         </div>
-        <div
-          className="text-primary-600 dark:text-inherit mt-5 sm:mt-7"
-          dangerouslySetInnerHTML={{ __html: content }}
-        ></div>
+        <div className="text-primary-600 dark:text-inherit mt-5 sm:mt-7">
+          <Component components={{}} />
+        </div>
       </div>
     </>
   )
