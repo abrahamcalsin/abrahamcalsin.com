@@ -41,7 +41,7 @@ const Article = (props: ArticleProps) => {
                 title={article.title}
                 date={article.date}
                 readingTime={article.readingTime.text}
-                content={article.body.html}
+                content={article.body.code}
                 articleSlug={article.slug}
                 shareTitle={article.title}
               />
@@ -57,10 +57,8 @@ export default Article
 
 export async function getStaticPaths(): Promise<GetStaticPathsResult> {
   const paths = allBlogs.map(article => {
-    const [, onlySlug] = article.slug.split('/')
-
     return {
-      params: { slug: onlySlug },
+      params: { slug: article.slug },
     }
   })
 
@@ -80,9 +78,7 @@ export async function getStaticProps(
   const { params } = context
 
   const article = allBlogs.find(article => {
-    const [, onlySlug] = article.slug.split('/')
-
-    return onlySlug === params?.slug
+    return article.slug === params?.slug
   })
 
   if (!article) {
