@@ -5,7 +5,7 @@ import NProgress from 'nprogress'
 
 import * as ga from '~/lib/ga'
 
-import '~/styles/globals.css'
+import '~/styles/index.css'
 import '~/styles/scrollbar.css'
 import '~/styles/nprogress.css'
 
