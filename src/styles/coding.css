@@ -2,8 +2,8 @@
 pre {
   overflow-x: auto;
   padding: 16px;
-  color: #ccd6f6;
-  background-color: #26283d;
+  /* color: #ccd6f6; */
+  /* background-color: #26283d; */
   border-radius: 6px;
   box-shadow: 0 10px 30px rgba(38, 40, 61, 0.3);
 }
