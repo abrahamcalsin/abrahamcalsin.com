@@ -1,0 +1,150 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @apply text-primary-800 dark:text-primary-200 font-extraBold;
+}
+
+h1 {
+  @apply text-3xl;
+}
+
+h2 {
+  @apply text-2xl;
+}
+
+h3 {
+  @apply text-xl;
+}
+
+h4 {
+  @apply text-lg;
+}
+
+ol,
+ul,
+p,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @apply mb-2;
+}
+
+ol,
+ul,
+blockquote,
+p {
+  @apply text-base;
+}
+
+ol,
+ul,
+p {
+  @apply font-medium leading-6;
+}
+
+@screen sm {
+  h1 {
+    @apply text-4xl;
+  }
+
+  h2 {
+    @apply text-3xl;
+  }
+
+  h3 {
+    @apply text-2xl;
+  }
+
+  h4 {
+    @apply text-xl;
+  }
+
+  ol,
+  ul,
+  p,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply mb-2.5;
+  }
+
+  ol,
+  ul,
+  blockquote,
+  p {
+    @apply text-lg;
+  }
+
+  ol,
+  ul,
+  p {
+    @apply font-medium leading-9;
+  }
+}
+
+/* ---------------------------- */
+
+.prose .anchor {
+  @apply absolute invisible;
+
+  margin-left: -1em;
+  padding-right: 0.5em;
+  width: 80%;
+  max-width: 700px;
+  cursor: pointer;
+}
+
+.anchor:hover {
+  @apply visible no-underline;
+}
+
+.prose a {
+  @apply transition-all;
+}
+
+.prose .anchor:after {
+  @apply text-gray-300 dark:text-gray-700;
+  content: '#';
+}
+
+.prose *:hover > .anchor {
+  @apply visible no-underline;
+}
+
+/* rehype-code-title */
+.rehype-code-title {
+  @apply mt-7 px-2.5 py-1.5 font-robotoMono text-sm font-bold text-primary-800 border-px border-b-0 border-primary-400 rounded-t-lg dark:text-primary-800 dark:border-gray-700;
+  background-color: #ccd6f6;
+}
+
+.rehype-code-title + pre {
+  @apply mt-0 rounded-t-none !important;
+}
+
+@screen md {
+  .rehype-code-title {
+    margin-left: -1.5rem;
+    margin-right: -1.5rem;
+  }
+}
+
+/* Article Styles */
+.article ul,
+.article ol {
+  @apply list-inside;
+}
+
+.article ul {
+  @apply list-disc;
+}
+
+.article ol {
+  @apply list-decimal;
+}
