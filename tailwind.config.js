@@ -12,8 +12,10 @@ module.exports = {
     },
 
     maxWidth: {
+      none: 'none',
       56: '56rem',
       550: '550px',
+      full: 'full',
     },
 
     fontWeight: {
@@ -137,18 +139,6 @@ module.exports = {
     },
 
     extend: {
-      backgroundColor: {
-        inherit: 'inherit',
-      },
-
-      textColor: {
-        inherit: 'inherit',
-      },
-
-      borderColor: {
-        inherit: 'inherit',
-      },
-
       spacing: {
         0: '0px',
         px: '1px',
@@ -193,8 +183,152 @@ module.exports = {
 
         35.5: '284px',
       },
+
+      backgroundColor: {
+        inherit: 'inherit',
+      },
+
+      textColor: {
+        inherit: 'inherit',
+      },
+
+      borderColor: {
+        inherit: 'inherit',
+      },
+
+      typography: theme => ({
+        DEFAULT: {
+          css: {
+            color: theme('colors.primary.600'),
+            a: {
+              color: theme('colors.secondary.500'),
+              '&:hover': {
+                color: theme('colors.secondary.DEFAULT'),
+              },
+              code: { color: theme('colors.inherit') },
+            },
+            'h1, h2, h3, h4': {
+              color: theme('colors.primary.800'),
+              fontWeight: theme('fontWeight.bold'),
+              marginTop: theme('margin.0'),
+              marginBottom: theme('margin.3'),
+            },
+            p: {
+              marginTop: theme('margin.1'),
+            },
+            code: {
+              color: theme('colors.secondary.500'),
+              padding: theme('padding.px'),
+              borderRadius: '3px',
+            },
+            pre: {
+              color: theme('colors.primary.300'),
+            },
+            img: {
+              margin: theme('margin.auto'),
+              borderRadius: '8px',
+            },
+            table: {
+              display: 'block',
+              width: theme('width.full'),
+              width: theme('width.max'),
+              maxWidth: theme('width.full'),
+              overflow: 'auto',
+            },
+            thead: {
+              th: {
+                padding: theme('spacing.1'),
+                color: theme('colors.primary.600'),
+                borderWidth: theme('borderWidth.px'),
+                borderColor: theme('colors.primary.500'),
+              },
+            },
+            tbody: {
+              color: theme('colors.primary.600'),
+              tr: {
+                td: {
+                  padding: theme('spacing.1'),
+                  borderColor: theme('colors.primary.500'),
+                  borderWidth: theme('borderWidth.px'),
+                },
+              },
+            },
+            blockquote: {
+              color: theme('colors.primary.600'),
+              backgroundColor: theme('colors.primary.100'),
+              padding: theme('spacing.3'),
+              paddingTop: theme('spacing.2'),
+              paddingBottom: theme('spacing.px'),
+              borderLeftColor: theme('colors.primary.500'),
+            },
+            ol: {
+              p: {
+                marginBottom: theme('margin.1'),
+              },
+            },
+            ul: {
+              li: {
+                marginBottom: theme('margin.1'),
+              },
+            },
+            strong: {
+              color: theme('colors.primary.600'),
+            },
+            hr: {
+              borderColor: theme('colors.primary.300'),
+            },
+          },
+        },
+        dark: {
+          css: {
+            color: theme('colors.primary.400'),
+            a: {
+              color: theme('colors.secondary.500'),
+              '&:hover': {
+                color: theme('colors.secondary.DEFAULT'),
+              },
+              code: { color: theme('colors.secondary.DEFAULT') },
+            },
+            thead: {
+              th: {
+                color: theme('colors.primary.400'),
+                borderColor: theme('colors.primary.600'),
+              },
+            },
+            tbody: {
+              color: theme('colors.primary.400'),
+              tr: {
+                td: {
+                  borderColor: theme('colors.primary.600'),
+                },
+              },
+            },
+            blockquote: {
+              color: theme('colors.primary.400'),
+              backgroundColor: 'rgba(255, 2555, 255, 0.1)',
+              borderLeftColor: theme('colors.primary.500'),
+            },
+            ol: {
+              p: {
+                marginBottom: theme('margin.1'),
+              },
+            },
+            ul: {
+              li: {
+                marginBottom: theme('margin.1'),
+              },
+            },
+            strong: {
+              color: theme('colors.primary.400'),
+            },
+            hr: {
+              borderColor: theme('colors.primary.800'),
+            },
+          },
+        },
+      }),
     },
   },
 
-  plugins: [require('@tailwindcss/line-clamp')],
+  plugins: [require('@tailwindcss/typography'), require('@tailwindcss/line-clamp')],
 }

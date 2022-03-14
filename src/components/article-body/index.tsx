@@ -39,7 +39,7 @@ export const ArticleBody = (props: ArticleBodyProps) => {
             </div>
           </div>
         </div>
-        <div className="text-primary-600 dark:text-inherit mt-5 sm:mt-7">
+        <div className="w-full mt-5 sm:mt-7 prose dark:prose-dark max-w-none">
           <Component components={{}} />
         </div>
       </div>
