@@ -1,0 +1,81 @@
+---
+title: 'Truncar texto con Tailwind CSS'
+description: 'Truncar texto puede ser muy util en muchas circunstancias, un ejemplo seria en las previews de articulos de un blog.'
+date: '03/23/2022'
+---
+
+Truncar texto puede ser muy util en muchas circunstancias, un ejemplo seria en las previews de articulos de un blog.
+
+## - Pero y que es un texto truncado?:
+
+Un texto truncado es un pequeño fragmento recortado de un contenido, ejm:
+
+<TruncateText className="line-clamp-1">
+  Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
+  standard dummy text ever since the 1500s.
+</TruncateText>
+
+Los cuatro puntos al final del texto representan el truncado, es muy útil cuando queremos mostrar sólo una pequeña parte de un artículo y/o contenido, y si el usuario quiere leer todo el contenido debera seguir el enlace al artículo o un botón para ver más.
+
+---
+
+En `CSS3` hacer este truncamiento es sencillo, aquí te dejo un [breve vídeo](https://www.youtube.com/shorts/e-HBvM7dvIU) sobre cómo truncar texto con `CSS3`.
+
+Sin embargo en [Tailwind CSS](https://tailwindcss.com) no es tan fácil como en `CSS`, pero tampoco es tan difícil, en tailwind hay un plugin oficial de Tailwind CSS que podemos añadir para truncar el texto, en sí es un paquete de npm pero añadimos este paquete como un plugin en la configuración de tailwindcss `(tailwind.config.js)`.
+
+La ventaja de truncar con tailwindcss es que podemos controlar el truncamiento, es decir, si queremos truncar sólo una línea o más líneas de texto podemos hacerlo fácilmente con tailwindcss.
+
+---
+
+## - Instalación y configuración:
+
+El paquete se llama [`@tailwindcss/line-clamp`](https://www.npmjs.com/package/@tailwindcss/line-clamp) y lo podemos encontrar en el gestor de paquetes [npm](https://www.npmjs.com/) o [yarn](https://yarnpkg.com/), lo primero que haremos será instalar este paquete en nuestro proyecto desde nuestra terminal.
+
+```bash:Terminal
+npm i @tailwindcss/line-clamp
+```
+
+---
+
+Una vez instalado el paquete vamos al archivo `tailwind.config.js`.
+
+```js:./tailwind.config.js
+module.exports = {
+  content: ['./src/**/*.{js,ts,jsx,tsx}', './pages/**/*.{js,ts,jsx,tsx}'],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+}
+```
+
+Esta sería la configuración básica de tailwind, nos posicionamos en la parte de `plugins:[]` e importamos nuestro paquete con la sintaxis de [`commonjs`](https://developer.mozilla.org/es/docs/Web/JavaScript/Guide/Modules).
+
+```js:./tailwind.config.js {6}
+module.exports = {
+  content: ['./src/**/*.{js,ts,jsx,tsx}', './pages/**/*.{js,ts,jsx,tsx}'],
+  theme: {
+    extend: {},
+  },
+  plugins: [require("@tailwindcss/line-clamp")],
+}
+```
+
+---
+
+Bien eso es todo, ahora solo tenemos que usarlo, vamos al texto y/o párrafo que queremos truncar, y en las clases añadimos la clase line-clamp y el número de líneas a truncar, ejm:
+
+```jsx {1}
+<p className="line-clamp-2">
+  Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
+  standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a
+  type specimen book.
+</p>
+```
+
+<TruncateText className="line-clamp-2">
+  Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
+  standard dummy text ever since the 1500s.
+</TruncateText>
+
+En nuestro caso estamos usando tailwind con jsx, y por esa razon agregamos la clase line-clamp en la `className`, esto depende con lo que estes trabajando por ejm. en HTML5 solo seria `class` y ahi agregas la clase line-clamp.
