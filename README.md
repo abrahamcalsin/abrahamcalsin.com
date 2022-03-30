@@ -18,4 +18,4 @@ git clone https://github.com/abrahamcalsin/abrahamcalsin.com
 
 # License
 
-This project is licensed under <a href='https://github.com/abrahamcalsin/abrahamcalsin.com/blob/main/LICENSE'> GNU General Public License</a>
+This project is licensed under [GNU General Public License](LICENSE)
