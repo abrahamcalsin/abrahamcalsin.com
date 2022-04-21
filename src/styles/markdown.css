@@ -23,8 +23,6 @@ h4 {
   @apply text-lg;
 }
 
-ol,
-ul,
 p,
 h2,
 h3,
@@ -32,6 +30,11 @@ h4,
 h5,
 h6 {
   @apply mb-2;
+}
+
+ol,
+ul {
+  @apply mb-3.7;
 }
 
 ol,
@@ -45,6 +48,14 @@ ol,
 ul,
 p {
   @apply font-medium leading-6;
+}
+
+ul {
+  @apply pl-9 list-disc;
+}
+
+ul li {
+  @apply mb-1;
 }
 
 @screen sm {
@@ -64,8 +75,6 @@ p {
     @apply text-xl;
   }
 
-  ol,
-  ul,
   p,
   h2,
   h3,
@@ -73,6 +82,11 @@ p {
   h5,
   h6 {
     @apply mb-2.5;
+  }
+
+  ol,
+  ul {
+    @apply mb-3.2;
   }
 
   ol,
@@ -86,6 +100,10 @@ p {
   ul,
   p {
     @apply font-medium leading-9;
+  }
+
+  ul li {
+    @apply mb-0;
   }
 }
 
@@ -129,8 +147,8 @@ p {
 
 @screen md {
   .rehype-code-title {
-    margin-left: -1.500rem;
-    margin-right: -1.500rem;
+    margin-left: -1.5rem;
+    margin-right: -1.5rem;
   }
 }
 
