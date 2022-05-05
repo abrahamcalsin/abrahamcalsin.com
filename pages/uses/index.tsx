@@ -1,3 +1,5 @@
+import * as React from 'react'
+
 import Link from 'next/link'
 
 import { Meta } from '~/components/meta'
@@ -13,7 +15,7 @@ const Hyperlink = (props: HyperlinkProps) => {
   const { href, children } = props
 
   return (
-    <a href={href} className={`italic !font-bold link-underline`} target="_blank" rel="noopener noreferrer">
+    <a href={href} className={'italic !font-bold link-underline'} target="_blank" rel="noopener noreferrer">
       {children}
     </a>
   )
@@ -90,7 +92,8 @@ const Uses = () => {
             Utilizo <Hyperlink href="https://www.notion.so/">Notion</Hyperlink> para gestionar mis tareas
           </li>
           <li>
-            Gestiono mi tiempo de trabajo y estudio con <Hyperlink href="https://time-to-focus.yonycalsin.com/">Time To Focus</Hyperlink>
+            Gestiono mi tiempo de trabajo y estudio con{' '}
+            <Hyperlink href="https://time-to-focus.yonycalsin.com/">Time To Focus</Hyperlink>
           </li>
           <li>
             Para concentrarme en el trabajo escucho música lofi con{' '}
@@ -124,5 +127,4 @@ const Uses = () => {
     </MainLayout>
   )
 }
-
 export default Uses

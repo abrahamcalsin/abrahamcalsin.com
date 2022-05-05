@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 
 import { ExternalLinkIcon } from '~/components/svgs/icons'
 
@@ -22,6 +22,7 @@ export const TitleSection = (props: TitleSectionProps) => {
             className="inline-flex gap-x-0.7 px-1 py-0.5 font-medium rounded-md bg-primary-100 dark:bg-secondary/10 border-px border-primary-700 dark:border-secondary text-primary-700 dark:text-secondary text-sm transition-opacity hover:opacity-80"
             href={href}
             target="_blank"
+            rel="noreferrer"
           >
             {linkText}
 

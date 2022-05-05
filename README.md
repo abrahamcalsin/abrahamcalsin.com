@@ -10,9 +10,10 @@ I have developed this portfolio to showcase what I do and my skills printed on i
 
 You can make a clone of my portfolio and give it a personal use. But first take into account the License of use of this project.
 
-``git clone https://github.com/abrahamcalsin/abrahamcalsin.com.git [portfolio-name]``
+`git clone https://github.com/abrahamcalsin/abrahamcalsin.com.git [portfolio-name]`
 
 ---
+
 # License
 
 This project is licensed under [GNU General Public License](LICENSE)

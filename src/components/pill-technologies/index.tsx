@@ -1,3 +1,5 @@
+import * as React from 'react'
+
 import {
   NextjsTechnology,
   ReactjsTechnology,
@@ -19,6 +21,7 @@ function Technology(props: TechnologyProps) {
       href={href}
       target="_blank"
       className="inline-flex w-9.5 h-4.5 sm:w-11.2 sm:h-5.2 px-1 sm:px-1.5 text-primary-800 dark:text-primary-200 bg-primary-100 dark:bg-secondary/10 rounded-md border-px border-primary-600 dark:border-secondary transition-opacity hover:opacity-80"
+      rel="noreferrer"
     >
       {technology}
     </a>

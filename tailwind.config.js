@@ -236,7 +236,6 @@ module.exports = {
             table: {
               display: 'block',
               width: theme('width.full'),
-              width: theme('width.max'),
               maxWidth: theme('width.full'),
               overflow: 'auto',
             },

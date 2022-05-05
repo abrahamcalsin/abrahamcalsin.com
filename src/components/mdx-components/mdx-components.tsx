@@ -3,11 +3,11 @@ import { useMDXComponent } from 'next-contentlayer/hooks'
 
 import { TruncateText } from '~/components/truncate-text'
 
-interface MdxComponents {
+interface MdxComponentsProps {
   rawContent: string
 }
 
-export function MdxComponents(props: MdxComponents) {
+export function MdxComponents(props: MdxComponentsProps) {
   const { rawContent } = props
 
   const Component = useMDXComponent(rawContent)

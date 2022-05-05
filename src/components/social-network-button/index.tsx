@@ -1,3 +1,5 @@
+import * as React from 'react'
+
 interface SocialNetworkButtonProps {
   href: string
   svgSocialNetwork: React.ReactElement
