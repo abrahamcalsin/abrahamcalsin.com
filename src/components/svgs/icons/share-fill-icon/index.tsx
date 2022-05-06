@@ -2,7 +2,7 @@ interface ShareFillIconProps {
   width: number
 }
 
-export const ShareFillIcon = (props: ShareFillIconProps) => {
+export function ShareFillIcon(props: ShareFillIconProps) {
   const { width } = props
 
   return (

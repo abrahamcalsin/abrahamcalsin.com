@@ -8,7 +8,7 @@ interface PackageDownloadsProps {
   visible?: boolean
 }
 
-export const PackageDownloads = (props: PackageDownloadsProps) => {
+export function PackageDownloads(props: PackageDownloadsProps) {
   const { visible } = props
 
   const [data, setData] = React.useState<{

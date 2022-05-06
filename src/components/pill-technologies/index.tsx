@@ -28,7 +28,7 @@ function Technology(props: TechnologyProps) {
   )
 }
 
-export const PillTechnologies = () => {
+export function PillTechnologies() {
   return (
     <div className="flex flex-wrap gap-1 sm:gap-1.5">
       <Technology href="https://reactjs.org" technology={<ReactjsTechnology />} />

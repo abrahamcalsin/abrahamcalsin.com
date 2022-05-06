@@ -1,4 +1,4 @@
-export const TwitterStrokeIcon = () => {
+export function TwitterStrokeIcon() {
   return (
     <svg className="w-full" viewBox="0 0 23 22" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path

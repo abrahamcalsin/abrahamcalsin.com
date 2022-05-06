@@ -5,7 +5,7 @@ type MetaProps = {
   title?: string
 }
 
-export const Meta = (props: MetaProps) => {
+export function Meta(props: MetaProps) {
   const { titleTemplate, defaultTitle } = {
     titleTemplate: '%s - Abraham Calsin',
     defaultTitle: 'Abraham Calsin',

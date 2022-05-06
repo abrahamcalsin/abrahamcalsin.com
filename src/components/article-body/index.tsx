@@ -15,7 +15,7 @@ interface ArticleBodyProps {
   readingTime: string
 }
 
-export const ArticleBody = (props: ArticleBodyProps) => {
+export function ArticleBody(props: ArticleBodyProps) {
   const { title, date, content, articleSlug, shareTitle, readingTime } = props
 
   return (

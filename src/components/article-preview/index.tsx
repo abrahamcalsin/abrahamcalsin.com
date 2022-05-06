@@ -10,7 +10,7 @@ interface ArticlePreviewProps {
   readingTime: string
 }
 
-export const ArticlePreview = (props: ArticlePreviewProps) => {
+export function ArticlePreview(props: ArticlePreviewProps) {
   const { title, date, slug, readingTime } = props
 
   return (

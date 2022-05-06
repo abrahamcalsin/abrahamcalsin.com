@@ -1,4 +1,4 @@
-export const OctocatFillIcon = () => {
+export function OctocatFillIcon() {
   return (
     <svg className="w-2.2" viewBox="0 0 18 17" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path

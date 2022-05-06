@@ -1,4 +1,4 @@
-export const Tag = (props: any) => {
+export function Tag(props: any) {
   const { label } = props
 
   return (

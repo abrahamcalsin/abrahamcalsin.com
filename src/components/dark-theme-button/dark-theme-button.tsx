@@ -5,7 +5,7 @@ import useDarkTheme from '~/hook/use-dark-theme'
 import { MoonFillIcon } from './components/moon-fill-icon'
 import { SunStrokeIcon } from './components/sun-stroke-icon'
 
-export const DarkThemeButton = () => {
+export function DarkThemeButton() {
   const { onToggle } = useDarkTheme()
 
   const styles: React.CSSProperties = {

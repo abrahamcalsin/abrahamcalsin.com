@@ -16,7 +16,7 @@ export interface WorkItemProps {
   date?: Date
 }
 
-export const WorkItem = (props: WorkItemProps) => {
+export function WorkItem(props: WorkItemProps) {
   const { title, packageDownloads, description, tags, webHref, repositoryHref, packageHref, date = new Date() } = props
 
   return (

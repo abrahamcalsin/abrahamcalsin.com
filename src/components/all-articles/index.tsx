@@ -6,7 +6,7 @@ interface AllArticlesProps {
   articles: Article[]
 }
 
-export const AllArticles = (props: AllArticlesProps) => {
+export function AllArticles(props: AllArticlesProps) {
   const { articles } = props
 
   return (

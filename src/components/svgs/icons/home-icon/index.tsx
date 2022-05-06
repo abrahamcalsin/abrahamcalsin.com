@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-export const HomeIcon = () => {
+export function HomeIcon() {
   return (
     <svg className="block w-2.2" viewBox="0 0 18 19" xmlns="http://www.w3.org/2000/svg">
       <path

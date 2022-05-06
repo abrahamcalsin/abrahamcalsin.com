@@ -4,7 +4,7 @@ interface SvgProps {
   className?: string
 }
 
-export const LogoAbrahamCalsin = (props: SvgProps) => {
+export function LogoAbrahamCalsin(props: SvgProps) {
   const { className } = props
 
   return (

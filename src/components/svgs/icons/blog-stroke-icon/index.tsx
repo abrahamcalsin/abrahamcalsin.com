@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-export const BlogStrokeIcon = () => {
+export function BlogStrokeIcon() {
   return (
     <svg className="block w-2.2" viewBox="0 0 15 16" xmlns="http://www.w3.org/2000/svg">
       <path d="M9.11279 14.2564H14.427" stroke="currentColor" strokeWidth="1.3842" />

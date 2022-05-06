@@ -7,7 +7,7 @@ interface DateFormatArticleProps {
   dateArticle: string
 }
 
-export const DateFormatArticle = (props: DateFormatArticleProps) => {
+export function DateFormatArticle(props: DateFormatArticleProps) {
   const { dateArticle = new Date() } = props
 
   const date = dayjs(dateArticle).locale(en).format(dateFormat.article)

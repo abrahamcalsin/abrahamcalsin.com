@@ -4,7 +4,7 @@ interface EditArticleProps {
   slug: string
 }
 
-export const EditArticle = (props: EditArticleProps) => {
+export function EditArticle(props: EditArticleProps) {
   const { slug } = props
 
   return (

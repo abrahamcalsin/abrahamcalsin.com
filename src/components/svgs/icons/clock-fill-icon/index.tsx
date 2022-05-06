@@ -1,4 +1,4 @@
-export const ClockFillIcon = () => {
+export function ClockFillIcon() {
   return (
     <svg className="w-full" viewBox="0 0 33 33" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path

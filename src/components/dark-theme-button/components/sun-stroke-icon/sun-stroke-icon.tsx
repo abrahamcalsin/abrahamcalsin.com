@@ -13,7 +13,7 @@ const coreVariants = {
   animate: { opacity: 1, origin: 'bottom', rotate: -0, y: 0, transition: MOTION_TRANSITION },
 }
 
-export const SunStrokeIcon = (props: SunStrokeIconProps) => {
+export function SunStrokeIcon(props: SunStrokeIconProps) {
   const { className } = props
 
   return (

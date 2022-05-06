@@ -10,7 +10,7 @@ interface NavigationLinkProps {
   textLink: string
 }
 
-const NavigationLink = (props: NavigationLinkProps) => {
+function NavigationLink(props: NavigationLinkProps) {
   const { href, textLink } = props
 
   const router = useRouter()
@@ -24,7 +24,7 @@ const NavigationLink = (props: NavigationLinkProps) => {
   )
 }
 
-const NavbarDesktop = () => {
+export default function NavbarDesktop() {
   return (
     <div className="container items-center justify-between hidden sm:flex">
       <Link href="/">
@@ -43,5 +43,3 @@ const NavbarDesktop = () => {
     </div>
   )
 }
-
-export default NavbarDesktop

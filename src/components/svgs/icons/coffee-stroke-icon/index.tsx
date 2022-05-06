@@ -2,7 +2,7 @@ interface CoffeeStrokeIconProps {
   className: string
 }
 
-export const CoffeeStrokeIcon = (props: CoffeeStrokeIconProps) => {
+export function CoffeeStrokeIcon(props: CoffeeStrokeIconProps) {
   const { className } = props
 
   return (

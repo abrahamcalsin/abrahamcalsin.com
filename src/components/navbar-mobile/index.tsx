@@ -7,7 +7,7 @@ import { DarkThemeButton } from '~/components/dark-theme-button'
 import { LogoAbrahamCalsin } from '~/components/svgs'
 import { HomeIcon, AboutMeIcon, ProjectsIcon, BlogStrokeIcon } from '~/components/svgs/icons'
 
-const NavigationTop = () => {
+function NavigationTop() {
   return (
     <div className="fixed backdrop-filter backdrop-blur-md bg-main/70 dark:bg-primary/70 border-b-px border-b-primary-500/60 h-6.5 w-full flex justify-center items-center z-10">
       <div className="container flex items-center justify-between w-full">
@@ -29,7 +29,7 @@ interface NavigationBottomProps {
   textLink: string
 }
 
-const NavigationBottom = (props: NavigationBottomProps) => {
+function NavigationBottom(props: NavigationBottomProps) {
   const { href, svgIcon, textLink } = props
 
   const router = useRouter()
@@ -52,7 +52,7 @@ const NavigationBottom = (props: NavigationBottomProps) => {
   )
 }
 
-const NavbarMobile = () => {
+export default function NavbarMobile() {
   return (
     <div className="sm:hidden">
       <NavigationTop />
@@ -65,5 +65,3 @@ const NavbarMobile = () => {
     </div>
   )
 }
-
-export default NavbarMobile

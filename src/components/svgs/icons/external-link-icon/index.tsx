@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-export const ExternalLinkIcon = () => {
+export function ExternalLinkIcon() {
   return (
     <svg className="w-1.5" viewBox="0 0 13 13" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
       <path d="M7.2 0a.9.9 0 1 0 0 1.8h2.327L3.864 7.464a.9.9 0 1 0 1.272 1.272L10.8 3.073V5.4a.9.9 0 1 0 1.8 0V.9a.9.9 0 0 0-.9-.9H7.2Z" />

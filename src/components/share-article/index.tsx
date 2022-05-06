@@ -5,7 +5,7 @@ interface ShareArticleProps {
   articleTitle: string
 }
 
-export const ShareArticle = (props: ShareArticleProps) => {
+export function ShareArticle(props: ShareArticleProps) {
   const { articleLink, articleTitle } = props
 
   return (

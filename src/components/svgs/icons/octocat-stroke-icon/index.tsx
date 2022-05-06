@@ -1,4 +1,4 @@
-export const OctocatStrokeIcon = () => {
+export function OctocatStrokeIcon() {
   return (
     <svg className="w-full" viewBox="0 0 23 26" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path

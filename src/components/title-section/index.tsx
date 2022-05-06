@@ -1,4 +1,4 @@
-import React from 'react'
+import * as React from 'react'
 
 import { ExternalLinkIcon } from '~/components/svgs/icons'
 
@@ -10,7 +10,7 @@ export interface TitleSectionProps {
   linkTextBold?: string
 }
 
-export const TitleSection = (props: TitleSectionProps) => {
+export function TitleSection(props: TitleSectionProps) {
   const { title, externalLinkButton, href, linkText, linkTextBold } = props
 
   return (

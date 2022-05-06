@@ -1,4 +1,4 @@
-export const PackageFillIcon = () => {
+export function PackageFillIcon() {
   return (
     <svg className="w-full" viewBox="0 0 41 37" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
       <path d="M0 11.5554C0 10.1845 1.29946 9.1862 2.62402 9.53941L17.229 13.4341C18.1423 13.6776 18.7778 14.5048 18.7778 15.4501V33.606C18.7778 34.9947 17.4465 35.9959 16.1123 35.6105L1.50736 31.3913C0.614588 31.1333 0 30.3161 0 29.3868V11.5554Z" />

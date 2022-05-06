@@ -15,7 +15,7 @@ const Hyperlink = (props: HyperlinkProps) => {
   const { href, children } = props
 
   return (
-    <a href={href} className={'italic !font-bold link-underline'} target="_blank" rel="noopener noreferrer">
+    <a href={href} className="italic !font-bold link-underline" target="_blank" rel="noopener noreferrer">
       {children}
     </a>
   )
