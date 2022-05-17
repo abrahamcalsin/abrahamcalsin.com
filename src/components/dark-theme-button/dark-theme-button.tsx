@@ -1,29 +1,32 @@
 import * as React from 'react'
 
-import useDarkTheme from '~/hook/use-dark-theme'
+import { useTheme } from 'next-themes'
 
 import { MoonFillIcon } from './components/moon-fill-icon'
-import { SunStrokeIcon } from './components/sun-stroke-icon'
+import { SunFillIcon } from './components/sun-fill-icon'
 
 export function DarkThemeButton() {
-  const { onToggle } = useDarkTheme()
+  const [mounted, setMounted] = React.useState(false)
+  const { systemTheme, theme, setTheme } = useTheme()
 
-  const styles: React.CSSProperties = {
-    position: 'absolute',
-    transition: 'transform 300ms ease-in-out',
-  }
+  const currentTheme = theme === 'system' ? systemTheme : theme
+
+  React.useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  if (!mounted) return null
 
   return (
-    <button
-      onClick={onToggle}
-      className="relative flex flex-wrap wrap items-center w-3.7 h-3.7 p-0.7 dark:bg-secondary/10 border-px border-primary dark:border-secondary text-primary dark:text-secondary rounded overflow-hidden select-none transition-all"
-    >
-      <div className="translate-y-0 dark:translate-y-6" style={styles}>
-        <SunStrokeIcon />
-      </div>
-      <div className="translate-y-6 dark:translate-y-0" style={styles}>
-        <MoonFillIcon />
-      </div>
-    </button>
+    <>
+      <button
+        onClick={() => {
+          setTheme(theme === 'dark' ? 'light' : 'dark')
+        }}
+        className="relative flex items-center justify-center w-3.7 h-3.w-3.7"
+      >
+        {currentTheme === 'dark' ? <SunFillIcon /> : <MoonFillIcon />}
+      </button>
+    </>
   )
 }
