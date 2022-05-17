@@ -1,5 +1,6 @@
 import * as React from 'react'
 
+import clsx from 'clsx'
 import { motion } from 'framer-motion'
 
 import { MOTION_TRANSITION, MOTION_WHILE_TYPE_VARIANT } from '~/lib/constants/motion'
@@ -23,7 +24,7 @@ export function SunFillIcon(props: SunFillIconProps) {
 
   return (
     <motion.svg
-      className={`w-full dark:text-secondary ${className}`}
+      className={clsx('w-full dark:text-secondary', className)}
       viewBox="0 0 30 28"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
