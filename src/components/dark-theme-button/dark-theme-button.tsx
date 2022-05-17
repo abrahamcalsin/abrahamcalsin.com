@@ -23,7 +23,7 @@ export function DarkThemeButton() {
         onClick={() => {
           setTheme(theme === 'dark' ? 'light' : 'dark')
         }}
-        className="relative flex items-center justify-center w-3.7 h-3.w-3.7"
+        className="relative flex items-center justify-center w-3.7 h-3.7"
       >
         {currentTheme === 'dark' ? <SunFillIcon /> : <MoonFillIcon />}
       </button>
