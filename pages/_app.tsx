@@ -1,6 +1,8 @@
 import type { AppProps } from 'next/dist/shared/lib/router/router'
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
+
+import { ThemeProvider } from 'next-themes'
 import NProgress from 'nprogress'
 
 import * as ga from '~/lib/ga'
@@ -45,8 +47,10 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   return (
     <>
-      <Navbar />
-      <Component {...pageProps} />
+      <ThemeProvider attribute="class">
+        <Navbar />
+        <Component {...pageProps} />
+      </ThemeProvider>
     </>
   )
 }
