@@ -7,6 +7,7 @@ import { SunFillIcon } from './components/sun-fill-icon'
 
 export function DarkThemeButton() {
   const [mounted, setMounted] = React.useState(false)
+
   const { systemTheme, theme, setTheme } = useTheme()
 
   const currentTheme = theme === 'system' ? systemTheme : theme
