@@ -10,7 +10,7 @@ html {
 }
 
 body {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Sofia Pro';
   @apply bg-main dark:bg-primary text-primary-800 dark:text-primary-400;
 }
 

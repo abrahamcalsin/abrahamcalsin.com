@@ -31,6 +31,7 @@ module.exports = {
     },
 
     fontFamily: {
+      sofiaPro: 'Sofia Pro',
       robotoMono: 'Roboto Mono',
     },
 
