@@ -1,4 +1,5 @@
 import { useEffect } from 'react'
+import { ChakraProvider } from '@chakra-ui/react'
 import type { AppProps } from 'next/dist/shared/lib/router/router'
 import { useRouter } from 'next/router'
 import { ThemeProvider } from 'next-themes'
@@ -6,6 +7,7 @@ import NProgress from 'nprogress'
 
 import Navbar from '~/components/navbar'
 import * as ga from '~/lib/ga'
+import { mainTheme } from '~/themes/main'
 
 import '~/styles/index.css'
 import '~/styles/scrollbar.css'
@@ -44,12 +46,12 @@ function MyApp({ Component, pageProps }: AppProps) {
   }, [])
 
   return (
-    <>
+    <ChakraProvider resetCSS theme={mainTheme}>
       <ThemeProvider attribute="class">
         <Navbar />
         <Component {...pageProps} />
       </ThemeProvider>
-    </>
+    </ChakraProvider>
   )
 }
 
