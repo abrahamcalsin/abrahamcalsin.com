@@ -12,6 +12,18 @@ const mainTheme = extendTheme({
     body: `"Sofia Pro" , sans-serif`,
     robotoMono: `"Roboto Mono", monospace`,
   },
+  semanticTokens: {
+    colors: {
+      'chakra-body-text': {
+        _light: 'primary.600',
+        _dark: 'primary.400',
+      },
+      'chakra-body-bg': {
+        _light: 'main',
+        _dark: 'primary.900',
+      },
+    },
+  },
   styles: {
     global: (props: ThemeComponentProps) => ({
       'html, body': {
@@ -22,6 +34,7 @@ const mainTheme = extendTheme({
       },
       '::selection': {
         backgroundColor: mode('secondary.100', 'secondary.800')(props),
+        color: mode('inherit', 'primary.200')(props),
       },
     }),
   },
@@ -41,6 +54,9 @@ const mainTheme = extendTheme({
     '9xl': '128px',
   },
   colors: {
+    inherit: 'inherit',
+    transparent: 'transparent',
+    main: '#EFF2FA',
     primary: {
       50: '#edf8ff',
       100: '#e6f1ff',
