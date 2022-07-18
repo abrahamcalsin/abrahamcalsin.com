@@ -1,5 +1,7 @@
+import * as React from 'react'
+import { Container, Flex, Link } from '@chakra-ui/react'
 import clsx from 'clsx'
-import Link from 'next/dist/client/link'
+import RouterLink from 'next/link'
 import { useRouter } from 'next/router'
 
 import { DarkThemeButton } from '~/components/dark-theme-button'
@@ -18,28 +20,27 @@ function NavigationLink(props: NavigationLinkProps) {
   const isActive = router.pathname === href
 
   return (
-    <Link href={href}>
+    <RouterLink href={href}>
       <a className={clsx('hover:text-secondary', isActive && 'pointer-events-none text-secondary')}>{textLink}</a>
-    </Link>
+    </RouterLink>
   )
 }
 
 export default function NavbarDesktop() {
   return (
-    <div className="container items-center justify-between hidden sm:flex">
-      <Link href="/">
-        <a className="w-11.2 text-primary-800 dark:text-primary-200">
+    <Container maxW="52rem" display={{ base: 'none', sm: 'flex' }} justifyContent="space-between" alignItems="center">
+      <RouterLink href="/" passHref>
+        <Link className="w-11.2">
           <LogoAbrahamCalsin className="w-full" />
-        </a>
-      </Link>
-
-      <div className="flex items-center text-lg font-bold gap-x-3">
+        </Link>
+      </RouterLink>
+      <Flex alignItems="center" fontSize="lg" fontWeight="bold" columnGap="24px">
         <NavigationLink href="/" textLink="Inicio" />
         <NavigationLink href="/about-me" textLink="Sobre Mi" />
         <NavigationLink href="/projects" textLink="Proyectos" />
         <NavigationLink href="/blog" textLink="Blog" />
         <DarkThemeButton />
-      </div>
-    </div>
+      </Flex>
+    </Container>
   )
 }

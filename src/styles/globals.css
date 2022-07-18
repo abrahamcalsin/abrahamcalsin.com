@@ -5,17 +5,16 @@
 @tailwind components;
 @tailwind utilities;
 
+* {
+  /* outline: 1px solid rgba(200, 200, 0, 0.3) !important; */
+}
+
 html {
   scroll-behavior: smooth;
 }
 
 body {
   font-family: 'Sofia Pro';
-  @apply bg-main dark:bg-primary text-primary-800 dark:text-primary-400;
-}
-
-.container {
-  @apply max-w-56 mx-auto px-2.5 sm:px-5.5;
 }
 
 .link-underline {

@@ -23,8 +23,10 @@ export function SunFillIcon(props: SunFillIconProps) {
 
   return (
     <motion.svg
-      className={clsx('w-full dark:text-secondary', className)}
+      className={clsx('dark:text-secondary', className)}
       viewBox="0 0 30 28"
+      width="30px"
+      height="30px"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       whileTap={MOTION_WHILE_TYPE_VARIANT}

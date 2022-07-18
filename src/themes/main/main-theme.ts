@@ -29,7 +29,7 @@ const mainTheme = extendTheme({
       'html, body': {
         fontSize: {
           base: 'md',
-          lg: 'lg',
+          lg: 'md',
         },
       },
       '::selection': {
@@ -38,7 +38,7 @@ const mainTheme = extendTheme({
       },
     }),
   },
-  fontSize: {
+  fontSizes: {
     xs: '12px',
     sm: '14px',
     md: '16px',
@@ -129,6 +129,59 @@ const mainTheme = extendTheme({
       800: '#2a363f',
       900: '#192229',
     },
+  },
+  sizes: {
+    space: {
+      0: '0px',
+      px: '1px',
+      0.2: '2px',
+      0.5: '4px',
+      0.7: '6px',
+      1: '8px',
+      1.2: '10px',
+      1.5: '12px',
+      1.7: '14px',
+      2: '16px',
+      2.2: '18px',
+      2.5: '20px',
+      3: '24px',
+      3.2: '26px',
+      3.5: '28px',
+      3.7: '30px',
+
+      4.5: '36px',
+
+      5.2: '42px',
+      5.5: '44px',
+      6: '48px',
+      6.5: '52px',
+
+      7.5: '60px',
+      7.7: '62px',
+      8: '64px',
+      9.5: '76px',
+
+      11: '88px',
+      11.2: '90px',
+      12: '96px',
+      13: '104px',
+
+      15: '120px',
+
+      25: '200px',
+      25.5: '204px',
+
+      31.2: '250px',
+
+      35.5: '284px',
+    },
+    // container: {
+    //   sm: '640px',
+    //   md: '768px',
+    //   lg: '1024px',
+    //   xl: '1280px',
+    //   '2xl': '1536px',
+    // },
   },
 })
 

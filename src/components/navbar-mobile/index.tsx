@@ -1,6 +1,7 @@
 import React from 'react'
+import { Box, Container, Flex, Link, Text } from '@chakra-ui/react'
 import clsx from 'clsx'
-import Link from 'next/dist/client/link'
+import RouterLink from 'next/link'
 import { useRouter } from 'next/router'
 
 import { DarkThemeButton } from '~/components/dark-theme-button'
@@ -9,17 +10,29 @@ import { AboutMeIcon, BlogStrokeIcon, HomeIcon, ProjectsIcon } from '~/component
 
 function NavigationTop() {
   return (
-    <div className="fixed backdrop-filter backdrop-blur-md bg-main/70 dark:bg-primary/70 border-b-px border-b-primary-500/60 h-6.5 w-full flex justify-center items-center z-10">
-      <div className="container flex items-center justify-between w-full">
-        <Link href="/">
-          <a className="w-9.5 sm:w-11.2">
-            <LogoAbrahamCalsin className="block w-full" />
-          </a>
-        </Link>
-
+    <Flex
+      w="100%"
+      h="52px" // h-6.5
+      bg="main" // bg-main/70
+      backdropFilter="blur(12px)"
+      position="fixed"
+      borderBottom="1px"
+      borderColor="primary.400"
+      zIndex="10"
+      _dark={{
+        bg: 'primary.900', // dark:bg-primary-900/70
+        borderColor: 'primary.700',
+      }}
+    >
+      <Container maxW="52rem" w="100%" display="flex" justifyContent="space-between" alignItems="center">
+        <RouterLink href="/" passHref>
+          <Link className="w-9.5">
+            <LogoAbrahamCalsin className="w-full" />
+          </Link>
+        </RouterLink>
         <DarkThemeButton />
-      </div>
-    </div>
+      </Container>
+    </Flex>
   )
 }
 
@@ -37,31 +50,48 @@ function NavigationBottom(props: NavigationBottomProps) {
   const isActiveSelect = router.pathname === href
 
   return (
-    <Link href={href}>
+    <RouterLink href={href} passHref>
       <a
         className={clsx(
           'flex justify-center items-center h-full w-7.7 text-xs border-t-4 border-primary-800 dark:border-primary-200 flex-col fill-current',
           !isActiveSelect &&
-            'text-primary-500 dark:text-primary-600 border-t-primary/0 dark:border-t-white/0 fill-transparent',
+            `text-primary-500 dark:text-primary-600 border-t-primary/0 dark:border-t-white/0 fill-transparent`,
         )}
       >
         {svgIcon}
-        <span className="pt-0.2 font-bold">{textLink}</span>
+        <Text as="span" fontWeight="bold" pt="2px">
+          {textLink}
+        </Text>
       </a>
-    </Link>
+    </RouterLink>
   )
 }
 
 export default function NavbarMobile() {
   return (
-    <div className="sm:hidden">
+    <Box display={{ base: 'inline', sm: 'none' }}>
       <NavigationTop />
-      <div className="flex justify-evenly fixed backdrop-filter backdrop-blur-md bg-main/70 dark:bg-primary/60 border-t-px border-t-primary-500/60 w-full h-7.5 bottom-0 z-20">
+      <Flex
+        w="100%"
+        h="60px" // h-6.5
+        justifyContent="space-evenly"
+        bg="main" // bg-main/70
+        backdropFilter="blur(12px)"
+        position="fixed"
+        bottom="0"
+        borderTop="1px"
+        borderColor="primary.400"
+        zIndex="20"
+        _dark={{
+          bg: 'primary.900', // dark:bg-primary-900/70
+          borderColor: 'primary.700',
+        }}
+      >
         <NavigationBottom href="/" svgIcon={<HomeIcon />} textLink="Inicio" />
         <NavigationBottom href="/about-me" svgIcon={<AboutMeIcon />} textLink="Sobre mi" />
         <NavigationBottom href="/projects" svgIcon={<ProjectsIcon />} textLink="Proyectos" />
         <NavigationBottom href="/blog" svgIcon={<BlogStrokeIcon />} textLink="Blog" />
-      </div>
-    </div>
+      </Flex>
+    </Box>
   )
 }

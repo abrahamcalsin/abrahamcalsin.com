@@ -1,4 +1,5 @@
 import * as React from 'react'
+import { Flex, Heading, Link, Text } from '@chakra-ui/react'
 
 import { ExternalLinkIcon } from '~/components/svgs/icons'
 
@@ -14,23 +15,52 @@ export function TitleSection(props: TitleSectionProps) {
   const { title, externalLinkButton, href, linkText, linkTextBold } = props
 
   return (
-    <>
-      <div className="items-center mb-2 sm:flex gap-x-2">
-        <h1 className="mb-1 text-primary-800 dark:text-primary-200 sm:mb-0">{title}</h1>
-        {externalLinkButton ? (
-          <a
-            className="inline-flex gap-x-0.7 px-1 py-0.5 font-medium rounded-md bg-primary-100 dark:bg-secondary/10 border-px border-primary-700 dark:border-secondary text-primary-700 dark:text-secondary text-sm transition-opacity hover:opacity-80"
-            href={href}
-            target="_blank"
-            rel="noreferrer"
-          >
-            {linkText}
-
-            {linkTextBold && <span className="font-bold underline">{linkTextBold}</span>}
-            <ExternalLinkIcon />
-          </a>
-        ) : null}
-      </div>
-    </>
+    <Flex flexDirection={{ base: 'column', sm: 'row' }} alignItems="flex-start" columnGap="16px" mb="16px">
+      <Heading
+        as="h1"
+        textColor="primary.800"
+        fontWeight="black"
+        mb={{ base: '8px', sm: '0' }}
+        _dark={{
+          color: 'primary.200',
+        }}
+      >
+        {title}
+      </Heading>
+      {externalLinkButton ? (
+        <Link
+          href={href}
+          rel="noreferrer"
+          bg="primary.100"
+          textColor="primary.700"
+          display="inline-flex"
+          alignItems="center"
+          columnGap="6px"
+          px="8px"
+          py="4px"
+          fontSize="sm"
+          fontWeight="medium"
+          borderWidth="1px"
+          borderColor="primary.700"
+          borderRadius="md"
+          transitionProperty="opacity"
+          _hover={{ textDecoration: 'none', opacity: 0.8 }}
+          _dark={{
+            bg: 'transparent', // dark:bg-secondary/10
+            textColor: 'secondary.400',
+            borderColor: 'secondary.400',
+          }}
+          isExternal
+        >
+          {linkText}
+          {linkTextBold && (
+            <Text as="span" fontWeight="bold" textDecoration="underline">
+              {linkTextBold}
+            </Text>
+          )}
+          <ExternalLinkIcon />
+        </Link>
+      ) : null}
+    </Flex>
   )
 }

@@ -12,5 +12,5 @@ export function DateFormatArticle(props: DateFormatArticleProps) {
 
   const date = dayjs(dateArticle).locale(en).format(dateFormat.article)
 
-  return <span className="font-regular text-inherit dark:text-inherit capitalize">{date}</span>
+  return <span className="font-regular text-inherit capitalize">{date}</span>
 }

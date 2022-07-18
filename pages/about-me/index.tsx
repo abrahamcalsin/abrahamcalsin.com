@@ -1,3 +1,4 @@
+import { Box, Grid, Heading, Text } from '@chakra-ui/react'
 import Link from 'next/link'
 
 import { Meta } from '~/components/meta'
@@ -11,7 +12,7 @@ const AboutMe = () => {
   return (
     <MainLayout>
       <Meta title="Sobre Mi" />
-      <div className="mt-0 sm:mt-11.2 sm:mb-3.7 text-primary-600 dark:text-inherit">
+      <Box mt={{ base: '0', sm: '90px' }} mb={{ base: '0', sn: '30px' }}>
         <TitleSection
           title="Sobre Mi"
           externalLinkButton={true}
@@ -19,24 +20,50 @@ const AboutMe = () => {
           linkText="Para más detalles, consulta mi"
           linkTextBold="CV"
         />
-        <p>
+        <Text>
           Hey, hola! Soy Abraham Calsin una persona autodidacta, me apasiona la programación, actualmente me desempeño
           como desarrollador frontend, creo proyectos de código abierto.
-        </p>
-        <p>
+        </Text>
+        <Text mt="4">
           A lo largo de mi aventura en el mundo del desarrollo web, me involucre en el desarrollo de varios proyectos,
           proponiéndome retos, los cuales me enseñaron a corregir mis propios errores al desarrollar un Sitio Web.
           Puedes ver mi trabajo en la sección de
           <Link href="/projects">
             <a className="font-bold link-underline ml-0.7">Proyectos.</a>
           </Link>
-        </p>
-        <h3>Habilidades:</h3>
+        </Text>
+        <Heading
+          as="h3"
+          fontSize="2xl"
+          fontWeight="black"
+          textColor="primary.800"
+          my="5"
+          _dark={{
+            color: 'primary.200',
+          }}
+        >
+          Habilidades:
+        </Heading>
         <p>Estas son algunas de mis tecnologías favoritas.</p>
         <PillTechnologies />
-        <h3 className="mt-2.5">Contacto:</h3>
-        <p>Siempre puedes contactarme por los siguientes medios.</p>
-        <div className="grid grid-cols-2 sm:grid-cols-auto-fill gap-1 sm:gap-3">
+        <Heading
+          as="h3"
+          fontSize="2xl"
+          fontWeight="black"
+          textColor="primary.800"
+          my="5"
+          _dark={{
+            color: 'primary.200',
+          }}
+        >
+          Contacto:
+        </Heading>
+        <Text>Siempre puedes contactarme por los siguientes medios.</Text>
+        <Grid
+          mt="3"
+          templateColumns={{ base: 'repeat(2, 1fr)', sm: 'repeat(auto-fill, minmax(12rem, 1fr))' }}
+          gap={{ base: '8px', sm: '24px' }}
+        >
           <PillContactLink
             svgIcon={<EmailStrokeIcon />}
             socialNetworkName="Email"
@@ -61,8 +88,8 @@ const AboutMe = () => {
             href="https://github.com/abrahamcalsin"
             username="@abrahamcalsin"
           />
-        </div>
-      </div>
+        </Grid>
+      </Box>
     </MainLayout>
   )
 }

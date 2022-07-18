@@ -1,4 +1,5 @@
 import * as React from 'react'
+import { Flex, Link, Text } from '@chakra-ui/react'
 
 import { BadgeCheckFillIcon } from '~/components/svgs/icons'
 
@@ -13,24 +14,52 @@ export function PillContactLink(props: PillContactLinkProps) {
   const { svgIcon, socialNetworkName, href, username } = props
 
   return (
-    <a
+    <Link
       href={href}
-      target="_blank"
+      display="flex"
+      alignItems="center"
+      gap={{ base: '12px', sm: '14px' }}
+      bg="primary.100"
+      px={{ base: '12px', sm: '16px' }}
+      py={{ base: '8px', sm: '10px' }}
+      borderRadius="md"
+      borderWidth="1px"
+      borderColor="primary.300"
+      transitionProperty="opacity"
+      _hover={{
+        opacity: 0.8,
+      }}
+      _dark={{
+        bg: 'transparent', // dark:bg-secondary/10
+        borderColor: 'secondary.400',
+      }}
       rel="noopener noreferrer"
-      className="group flex items-center gap-1.5 sm:gap-1.7 bg-primary-100 dark:bg-secondary/10 py-1 px-1.5 sm:py-1.2 sm:px-2 border-px border-primary-300 dark:border-secondary rounded-md hover:opacity-80"
+      isExternal
     >
-      <div className="w-2.5 min-w-min max-w-none sm:w-3">{svgIcon}</div>
-      <div className="flex flex-col gap-px">
-        <p className="flex items-center gap-1 mb-0 leading-none">
-          <span className="font-bold text-sm sm:text-sm -mb-px">{socialNetworkName}</span>
-          <span className="w-1.7 sm:w-2 block text-secondary">
+      <Text as="span" w={{ base: '20px', sm: '24px' }} minWidth="min-content" maxWidth="none">
+        {svgIcon}
+      </Text>
+      <Flex flexDirection="column" gap="1px">
+        <Text display="flex" alignItems="center" gap="8px" mb="0" lineHeight="none">
+          <Text as="span" fontSize="sm" fontWeight="bold" mb="-1px">
+            {socialNetworkName}
+          </Text>
+          <Text as="span" w={{ base: '14px', sm: '16px' }} display="block" textColor="secondary.400">
             <BadgeCheckFillIcon />
-          </span>
-        </p>
-        <span className="underline sm:no-underline sm:group-hover:underline text-xs sm:text-sm -mt-px block line-clamp-1">
+          </Text>
+        </Text>
+        <Text
+          as="span"
+          fontSize={{ base: 'xs', sm: 'sm' }}
+          textDecoration={{ base: 'underline', sm: 'none' }}
+          display="block"
+          overflow="hidden"
+          noOfLines={1}
+          mt="-1px"
+        >
           {username}
-        </span>
-      </div>
-    </a>
+        </Text>
+      </Flex>
+    </Link>
   )
 }

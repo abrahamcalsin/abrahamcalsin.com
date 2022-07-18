@@ -1,9 +1,20 @@
+import { Box, Text } from '@chakra-ui/react'
+
 export function Tag(props: any) {
   const { label } = props
 
   return (
-    <div className="flex items-center font-robotoMono">
-      <p className="mb-1 text-sm sm:text-base text-primary-400 dark:text-secondary">{label}</p>
-    </div>
+    <Box className="font-robotoMono">
+      <Text
+        mb="1.5"
+        fontSize={{ base: 'sm', sm: 'md' }}
+        textColor="primary.400"
+        _dark={{
+          color: 'secondary.400',
+        }}
+      >
+        {label}
+      </Text>
+    </Box>
   )
 }

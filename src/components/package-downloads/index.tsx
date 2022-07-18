@@ -1,5 +1,6 @@
 import * as React from 'react'
 import ReactTooltip from 'react-tooltip'
+import { Text } from '@chakra-ui/react'
 
 import { DownloadStrokeIcon } from '~/components/svgs/icons'
 import { getAllDownloadsRGFB } from '~/services/package-downloads/get-all-downloads-rgfb'
@@ -27,14 +28,26 @@ export function PackageDownloads(props: PackageDownloadsProps) {
     <>
       {visible ? (
         <>
-          <p
+          <Text
             data-for="connect-id"
             data-tip="Descargas del paquete en Npm"
-            className="mb-0 ml-1 cursor-default font-extraLight hidden sm:inline-flex items-center gap-x-0.5 text-primary-400 dark:text-secondary"
+            display={{ base: 'none', sm: 'inline-flex' }}
+            alignItems="center"
+            columnGap="4px"
+            cursor="default"
+            textColor="primary.400"
+            fontWeight={200}
+            mb="0"
+            ml="8px"
+            _dark={{
+              textColor: 'secondary.400',
+            }}
           >
             <DownloadStrokeIcon />
-            <span className="inline-block font-medium text-base">{data.downloads}</span>
-          </p>
+            <Text as="span" display="inline-block" fontSize="md" fontWeight="medium">
+              {data.downloads}
+            </Text>
+          </Text>
           <ReactTooltip
             id="connect-id"
             className="font-regular"
