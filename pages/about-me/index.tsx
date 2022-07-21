@@ -12,7 +12,7 @@ const AboutMe = () => {
   return (
     <MainLayout>
       <Meta title="Sobre Mi" />
-      <Box mt={{ base: '0', sm: '90px' }} mb={{ base: '0', sn: '30px' }}>
+      <Box mt={{ base: '0', sm: '90px' }} mb={{ base: '0', sm: '30px' }}>
         <TitleSection
           title="Sobre Mi"
           externalLinkButton={true}
