@@ -24,6 +24,7 @@ export function ArticleBody(props: ArticleBodyProps) {
       <Box>
         <Heading
           as="h1"
+          fontWeight="black"
           textColor="primary.800"
           fontSize={{ base: '3xl', sm: '4xl' }}
           _dark={{
@@ -59,7 +60,6 @@ export function ArticleBody(props: ArticleBodyProps) {
         _dark={{
           textColor: 'primary.400',
         }}
-        className="prose dark:prose-dark"
       >
         <MdxComponents rawContent={content} />
       </Box>
