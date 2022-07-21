@@ -34,7 +34,7 @@ export function ArticlePreview(props: ArticlePreviewProps) {
           justifyContent="space-between"
           alignItems="center"
           gap="16px"
-          py="4"
+          py="3"
           textDecoration="none"
           textColor="inherit"
           _hover={{

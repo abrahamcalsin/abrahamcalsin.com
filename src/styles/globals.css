@@ -17,6 +17,70 @@ body {
   font-family: 'Sofia Pro';
 }
 
+p {
+  margin-bottom: 16px;
+}
+
+ol,
+ul {
+  margin-bottom: 16px;
+}
+
+ol,
+ul,
+blockquote,
+p {
+  font-size: 1rem /* 16px */;
+  line-height: 1.5rem /* 24px */;
+}
+
+ol,
+ul,
+p {
+  font-weight: 500;
+  line-height: 1.5rem /* 24px */;
+}
+
+ul {
+  padding-left: 2.25rem /* 36px */;
+  list-style-type: disc;
+}
+
+ul li {
+  margin-bottom: 8px;
+}
+
+@media (min-width: 640px) {
+  p {
+    margin-bottom: 20px;
+  }
+
+  ol,
+  ul {
+    margin-bottom: 26px;
+  }
+
+  ol,
+  ul,
+  blockquote,
+  p {
+    font-size: 1.125rem /* 18px */;
+    line-height: 1.75rem /* 28px */;
+  }
+
+  ol,
+  ul,
+  p {
+    font-weight: 500;
+    line-height: 2.25rem /* 36px */;
+  }
+
+  ul li {
+    margin-bottom: 0px;
+  }
+}
+
+/* Other */
 .link-underline {
   @apply border-b-2 border-secondary-600;
   @apply text-inherit font-semiBold px-0.5 py-px transition-colors;
