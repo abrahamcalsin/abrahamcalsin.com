@@ -1,3 +1,5 @@
+import { Flex, Link, Text } from '@chakra-ui/react'
+
 import { OctocatStrokeIcon } from '~/components/svgs/icons'
 
 interface EditArticleProps {
@@ -8,18 +10,27 @@ export function EditArticle(props: EditArticleProps) {
   const { slug } = props
 
   return (
-    <div className="inline-flex items-center gap-x-1 text-inherit">
-      <a
-        className="flex items-center gap-x-0.7 not-italic text-sm mt-1 sm:mt-0 link-underline"
-        target="_blank"
-        rel="nofollow noopener noreferrer"
+    <Flex alignItems="center" columnGap="8px" textColor="inherit">
+      <Link
         href={`https://github.com/abrahamcalsin/abrahamcalsin.com/edit/main/data/blog/${slug}.mdx`}
+        rel="nofollow noopener noreferrer"
+        display="flex"
+        alignItems="center"
+        columnGap="6px"
+        fontSize="sm"
+        fontStyle="normal"
+        mt={{ base: '8px', sm: '0' }}
+        _hover={{
+          textDecoration: 'none',
+        }}
+        className="link-underline"
+        isExternal
       >
-        <span>Editar artículo</span>
-        <span className="w-1.7">
+        <Text as="span">Editar artículo</Text>
+        <Text as="span" w="14px">
           <OctocatStrokeIcon />
-        </span>
-      </a>
-    </div>
+        </Text>
+      </Link>
+    </Flex>
   )
 }

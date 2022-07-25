@@ -1,5 +1,4 @@
 import * as React from 'react'
-import clsx from 'clsx'
 import { motion } from 'framer-motion'
 
 import { MOTION_TRANSITION, MOTION_WHILE_TYPE_VARIANT } from '~/lib/constants/motion'
@@ -18,8 +17,10 @@ export function MoonFillIcon(props: MoonFillIconProps) {
 
   return (
     <motion.svg
-      className={clsx('w-full', className)}
+      className={className}
       viewBox="0 0 28 28"
+      width="30px"
+      height="30px"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       variants={variants}

@@ -1,11 +1,20 @@
+import { Box } from '@chakra-ui/react'
+
 import NavbarDesktop from '~/components/navbar-desktop'
 import NavbarMobile from '~/components/navbar-mobile'
 
 export default function Navbar() {
   return (
-    <header className="sm:mt-4.5 dark:text-primary-200">
+    <Box
+      as="header"
+      textColor="primary.800"
+      mt={{ base: '0', sm: '36px' }}
+      _dark={{
+        textColor: 'primary.200',
+      }}
+    >
       <NavbarDesktop />
       <NavbarMobile />
-    </header>
+    </Box>
   )
 }

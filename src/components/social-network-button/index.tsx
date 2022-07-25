@@ -1,4 +1,5 @@
 import * as React from 'react'
+import { Link } from '@chakra-ui/react'
 
 interface SocialNetworkButtonProps {
   href: string
@@ -9,13 +10,28 @@ export function SocialNetworkButton(props: SocialNetworkButtonProps) {
   const { href, svgSocialNetwork } = props
 
   return (
-    <a
+    <Link
       href={href}
-      target="_blank"
       rel="noreferrer"
-      className="text-primary-600 dark:text-secondary bg-primary-100 dark:bg-secondary/10 w-11 sm:w-12 border-2 border-primary-600 dark:border-secondary rounded-md py-1 px-1.5 transition-opacity duration-200 hover:opacity-80"
+      w={{ base: '88px', sm: '96px' }}
+      py="2"
+      px="3"
+      bg="primary.100"
+      textColor="primary.600"
+      borderWidth="2px"
+      borderColor="primary.600"
+      borderRadius="md"
+      _dark={{
+        backgroundColor: 'transparent', // dar:bg-secondary/10
+        color: 'secondary.400',
+        borderColor: 'secondary.400',
+      }}
+      _hover={{
+        opacity: 0.8,
+      }}
+      isExternal
     >
       {svgSocialNetwork}
-    </a>
+    </Link>
   )
 }

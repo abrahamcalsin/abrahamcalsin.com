@@ -1,4 +1,5 @@
 import React from 'react'
+import { Container } from '@chakra-ui/react'
 import { motion } from 'framer-motion'
 
 import Footer from '~/components/footer'
@@ -25,11 +26,11 @@ export const MainLayout = (props: MainLayoutProps) => {
   }
 
   return (
-    <div>
-      <motion.main className="container pt-11 sm:pt-0" initial="initial" animate="animate" variants={variants}>
+    <Container maxW="52rem" pt={{ base: '88px', sm: '0px' }}>
+      <motion.main initial="initial" animate="animate" variants={variants}>
         {children}
       </motion.main>
       <Footer />
-    </div>
+    </Container>
   )
 }

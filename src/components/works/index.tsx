@@ -1,10 +1,11 @@
 import * as React from 'react'
+import { Box } from '@chakra-ui/react'
 
 import { WorkItem } from '~/components/work-item'
 
 export function Works() {
   return (
-    <div className="relative my-5.5 sm:my-9.5 timeline">
+    <Box position="relative" my={{ base: '44px', sm: '76px' }} className="timeline">
       <WorkItem
         date={new Date('1/04/2022')}
         title="React GitHub Fork Banner"
@@ -68,6 +69,6 @@ export function Works() {
         webHref="https://shadow.abrahamcalsin.com"
         repositoryHref="https://github.com/abrahamcalsin/shadow"
       />
-    </div>
+    </Box>
   )
 }

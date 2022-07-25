@@ -1,4 +1,5 @@
 import * as React from 'react'
+import { Box } from '@chakra-ui/react'
 import Link from 'next/link'
 
 import { Meta } from '~/components/meta'
@@ -24,7 +25,12 @@ const Uses = () => {
   return (
     <MainLayout>
       <Meta title="Usos" />
-      <div className="mt-0 sm:mt-11.2 sm:mb-3.7 text-primary-600 dark:text-inherit">
+      <Box
+        textColor="primary.600"
+        mt={{ base: '0', sm: '90px' }}
+        mb={{ base: '0', sm: '30px' }}
+        _dark={{ textColor: 'inherit' }}
+      >
         <TitleSection title="Usos" externalLinkButton={false} />
         <p>
           En esta sección verás una lista de programas que uso actualmente para mi trabajo diario como{' '}
@@ -122,7 +128,7 @@ const Uses = () => {
             <Hyperlink href="https://www.npmjs.com/package/git-cz">git-cz</Hyperlink>
           </li>
         </ul>
-      </div>
+      </Box>
     </MainLayout>
   )
 }

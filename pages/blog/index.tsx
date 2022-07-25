@@ -1,3 +1,4 @@
+import { Box, Text } from '@chakra-ui/react'
 import { allBlogs } from 'contentlayer/generated'
 
 import { AllArticles } from '~/components/all-articles'
@@ -18,14 +19,14 @@ const Blog = (props: BlogProps) => {
   return (
     <MainLayout>
       <Meta title="Blog" />
-      <div className="mt-0 sm:mt-11.2 sm:mb-3.7 text-primary-600 dark:text-inherit">
+      <Box mt={{ base: '0', sm: '90px' }} mb={{ base: '0', sm: '30px' }}>
         <TitleSection title="Blog" externalLinkButton={false} />
-        <p className="leading-6 sm:leading-9 font-medium mt-0.7 px-0">
+        <Text fontWeight="medium" lineHeight={{ base: '24px', sm: '36px' }} mt="6px" px="0">
           En esta sección puedes ver artículos sobre exploraciones del mundo del desarrollo web, tutoriales, guías
           prácticas. También escribo sobre diseño y experiencia de usuario/dev.
-        </p>
+        </Text>
         {allArticles.length >= 0 && <AllArticles articles={allArticles} />}
-      </div>
+      </Box>
     </MainLayout>
   )
 }

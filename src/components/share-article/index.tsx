@@ -1,3 +1,5 @@
+import { Flex, Link, Text } from '@chakra-ui/react'
+
 import { TwitterStrokeIcon } from '~/components/svgs/icons'
 
 interface ShareArticleProps {
@@ -9,18 +11,27 @@ export function ShareArticle(props: ShareArticleProps) {
   const { articleLink, articleTitle } = props
 
   return (
-    <div className="inline-flex items-center gap-x-1 text-inherit">
-      <a
-        className="flex items-center gap-x-0.7 not-italic text-sm mt-1 sm:mt-0 link-underline"
-        target="_blank"
-        rel="nofollow noopener noreferrer"
+    <Flex alignItems="center" columnGap="8px" textColor="inherit">
+      <Link
         href={`https://twitter.com/share?url=https://abrahamcalsin.com/blog/${articleLink}&text=" ${articleTitle} " por @abraham_calsin`}
+        rel="nofollow noopener noreferrer"
+        display="flex"
+        alignItems="center"
+        columnGap="6px"
+        fontSize="sm"
+        fontStyle="normal"
+        mt={{ base: '8px', sm: '0' }}
+        _hover={{
+          textDecoration: 'none',
+        }}
+        className="link-underline"
+        isExternal
       >
-        <span>Compartir artículo</span>
-        <span className="w-1.7">
+        <Text as="span">Compartir artículo</Text>
+        <Text as="span" w="14px">
           <TwitterStrokeIcon />
-        </span>
-      </a>
-    </div>
+        </Text>
+      </Link>
+    </Flex>
   )
 }
