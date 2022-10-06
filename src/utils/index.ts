@@ -1,4 +1,2 @@
-export const dateFormat = {
-  project: 'D MMM, YYYY',
-  article: 'MMMM D, YYYY',
-}
+export * from './date-format'
+export * from './get-random-colors'
