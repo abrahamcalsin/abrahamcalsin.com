@@ -3,7 +3,7 @@ interface Article {
   date: string
   content: string
   slug: string
-  readingTime: any
+  readingTime: string
 }
 
 export default Article
