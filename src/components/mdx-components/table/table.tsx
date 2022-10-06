@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { chakra } from '@chakra-ui/react'
 
-export function Table(props: any) {
+export function Table(props: React.ReactElement) {
   return (
     <chakra.div overflowX="auto">
       <chakra.table

@@ -1,8 +1,8 @@
-import { Box, Flex, Heading, Link, Text } from '@chakra-ui/react'
+import { CgCoffee } from 'react-icons/cg'
+import { Box, Flex, Heading, Icon, Link, Text } from '@chakra-ui/react'
 import RouterLink from 'next/link'
 
-import { DateFormatArticle } from '~/components/date-format-article'
-import { CoffeeStrokeIcon } from '~/components/svgs/icons'
+import { DateFormat } from '../date-format'
 
 interface ArticlePreviewProps {
   title: string
@@ -50,7 +50,7 @@ export function ArticlePreview(props: ArticlePreviewProps) {
             flexDirection={{ base: 'column', sm: 'row' }}
           >
             <Text w={{ base: 'auto', sm: '192px' }} fontSize="sm" mb={{ base: '0', sm: '1px' }}>
-              <DateFormatArticle dateArticle={date} />
+              <DateFormat date={date} locale="es" />
             </Text>
             <Heading
               as="h3"
@@ -78,7 +78,7 @@ export function ArticlePreview(props: ArticlePreviewProps) {
             fontWeight="regular"
             m="0"
           >
-            <CoffeeStrokeIcon className="w-2" />
+            <Icon w="4" height="full" as={CgCoffee} />
             <Text as="span">{readingTime}</Text>
           </Text>
         </Link>

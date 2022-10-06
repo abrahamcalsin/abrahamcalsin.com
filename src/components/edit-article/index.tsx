@@ -1,6 +1,5 @@
-import { Flex, Link, Text } from '@chakra-ui/react'
-
-import { OctocatStrokeIcon } from '~/components/svgs/icons'
+import { TbBrandGithub } from 'react-icons/tb'
+import { Flex, Icon, Link, Text } from '@chakra-ui/react'
 
 interface EditArticleProps {
   slug: string
@@ -27,8 +26,8 @@ export function EditArticle(props: EditArticleProps) {
         isExternal
       >
         <Text as="span">Editar artículo</Text>
-        <Text as="span" w="14px">
-          <OctocatStrokeIcon />
+        <Text as="span" w="4" display="inline-flex">
+          <Icon width="full" height="full" as={TbBrandGithub} />
         </Text>
       </Link>
     </Flex>

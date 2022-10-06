@@ -1,7 +1,7 @@
 import * as React from 'react'
 
 interface TruncateTextProps {
-  children: any
+  children: React.ReactElement
   className: string
 }
 

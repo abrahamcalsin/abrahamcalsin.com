@@ -1,6 +1,5 @@
-import { Flex, Link, Text } from '@chakra-ui/react'
-
-import { TwitterStrokeIcon } from '~/components/svgs/icons'
+import { TbBrandTwitter } from 'react-icons/tb'
+import { Flex, Icon, Link, Text } from '@chakra-ui/react'
 
 interface ShareArticleProps {
   articleLink: string
@@ -28,8 +27,8 @@ export function ShareArticle(props: ShareArticleProps) {
         isExternal
       >
         <Text as="span">Compartir artículo</Text>
-        <Text as="span" w="14px">
-          <TwitterStrokeIcon />
+        <Text as="span" w="4" display="inline-flex">
+          <Icon width="full" height="full" as={TbBrandTwitter} />
         </Text>
       </Link>
     </Flex>

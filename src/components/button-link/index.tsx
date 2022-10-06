@@ -31,7 +31,7 @@ export function ButtonLink({ label, icon, href }: ButtonLinkProps) {
         isExternal
       >
         {label}
-        <Text as="span" w="4" ml="1.5" display="inline-block">
+        <Text as="span" w="4" ml="1.5" display="inline-flex" alignItems="center">
           {icon}
         </Text>
       </Link>

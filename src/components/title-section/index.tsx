@@ -1,7 +1,6 @@
 import * as React from 'react'
-import { Flex, Heading, Link, Text } from '@chakra-ui/react'
-
-import { ExternalLinkIcon } from '~/components/svgs/icons'
+import { TbExternalLink } from 'react-icons/tb'
+import { Flex, Heading, Icon, Link, Text } from '@chakra-ui/react'
 
 export interface TitleSectionProps {
   title: string
@@ -39,7 +38,6 @@ export function TitleSection(props: TitleSectionProps) {
           bg="primary.100"
           textColor="primary.700"
           display="inline-flex"
-          alignItems="center"
           columnGap="6px"
           px="8px"
           py="4px"
@@ -63,7 +61,7 @@ export function TitleSection(props: TitleSectionProps) {
               {linkTextBold}
             </Text>
           )}
-          <ExternalLinkIcon />
+          <Icon width="4" height="full" as={TbExternalLink} />
         </Link>
       ) : null}
     </Flex>

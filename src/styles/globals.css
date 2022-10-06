@@ -83,40 +83,6 @@ ul li {
   @apply hover:bg-secondary-600 hover:text-primary-100;
 }
 
-.timeline::before {
-  content: '';
-  position: absolute;
-  top: 0px;
-  width: 5px;
-  height: 100%;
-  @apply bg-primary-700 dark:bg-primary-600;
-  left: 13px;
-}
-
-.arrow-left:after {
-  content: ' ';
-  transform: rotate(-90deg);
-
-  @apply absolute -right-1;
-  @apply bg-transparent;
-  @apply border-l-transparent border-r-transparent border-t-primary-700 dark:border-t-primary-600 border-b-transparent;
-  @apply border-l-8 border-r-8 border-t-6;
-}
-
-@screen sm {
-  .timeline::before {
-    left: 48px;
-  }
-  .w-710px {
-    width: 710px;
-  }
-
-  .arrow-left:after {
-    @apply -right-1.5;
-    @apply border-t-8 border-l-8 border-r-8;
-  }
-}
-
 /* React tooltip */
 .__react_component_tooltip.show {
   @apply dark:text-primary-100 dark:bg-primary-600 !important;

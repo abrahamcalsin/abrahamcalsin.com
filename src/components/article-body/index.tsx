@@ -1,11 +1,11 @@
 import * as React from 'react'
-import { Box, Divider, Flex, Heading } from '@chakra-ui/react'
+import { CgCoffee } from 'react-icons/cg'
+import { Box, Divider, Flex, Heading, Icon } from '@chakra-ui/react'
 
-import { DateFormatArticle } from '~/components/date-format-article'
+import { DateFormat } from '~/components/date-format'
 import { EditArticle } from '~/components/edit-article'
 import { MdxComponents } from '~/components/mdx-components/mdx-components'
 import { ShareArticle } from '~/components/share-article'
-import { CoffeeStrokeIcon } from '~/components/svgs/icons'
 
 interface ArticleBodyProps {
   title: string
@@ -44,10 +44,10 @@ export function ArticleBody(props: ArticleBodyProps) {
           }}
         >
           <div>
-            <DateFormatArticle dateArticle={date} />
+            <DateFormat date={date} locale="es" />
           </div>
           <Box display={{ base: 'none', sm: 'flex' }} alignItems="center" gap="8px">
-            <CoffeeStrokeIcon className="w-2" />
+            <Icon w="4" height="full" as={CgCoffee} />
             <span>{readingTime}</span>
           </Box>
         </Flex>

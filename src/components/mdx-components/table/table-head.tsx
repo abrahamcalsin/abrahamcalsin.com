@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { chakra } from '@chakra-ui/react'
 
-export function TableHead(props: any) {
+export function TableHead(props: React.ReactElement) {
   return (
     <chakra.th
       bg="primary.800"

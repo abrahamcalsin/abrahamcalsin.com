@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { chakra } from '@chakra-ui/react'
 
-export function TableCell(props: any) {
+export function TableCell(props: React.ReactElement) {
   return (
     <chakra.td
       fontSize="md"

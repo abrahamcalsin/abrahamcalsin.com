@@ -1,63 +1,65 @@
 import * as React from 'react'
-import ReactTooltip from 'react-tooltip'
-import { Text } from '@chakra-ui/react'
+import { FiDownload } from 'react-icons/fi'
+import { Icon, Text, Tooltip } from '@chakra-ui/react'
 
-import { DownloadStrokeIcon } from '~/components/svgs/icons'
-import { getAllDownloadsRGFB } from '~/services/package-downloads/get-all-downloads-rgfb'
+import { getAllPackageDownloads } from '~/services/get-all-package-downloads/get-all-package-downloads'
+import { numberFormat } from '~/utils/number-format'
 
 interface PackageDownloadsProps {
   visible?: boolean
+  packageName: string
 }
 
 export function PackageDownloads(props: PackageDownloadsProps) {
-  const { visible } = props
+  const { visible, packageName } = props
 
   const [data, setData] = React.useState<{
-    downloads: string
+    downloads: any
   } | null>(null)
 
   React.useEffect(() => {
-    getAllDownloadsRGFB().then(data => {
+    getAllPackageDownloads(packageName).then(data => {
       setData(data)
     })
   }, [])
 
   if (!data) return null
 
+  const format = numberFormat(data.downloads)
+
   return (
     <>
-      {visible ? (
-        <>
+      {visible && (
+        <Tooltip
+          label="Descargas del paquete en Npm"
+          placement="top"
+          aria-label="Descargas del paquete en Npm"
+          py="1"
+          px="1.5"
+          gutter={10}
+          bg="primary.700"
+          _dark={{
+            backgroundColor: 'primary.100',
+          }}
+        >
           <Text
-            data-for="connect-id"
-            data-tip="Descargas del paquete en Npm"
-            display={{ base: 'none', sm: 'inline-flex' }}
+            as="span"
+            display="inline-flex"
             alignItems="center"
-            columnGap="4px"
-            cursor="default"
+            ml="2"
+            gap="1.5"
+            fontSize="md"
+            fontWeight="medium"
             textColor="primary.400"
-            fontWeight={200}
-            mb="0"
-            ml="8px"
             _dark={{
               textColor: 'secondary.400',
             }}
           >
-            <DownloadStrokeIcon />
-            <Text as="span" display="inline-block" fontSize="md" fontWeight="medium">
-              {data.downloads}
-            </Text>
+            <Icon w="4" height="full" as={FiDownload} />
+            {format}
           </Text>
-          <ReactTooltip
-            id="connect-id"
-            className="font-regular"
-            delayHide={500}
-            textColor="#e6f1ff"
-            backgroundColor="#4c5772"
-            effect="solid"
-          />
-        </>
-      ) : null}
+        </Tooltip>
+      )}
     </>
   )
 }
