@@ -8,8 +8,6 @@ import { WorkItem } from '~/components/work-item'
 export function Content<T extends Record<string, any>>(props: ProjectsPageProps<T>) {
   const { projects } = props
 
-  console.log(projects)
-
   return (
     <Box mt={{ base: '0', sm: '90px' }} mb={{ base: '0', sm: '30px' }}>
       <TitleSection
