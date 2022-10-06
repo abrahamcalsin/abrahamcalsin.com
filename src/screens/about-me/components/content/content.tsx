@@ -1,10 +1,11 @@
 import * as React from 'react'
-import { Box, Grid, Heading, Link, Text } from '@chakra-ui/react'
+import { MdOutlineMarkEmailRead } from 'react-icons/md'
+import { TbBrandGithub, TbBrandLinkedin, TbBrandTwitter } from 'react-icons/tb'
+import { Box, Grid, Heading, Icon, Link, Text } from '@chakra-ui/react'
 import RouterLink from 'next/link'
 
 import { PillContactLink } from '~/components/pill-contact-link'
 import { PillTechnologies } from '~/components/pill-technologies'
-import { EmailStrokeIcon, LinkedinStrokeIcon, OctocatStrokeIcon, TwitterStrokeIcon } from '~/components/svgs/icons'
 import { TitleSection } from '~/components/title-section'
 
 export function Content() {
@@ -62,25 +63,25 @@ export function Content() {
         gap={{ base: '8px', sm: '24px' }}
       >
         <PillContactLink
-          svgIcon={<EmailStrokeIcon />}
+          svgIcon={<Icon width="full" height="full" as={MdOutlineMarkEmailRead} />}
           socialNetworkName="Email"
           href="mailto:hello.abrahamcalsin@gmail.com"
           username="@abrahamcalsin"
         />
         <PillContactLink
-          svgIcon={<LinkedinStrokeIcon />}
+          svgIcon={<Icon width="full" height="full" as={TbBrandLinkedin} />}
           socialNetworkName="LinkedIn"
           href="https://www.linkedin.com/in/abrahamcalsin"
           username="@abrahamcalsin"
         />
         <PillContactLink
-          svgIcon={<TwitterStrokeIcon />}
+          svgIcon={<Icon width="full" height="full" as={TbBrandTwitter} />}
           socialNetworkName="Twitter"
           href="https://twitter.com/abraham_calsin"
           username="@abraham_calsin"
         />
         <PillContactLink
-          svgIcon={<OctocatStrokeIcon />}
+          svgIcon={<Icon width="full" height="full" as={TbBrandGithub} />}
           socialNetworkName="GitHub"
           href="https://github.com/abrahamcalsin"
           username="@abrahamcalsin"

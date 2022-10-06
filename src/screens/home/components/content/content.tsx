@@ -1,9 +1,10 @@
 import * as React from 'react'
+import { FaGithub } from 'react-icons/fa'
+import { SiLinkedin } from 'react-icons/si'
 import { Box, Flex, Heading, Text } from '@chakra-ui/react'
 
 import QuoteAbrahamCalsin from '~/components/quote-abrahamcalsin'
 import { SocialNetworkButton } from '~/components/social-network-button'
-import { GithubSocialNetwork, LinkedinSocialNetwork } from '~/components/svgs'
 
 export function Content() {
   return (
@@ -28,10 +29,15 @@ export function Content() {
         </Text>
         <Flex justifyContent="start" gap="3">
           <SocialNetworkButton
+            socialNetworkName="Linkedin"
             href="https://www.linkedin.com/in/abrahamcalsin/"
-            svgSocialNetwork={<LinkedinSocialNetwork />}
+            socialNetworkIcon={SiLinkedin}
           />
-          <SocialNetworkButton href="https://github.com/abrahamcalsin" svgSocialNetwork={<GithubSocialNetwork />} />
+          <SocialNetworkButton
+            socialNetworkName="GitHub"
+            href="https://github.com/abrahamcalsin"
+            socialNetworkIcon={FaGithub}
+          />
         </Flex>
       </Box>
       <QuoteAbrahamCalsin />
