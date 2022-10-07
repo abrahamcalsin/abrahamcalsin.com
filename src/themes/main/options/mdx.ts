@@ -47,22 +47,22 @@ const mdx = {
     },
   },
   p: {
-    mb: { base: '16px', sm: '24px' },
+    mb: { base: '4', sm: '6' },
     fontSize: { base: 'md', sm: 'lg' },
     fontWeight: 'medium',
-    lineHeight: { base: '24px', sm: '36px' },
+    lineHeight: { base: '6', sm: '9' },
     'blockquote &': {
       mb: 0,
     },
   },
   hr: {
-    my: '2rem',
+    my: '8',
   },
   blockquote: {
     backgroundColor: 'white',
-    px: '25px',
-    py: '15px',
-    my: { base: '16px', sm: '30px' },
+    px: '6',
+    py: '3.5',
+    my: { base: '4', sm: '8' },
     fontStyle: 'italic',
     borderRadius: 'md',
     borderLeft: '4px solid',
@@ -72,18 +72,18 @@ const mdx = {
     },
   },
   ul: {
-    mb: { base: '16px', sm: '20px' },
-    ml: '40px',
+    mb: { base: '4', sm: '5' },
+    ml: '10',
     'blockquote &': { mt: 0 },
     '& > * + *': {
-      mt: '5px',
+      mt: '1',
     },
   },
   img: {
     display: 'block',
     mx: 'auto',
-    mb: '2rem',
-    borderRadius: '8px',
+    mb: '8',
+    borderRadius: '2',
   },
 }
 
