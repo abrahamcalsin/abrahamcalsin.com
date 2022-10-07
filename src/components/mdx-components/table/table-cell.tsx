@@ -8,7 +8,7 @@ export function TableCell(props: React.ReactElement) {
       fontWeight="normal"
       borderColor="primary.500"
       borderWidth="1px"
-      padding="10px"
+      padding="2.5"
       whiteSpace="normal"
       _dark={{
         borderColor: 'primary.700',

@@ -17,14 +17,14 @@ export function TitleSection(props: TitleSectionProps) {
     <Flex
       flexDirection={{ base: 'column', sm: 'row' }}
       alignItems={{ base: 'flex-start', sm: 'center' }}
-      columnGap="16px"
-      mb="16px"
+      columnGap="4"
+      mb="4"
     >
       <Heading
         as="h1"
         textColor="primary.800"
         fontWeight="black"
-        mb={{ base: '8px', sm: '0' }}
+        mb={{ base: '2', sm: '0' }}
         _dark={{
           color: 'primary.200',
         }}
@@ -39,8 +39,8 @@ export function TitleSection(props: TitleSectionProps) {
           textColor="primary.700"
           display="inline-flex"
           columnGap="6px"
-          px="8px"
-          py="4px"
+          px="2"
+          py="1"
           fontSize="sm"
           fontWeight="medium"
           borderWidth="1px"
@@ -49,7 +49,7 @@ export function TitleSection(props: TitleSectionProps) {
           transitionProperty="opacity"
           _hover={{ textDecoration: 'none', opacity: 0.8 }}
           _dark={{
-            bg: 'transparent', // dark:bg-secondary/10
+            bg: 'transparent',
             textColor: 'secondary.400',
             borderColor: 'secondary.400',
           }}

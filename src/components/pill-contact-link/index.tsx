@@ -16,10 +16,10 @@ export function PillContactLink(props: PillContactLinkProps) {
     <Link
       href={href}
       display="flex"
-      gap={{ base: '12px', sm: '14px' }}
+      gap={{ base: '3', sm: '3.5' }}
       bg="primary.100"
-      px={{ base: '12px', sm: '16px' }}
-      py={{ base: '8px', sm: '10px' }}
+      px={{ base: '3', sm: '4' }}
+      py={{ base: '2', sm: '2.5' }}
       borderRadius="md"
       borderWidth="1px"
       borderColor="primary.300"
@@ -39,10 +39,10 @@ export function PillContactLink(props: PillContactLinkProps) {
       </Text>
       <Flex flexDirection="column">
         <Text display="flex" alignItems="center" gap="1" mb="0" lineHeight="none">
-          <Text as="span" fontSize="sm" fontWeight="bold" mb="-1px">
+          <Text as="span" fontSize="sm" fontWeight="bold" mb="-0.5">
             {socialNetworkName}
           </Text>
-          <Text as="span" w={{ base: '14px', sm: '16px' }} display="inline-flex" textColor="secondary.400">
+          <Text as="span" w={{ base: '3.5', sm: '4' }} display="inline-flex" textColor="secondary.400">
             <Icon w="4" height="full" as={MdVerified} />
           </Text>
         </Text>
@@ -53,7 +53,6 @@ export function PillContactLink(props: PillContactLinkProps) {
           display="block"
           overflow="hidden"
           noOfLines={1}
-          mt="-1px"
         >
           {username}
         </Text>

@@ -9,7 +9,6 @@ import * as ga from '~/lib/ga'
 import { mainTheme } from '~/themes/main'
 
 import '~/styles/index.css'
-import '~/styles/scrollbar.css'
 import '~/styles/nprogress.css'
 
 function MyApp({ Component, pageProps }: AppProps) {

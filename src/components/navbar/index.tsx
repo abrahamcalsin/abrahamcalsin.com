@@ -8,7 +8,7 @@ export default function Navbar() {
     <Box
       as="header"
       textColor="primary.800"
-      mt={{ base: '0', sm: '36px' }}
+      mt={{ base: '0', sm: '9' }}
       _dark={{
         textColor: 'primary.200',
       }}

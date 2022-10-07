@@ -9,7 +9,7 @@ export function Content<T extends Record<string, any>>(props: ProjectsPageProps<
   const { projects } = props
 
   return (
-    <Box mt={{ base: '0', sm: '90px' }} mb={{ base: '0', sm: '30px' }}>
+    <Box mt={{ base: '0', sm: '20' }} mb={{ base: '0', sm: '8' }}>
       <TitleSection
         title="Proyectos"
         externalLinkButton={true}
@@ -17,10 +17,10 @@ export function Content<T extends Record<string, any>>(props: ProjectsPageProps<
         linkText="Puedes verlos todos en mi"
         linkTextBold="GitHub"
       />
-      <Text mt="6px" px="0" fontWeight="medium" lineHeight={{ base: '24px', sm: '36px' }}>
+      <Text mt="1.5" px="0" fontWeight="medium" lineHeight={{ base: '6', sm: '8' }}>
         En esta sección puedes ver algunos de mis proyectos más destacados.
       </Text>
-      <Box position="relative" my={{ base: '44px', sm: '76px' }} className="timeline">
+      <Box position="relative" my={{ base: '10', sm: '16' }}>
         {projects.map(project => (
           <WorkItem
             key={project.id}

@@ -9,16 +9,16 @@ export function EditArticle(props: EditArticleProps) {
   const { slug } = props
 
   return (
-    <Flex alignItems="center" columnGap="8px" textColor="inherit">
+    <Flex alignItems="center" columnGap="2" textColor="inherit">
       <Link
         href={`https://github.com/abrahamcalsin/abrahamcalsin.com/edit/main/data/blog/${slug}.mdx`}
         rel="nofollow noopener noreferrer"
         display="flex"
         alignItems="center"
-        columnGap="6px"
+        columnGap="1.5"
         fontSize="sm"
         fontStyle="normal"
-        mt={{ base: '8px', sm: '0' }}
+        mt={{ base: '2', sm: '0' }}
         _hover={{
           textDecoration: 'none',
         }}

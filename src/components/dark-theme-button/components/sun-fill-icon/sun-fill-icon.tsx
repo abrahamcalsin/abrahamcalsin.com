@@ -1,12 +1,7 @@
 import * as React from 'react'
-import clsx from 'clsx'
 import { motion } from 'framer-motion'
 
 import { MOTION_TRANSITION, MOTION_WHILE_TYPE_VARIANT } from '~/lib/constants/motion'
-
-interface SunFillIconProps {
-  className?: string
-}
 
 const variants = {
   initial: { opacity: 0, scale: 0 },
@@ -18,15 +13,12 @@ const rayVariants = {
   animate: { opacity: 1, scale: 1, rotate: 0, transition: MOTION_TRANSITION },
 }
 
-export function SunFillIcon(props: SunFillIconProps) {
-  const { className } = props
-
+export function SunFillIcon() {
   return (
     <motion.svg
-      className={clsx('dark:text-secondary', className)}
       viewBox="0 0 30 28"
-      width="30px"
-      height="30px"
+      width="28"
+      height="28"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       whileTap={MOTION_WHILE_TYPE_VARIANT}

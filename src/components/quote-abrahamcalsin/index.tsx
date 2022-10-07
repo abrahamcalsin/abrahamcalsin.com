@@ -8,17 +8,17 @@ export default function QuoteAbrahamCalsin() {
     <Flex
       maxW="550px"
       gap="5"
-      bg="whiteAlpha.600" // bg-white/50
+      bg="whiteAlpha.600"
       textColor="primary.600"
       fontSize={{ base: 'sm', sm: 'lg' }}
-      p={{ base: '20px', sm: '36px' }}
-      my={{ base: '52px', sm: '90px' }}
+      p={{ base: '5', sm: '9' }}
+      my={{ base: '14', sm: '24' }}
       mx="auto"
       borderWidth="1px"
       borderColor="primary.600"
       borderRadius="md"
       _dark={{
-        bg: 'transparent', // dark:bg-secondary/10
+        bg: 'transparent',
         color: 'secondary.400',
         borderColor: 'secondary.400',
       }}
@@ -35,7 +35,9 @@ export default function QuoteAbrahamCalsin() {
       >
         Todo lo que hagas con esfuerzo y sacrificio, lo obtendras con beneficios; ¡No te rindas!.
         <br />
-        <b className="block mt-1">— Abraham Calsin</b>
+        <Text as="span" fontWeight="bold" display="block" mt="2">
+          — Abraham Calsin
+        </Text>
       </Text>
     </Flex>
   )

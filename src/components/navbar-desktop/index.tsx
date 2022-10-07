@@ -20,8 +20,16 @@ function NavigationLink(props: NavigationLinkProps) {
   const isActive = router.pathname === href
 
   return (
-    <RouterLink href={href}>
-      <a className={clsx('hover:text-secondary', isActive && 'pointer-events-none text-secondary')}>{textLink}</a>
+    <RouterLink href={href} passHref>
+      <Link
+        _hover={{
+          textColor: 'secondary.400',
+        }}
+        pointerEvents={isActive ? 'none' : undefined}
+        textColor={clsx(isActive && 'secondary.400')}
+      >
+        {textLink}
+      </Link>
     </RouterLink>
   )
 }
@@ -30,11 +38,11 @@ export default function NavbarDesktop() {
   return (
     <Container maxW="52rem" display={{ base: 'none', sm: 'flex' }} justifyContent="space-between" alignItems="center">
       <RouterLink href="/" passHref>
-        <Link className="w-11.2">
-          <LogoAbrahamCalsin className="w-full" />
+        <Link width="20">
+          <LogoAbrahamCalsin />
         </Link>
       </RouterLink>
-      <Flex alignItems="center" fontSize="lg" fontWeight="bold" columnGap="24px">
+      <Flex alignItems="center" fontSize="lg" fontWeight="bold" columnGap="5">
         <NavigationLink href="/" textLink="Inicio" />
         <NavigationLink href="/about-me" textLink="Sobre Mi" />
         <NavigationLink href="/projects" textLink="Proyectos" />

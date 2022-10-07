@@ -8,7 +8,7 @@ export function TableHead(props: React.ReactElement) {
       fontSize="md"
       textColor="primary.400"
       fontWeight="bold"
-      padding="10px"
+      padding="2.5"
       borderColor="primary.600"
       borderWidth="1px"
       _dark={{

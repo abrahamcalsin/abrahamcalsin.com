@@ -78,20 +78,14 @@ ul li {
 
 /* Other */
 .link-underline {
-  @apply border-b-2 border-secondary-600;
-  @apply text-inherit font-semiBold px-0.5 py-px transition-colors;
-  @apply hover:bg-secondary-600 hover:text-primary-100;
+  border-bottom-width: 2px;
+  border-color: var(--abraham-colors-secondary-600);
+  color: inherit;
+  font-weight: 600;
+  padding: 1px var(--abraham-space-1);
+  transition: 150ms background-color, border-color, color, fill, stroke cubic-bezier(0.4, 0, 0.2, 1);
 }
-
-/* React tooltip */
-.__react_component_tooltip.show {
-  @apply dark:text-primary-100 dark:bg-primary-600 !important;
-}
-
-.__react_component_tooltip {
-  @apply px-2 py-0.5 !important;
-}
-
-.place-top::after {
-  @apply dark:border-t-primary-600 !important;
+.link-underline:hover {
+  background: var(--abraham-colors-secondary-600);
+  color: var(--abraham-colors-primary-100);
 }

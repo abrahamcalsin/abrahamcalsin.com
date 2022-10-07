@@ -6,7 +6,7 @@ export function Table(props: React.ReactElement) {
     <chakra.div overflowX="auto">
       <chakra.table
         textAlign="left"
-        mb="16px"
+        mb="4"
         width="full"
         borderColor="primary.500"
         borderWidth="1px"

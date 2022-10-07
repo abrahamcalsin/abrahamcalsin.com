@@ -3,24 +3,17 @@ import { motion } from 'framer-motion'
 
 import { MOTION_TRANSITION, MOTION_WHILE_TYPE_VARIANT } from '~/lib/constants/motion'
 
-interface MoonFillIconProps {
-  className?: string
-}
-
 const variants = {
   initial: { opacity: 0, scale: 0.8, originX: 'center', originY: 'center', rotate: -80 },
   animate: { opacity: 1, scale: 1, rotate: 0, transition: MOTION_TRANSITION },
 }
 
-export function MoonFillIcon(props: MoonFillIconProps) {
-  const { className } = props
-
+export function MoonFillIcon() {
   return (
     <motion.svg
-      className={className}
       viewBox="0 0 28 28"
-      width="30px"
-      height="30px"
+      width="28"
+      height="28"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       variants={variants}

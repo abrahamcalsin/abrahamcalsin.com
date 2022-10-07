@@ -1,8 +1,9 @@
 import * as React from 'react'
+import { chakra } from '@chakra-ui/react'
 
 export function ProjectsIcon() {
   return (
-    <svg className="block w-2.2" viewBox="0 0 19 19" xmlns="http://www.w3.org/2000/svg">
+    <chakra.svg display="block" width="4" viewBox="0 0 19 19" xmlns="http://www.w3.org/2000/svg">
       <path
         d="M1.24461 4.30554C1.24461 1.82618 1.27115 1 4.55014 1C7.82913 1 7.85568 1.82618 7.85568 4.30554C7.85568 6.78489 7.86614 7.61108 4.55014 7.61108C1.23415 7.61108 1.24461 6.78489 1.24461 4.30554Z"
         stroke="currentColor"
@@ -23,6 +24,6 @@ export function ProjectsIcon() {
         stroke="currentColor"
         strokeWidth="1.3842"
       />
-    </svg>
+    </chakra.svg>
   )
 }

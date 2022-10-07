@@ -17,7 +17,7 @@ const custom404 = () => {
         fontWeight="black"
         textAlign="center"
         mx="auto"
-        my={{ base: '0px', sm: '104px' }}
+        my={{ base: '0', sm: '24' }}
         _dark={{
           textColor: 'primary.400',
         }}
@@ -28,13 +28,14 @@ const custom404 = () => {
         <Text>Página No Encontrada</Text>
         <RouterLink href="/">
           <Link
-            w={{ base: '204px', sm: '250px' }}
+            maxWidth="full"
+            width={{ base: '48', sm: '60' }}
             bg="secondary.400"
             textColor="main"
             fontSize="md"
-            mt="18px"
-            py="12px"
-            px="18px"
+            mt="4"
+            py="3"
+            px="4"
             borderRadius="full"
             boxShadow="lg"
             transitionProperty="opacity"

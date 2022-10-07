@@ -9,12 +9,12 @@ import { SocialNetworkButton } from '~/components/social-network-button'
 export function Content() {
   return (
     <Box textColor="primary.500">
-      <Box textAlign="left" pt={{ base: '0px', sm: '90px' }} lineHeight={{ base: '28px', sm: '40px' }}>
+      <Box textAlign="left" pt={{ base: '0', sm: '20' }} lineHeight={{ base: '7', sm: '10' }}>
         <Text fontWeight="semibold">Hola, mi nombre es</Text>
         <Heading
           as="h1"
           textColor="primary.800"
-          fontSize={{ base: '3xl', sm: '36px' }}
+          fontSize={{ base: '3xl', sm: '4xl' }}
           fontWeight="extrabold"
           my="1"
           _dark={{ color: 'primary.200' }}

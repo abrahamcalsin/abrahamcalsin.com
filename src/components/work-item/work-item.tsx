@@ -42,7 +42,7 @@ export function WorkItem(props: WorkItemProps) {
   }, [type])
 
   return (
-    <Flex gap={{ base: '18px', sm: '30px' }} mb="52px">
+    <Flex gap={{ base: '5', sm: '7' }} mb="14">
       <div>
         <Flex
           justifyContent="center"
@@ -78,13 +78,13 @@ export function WorkItem(props: WorkItemProps) {
           </Box>
         </Flex>
       </div>
-      <Box mt="2px" fontSize="sm">
+      <Box mt="0.5" fontSize="sm">
         <Heading
           as="h3"
           fontSize={{ base: 'xl', sm: '2xl' }}
           textColor="primary.700"
           fontWeight="black"
-          mb="8px"
+          mb="2"
           _dark={{
             color: 'primary.300',
           }}
@@ -104,14 +104,14 @@ export function WorkItem(props: WorkItemProps) {
           {packageDownloads && <PackageDownloads packageName="react-github-fork-banner" visible={packageDownloads} />}
         </Heading>
         <Text fontWeight="medium">{description}</Text>
-        <Box className="font-robotoMono" my="2.5" display="flex" flexWrap="wrap" gap="2">
+        <Box fontFamily="robotoMono" mt="2.5" mb="1.5" display="flex" flexWrap="wrap" gap="2">
           {tags.map(item => (
             <Badge key={item} fontSize="sm" variant="subtle" colorScheme={getRandomBadgeColors()} opacity="0.8">
               {item}
             </Badge>
           ))}
         </Box>
-        <Flex gap="8px" flexWrap="wrap" fontSize={{ base: 'xs', sm: 'sm' }} fontWeight="bold">
+        <Flex gap="2" flexWrap="wrap" fontSize={{ base: 'xs', sm: 'sm' }} fontWeight="bold">
           {webHref && (
             <ButtonLink href={webHref} label="DEMO" icon={<Icon width="4" height="full" as={TbExternalLink} />} />
           )}

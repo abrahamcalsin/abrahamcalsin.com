@@ -11,23 +11,22 @@ import { AboutMeIcon, BlogStrokeIcon, HomeIcon, ProjectsIcon } from '~/component
 function NavigationTop() {
   return (
     <Flex
-      w="100%"
-      h="52px" // h-6.5
-      bg="main" // bg-main/70
-      backdropFilter="blur(12px)"
+      w="full"
+      h="12"
+      bg="main"
       position="fixed"
       borderBottom="1px"
       borderColor="primary.400"
       zIndex="10"
       _dark={{
-        bg: 'primary.900', // dark:bg-primary-900/70
+        bg: 'primary.900',
         borderColor: 'primary.700',
       }}
     >
       <Container maxW="52rem" w="100%" display="flex" justifyContent="space-between" alignItems="center">
         <RouterLink href="/" passHref>
-          <Link className="w-9.5">
-            <LogoAbrahamCalsin className="w-full" />
+          <Link width="20">
+            <LogoAbrahamCalsin />
           </Link>
         </RouterLink>
         <DarkThemeButton />
@@ -38,31 +37,44 @@ function NavigationTop() {
 
 interface NavigationBottomProps {
   href: string
-  svgIcon: React.ReactElement
-  textLink: string
+  icon: React.ReactElement
+  linkLabel: string
 }
 
 function NavigationBottom(props: NavigationBottomProps) {
-  const { href, svgIcon, textLink } = props
+  const { href, icon, linkLabel } = props
 
   const router = useRouter()
 
-  const isActiveSelect = router.pathname === href
+  const isActive = router.pathname === href
 
   return (
     <RouterLink href={href} passHref>
-      <a
-        className={clsx(
-          'flex justify-center items-center h-full w-7.7 text-xs border-t-4 border-primary-800 dark:border-primary-200 flex-col fill-current',
-          !isActiveSelect &&
-            'text-primary-500 dark:text-primary-600 border-t-primary/0 dark:border-t-white/0 fill-transparent',
-        )}
+      <Link
+        display="flex"
+        justifyContent="center"
+        alignItems="center"
+        flexDirection="column"
+        fill={clsx(!isActive ? 'transparent' : 'currentcolor')}
+        width="16"
+        height="full"
+        fontSize="xs"
+        borderTopWidth="4px"
+        borderColor={clsx(!isActive ? 'primary.300' : 'primary.800')}
+        textColor={clsx(!isActive && 'primary.500')}
+        _hover={{
+          textDecor: 'none',
+        }}
+        _dark={{
+          borderColor: `${clsx(!isActive ? 'primary.800' : 'inherit')}`,
+          textColor: `${clsx(!isActive && 'primary.600')}`,
+        }}
       >
-        {svgIcon}
-        <Text as="span" fontWeight="bold" pt="2px">
-          {textLink}
+        {icon}
+        <Text as="span" fontWeight="bold" pt="0.5">
+          {linkLabel}
         </Text>
-      </a>
+      </Link>
     </RouterLink>
   )
 }
@@ -72,25 +84,24 @@ export default function NavbarMobile() {
     <Box display={{ base: 'inline', sm: 'none' }}>
       <NavigationTop />
       <Flex
-        w="100%"
-        h="60px" // h-6.5
+        w="full"
+        h="14"
         justifyContent="space-evenly"
-        bg="main" // bg-main/70
-        backdropFilter="blur(12px)"
+        bg="main"
         position="fixed"
         bottom="0"
         borderTop="1px"
         borderColor="primary.400"
         zIndex="20"
         _dark={{
-          bg: 'primary.900', // dark:bg-primary-900/70
+          bg: 'primary.900',
           borderColor: 'primary.700',
         }}
       >
-        <NavigationBottom href="/" svgIcon={<HomeIcon />} textLink="Inicio" />
-        <NavigationBottom href="/about-me" svgIcon={<AboutMeIcon />} textLink="Sobre mi" />
-        <NavigationBottom href="/projects" svgIcon={<ProjectsIcon />} textLink="Proyectos" />
-        <NavigationBottom href="/blog" svgIcon={<BlogStrokeIcon />} textLink="Blog" />
+        <NavigationBottom href="/" icon={<HomeIcon />} linkLabel="Inicio" />
+        <NavigationBottom href="/about-me" icon={<AboutMeIcon />} linkLabel="Sobre mi" />
+        <NavigationBottom href="/projects" icon={<ProjectsIcon />} linkLabel="Proyectos" />
+        <NavigationBottom href="/blog" icon={<BlogStrokeIcon />} linkLabel="Blog" />
       </Flex>
     </Box>
   )

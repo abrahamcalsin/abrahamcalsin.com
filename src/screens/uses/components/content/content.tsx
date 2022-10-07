@@ -33,8 +33,8 @@ export function Content() {
   return (
     <Box
       textColor="primary.600"
-      mt={{ base: '0', sm: '90px' }}
-      mb={{ base: '0', sm: '30px' }}
+      mt={{ base: '0', sm: '20' }}
+      mb={{ base: '0', sm: '8' }}
       _dark={{ textColor: 'inherit' }}
     >
       <TitleSection title="Usos" externalLinkButton={false} />

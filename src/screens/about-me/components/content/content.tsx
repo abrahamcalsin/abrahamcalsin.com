@@ -10,7 +10,7 @@ import { TitleSection } from '~/components/title-section'
 
 export function Content() {
   return (
-    <Box mt={{ base: '0', sm: '90px' }} mb={{ base: '0', sm: '30px' }}>
+    <Box mt={{ base: '0', sm: '20' }} mb={{ base: '0', sm: '7' }}>
       <TitleSection
         title="Sobre Mi"
         externalLinkButton={true}
@@ -27,7 +27,16 @@ export function Content() {
         proponiéndome retos, los cuales me enseñaron a corregir mis propios errores al desarrollar un Sitio Web. Puedes
         ver mi trabajo en la sección de
         <RouterLink href="/projects">
-          <Link className="font-bold link-underline ml-0.7">Proyectos.</Link>
+          <Link
+            fontWeight="bold"
+            ml="1.5"
+            className="link-underline"
+            _hover={{
+              textDecor: 'none',
+            }}
+          >
+            Proyectos.
+          </Link>
         </RouterLink>
       </Text>
       <Heading
@@ -60,7 +69,7 @@ export function Content() {
       <Grid
         mt="3"
         templateColumns={{ base: 'repeat(2, 1fr)', sm: 'repeat(auto-fill, minmax(12rem, 1fr))' }}
-        gap={{ base: '8px', sm: '24px' }}
+        gap={{ base: '2', sm: '6' }}
       >
         <PillContactLink
           svgIcon={<Icon width="full" height="full" as={MdOutlineMarkEmailRead} />}

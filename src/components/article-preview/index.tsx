@@ -2,7 +2,7 @@ import { CgCoffee } from 'react-icons/cg'
 import { Box, Flex, Heading, Icon, Link, Text } from '@chakra-ui/react'
 import RouterLink from 'next/link'
 
-import { DateFormat } from '../date-format'
+import { DateFormat } from '~/components/date-format'
 
 interface ArticlePreviewProps {
   title: string
@@ -33,7 +33,7 @@ export function ArticlePreview(props: ArticlePreviewProps) {
           display="flex"
           justifyContent="space-between"
           alignItems="center"
-          gap="16px"
+          gap="4"
           py="3"
           textDecoration="none"
           textColor="inherit"
@@ -49,7 +49,7 @@ export function ArticlePreview(props: ArticlePreviewProps) {
             }}
             flexDirection={{ base: 'column', sm: 'row' }}
           >
-            <Text w={{ base: 'auto', sm: '192px' }} fontSize="sm" mb={{ base: '0', sm: '1px' }}>
+            <Text w={{ base: 'auto', sm: '44' }} fontSize="sm" mb={{ base: '0', sm: '0.25' }}>
               <DateFormat date={date} locale="es" />
             </Text>
             <Heading
@@ -70,10 +70,10 @@ export function ArticlePreview(props: ArticlePreviewProps) {
             </Heading>
           </Flex>
           <Text
-            w="128px"
+            w="28"
             display={{ base: 'none', sm: 'flex' }}
             alignItems="center"
-            gap="8px"
+            gap="2"
             fontSize="sm"
             fontWeight="regular"
             m="0"

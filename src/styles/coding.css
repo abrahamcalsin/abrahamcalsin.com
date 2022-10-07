@@ -8,15 +8,18 @@ pre {
   border-radius: 6px;
   box-shadow: 0 10px 30px rgba(38, 40, 61, 0.3);
 }
+
 code:not(:where([class*='language-'])) {
   color: #00b854;
   font-weight: 900;
   font-size: 16px !important;
   padding: 1px;
 }
+
 code:not(:where([class*='language-']))::before {
   content: '`';
 }
+
 code:not(:where([class*='language-']))::after {
   content: '`';
 }
@@ -37,13 +40,6 @@ code:not(:where([class*='language-']))::after {
   margin-top: 0px !important;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
-}
-
-@media (min-width: 768px) {
-  .rehype-code-title {
-    margin-left: -1.5rem;
-    margin-right: -1.5rem;
-  }
 }
 
 /**

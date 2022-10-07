@@ -24,7 +24,7 @@ export function ButtonLink({ label, icon, href }: ButtonLinkProps) {
         fontWeight="bold"
         textDecoration="underline"
         _dark={{
-          bg: 'transparent', // dark:bg-secondary/10
+          bg: 'transparent',
           color: 'secondary.400',
           borderColor: 'secondary.400',
         }}

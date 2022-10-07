@@ -26,7 +26,7 @@ export const MainLayout = (props: MainLayoutProps) => {
   }
 
   return (
-    <Container maxW="52rem" pt={{ base: '88px', sm: '0px' }}>
+    <Container maxW="52rem" pt={{ base: '20', sm: '0' }}>
       <motion.main initial="initial" animate="animate" variants={variants}>
         {children}
       </motion.main>

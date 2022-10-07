@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { CgCoffee } from 'react-icons/cg'
-import { Box, Divider, Flex, Heading, Icon } from '@chakra-ui/react'
+import { Box, Divider, Flex, Heading, Icon, Text } from '@chakra-ui/react'
 
 import { DateFormat } from '~/components/date-format'
 import { EditArticle } from '~/components/edit-article'
@@ -20,7 +20,7 @@ export function ArticleBody(props: ArticleBodyProps) {
   const { title, date, content, articleSlug, shareTitle, readingTime } = props
 
   return (
-    <Box my={{ base: '0', sm: '76px' }}>
+    <Box my={{ base: '0', sm: '16' }}>
       <div>
         <Heading
           as="h1"
@@ -37,8 +37,8 @@ export function ArticleBody(props: ArticleBodyProps) {
           justifyContent="space-between"
           textColor="primary.600"
           fontSize={{ base: 'sm', sm: 'md' }}
-          mt={{ base: '16px', sm: '28px' }}
-          mb="16px"
+          mt={{ base: '4', sm: '7' }}
+          mb="4"
           _dark={{
             textColor: 'primary.400',
           }}
@@ -46,7 +46,7 @@ export function ArticleBody(props: ArticleBodyProps) {
           <div>
             <DateFormat date={date} locale="es" />
           </div>
-          <Box display={{ base: 'none', sm: 'flex' }} alignItems="center" gap="8px">
+          <Box display={{ base: 'none', sm: 'flex' }} alignItems="center" gap="2">
             <Icon w="4" height="full" as={CgCoffee} />
             <span>{readingTime}</span>
           </Box>
@@ -56,23 +56,24 @@ export function ArticleBody(props: ArticleBodyProps) {
         w="full"
         maxWidth="none"
         textColor="primary.600"
-        mt={{ base: '20px', sm: '28px' }}
+        mt={{ base: '5', sm: '7' }}
         _dark={{
           textColor: 'primary.400',
         }}
       >
         <MdxComponents rawContent={content} />
       </Box>
-      <Divider my="25px" borderColor="primary.400" _dark={{ borderColor: 'primary.600' }} />
+      <Divider my="7" borderColor="primary.400" _dark={{ borderColor: 'primary.600' }} />
       <Flex
-        columnGap="1px"
+        alignItems="center"
+        columnGap="2"
         textColor="primary.600"
         _dark={{
           textColor: 'primary.400',
         }}
       >
         <ShareArticle articleLink={articleSlug} articleTitle={shareTitle} />
-        <span className="mx-1">•</span>
+        <Text as="span">•</Text>
         <EditArticle slug={articleSlug} />
       </Flex>
     </Box>
