@@ -24,6 +24,7 @@ module.exports = {
       version: 'detect',
     },
   },
+  ignorePatterns: ['!.storybook'],
   plugins: ['react', '@typescript-eslint'],
   rules: {
     'react/react-in-jsx-scope': RULES.OFF,
