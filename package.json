@@ -8,17 +8,15 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint --max-warnings=0 --ignore-path .gitignore --ext .js,.jsx,.ts,.tsx .",
-    "lint:fix": "yarn lint -- --fix",
+    "lint:fix": "pnpm run lint -- --fix",
     "prettier": "prettier --ignore-path .gitignore \"**/*.{js,json,ts,tsx,scss,css,md}\"",
-    "format": "yarn prettier -- --write",
-    "check:format": "yarn prettier -- --list-different",
+    "format": "pnpm run prettier -- --write",
+    "check:format": "pnpm run prettier -- --list-different",
     "clean": "rimraf -rf .next .contentlayer",
     "contentlayer:build": "./node_modules/.bin/contentlayer build",
     "prepare": "husky install",
-    "storybook": "yarn run-s storybook:clean storybook:dev",
-    "storybook:build": "yarn build-storybook -s public -o storybook-build",
-    "storybook:clean": "yarn rimraf -r node_modules/.cache storybook-build",
-    "storybook:dev": "yarn start-storybook -p 6006 -s ./public"
+    "storybook:dev": "start-storybook -p 6006",
+    "storybook:build": "build-storybook -s public -o storybook-build"
   },
   "dependencies": {
     "@chakra-ui/react": "^2.2.1",
