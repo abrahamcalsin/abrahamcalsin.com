@@ -11,15 +11,19 @@ jobs:
   deploy:
     runs-on: ubuntu-18.04
     steps:
-      - uses: actions/checkout@v3
+      - name: Check Code
+        uses: actions/checkout@v3
+
+      - name: Install Pnpm
+        uses: pnpm/action-setup@v2.2.2
         with:
-          fetch-depth: 0
-      - uses: actions/setup-node@v3
+          version: ${{ matrix.pnpm }}
+
+      - name: Setup Node (${{ matrix.node }})
+        uses: actions/setup-node@v3
         with:
-          node-version: 16
+          node-version: ${{ matrix.node }}
+          cache: pnpm
+
       - name: Install dependencies
         run: pnpm install
-      - name: Format
-        run: pnpm run check:format
-      - name: Lint
-        run: pnpm lint
