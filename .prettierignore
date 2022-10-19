@@ -45,7 +45,7 @@ theme-preview-build
 
 data
 temp
-content
+# content
 mockServiceWorker.js
 cypress/videos
 cypress/screenshots
