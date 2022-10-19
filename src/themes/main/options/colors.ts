@@ -1,7 +1,7 @@
 const colors = {
   inherit: 'inherit',
   transparent: 'transparent',
-  main: '#EFF2FA',
+  main: '#f6f6ff',
   primary: {
     50: '#edf8ff',
     100: '#e6f1ff',

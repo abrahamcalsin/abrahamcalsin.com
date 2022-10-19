@@ -1,5 +1,6 @@
 import { extendTheme } from '@chakra-ui/react'
 
+import { buttonStyles as button } from './components/buttonStyles'
 import colors from './options/colors'
 import config from './options/config'
 import fontSizes from './options/font-sizes'
@@ -16,6 +17,9 @@ const mainTheme = extendTheme({
   fontSizes,
   colors,
   mdx,
+  components: {
+    Button: { ...button },
+  },
 })
 
 export default mainTheme
