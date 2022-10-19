@@ -4,7 +4,7 @@ import type { AppProps } from 'next/dist/shared/lib/router/router'
 import { useRouter } from 'next/router'
 import NProgress from 'nprogress'
 
-import Navbar from '~/components/navbar'
+import { Navbar } from '~/layouts/main/components/navbar'
 import * as ga from '~/lib/ga'
 import { mainTheme } from '~/themes/main'
 

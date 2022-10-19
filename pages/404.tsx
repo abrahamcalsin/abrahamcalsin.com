@@ -2,7 +2,7 @@ import { Flex, Heading, Link, Text } from '@chakra-ui/react'
 import RouterLink from 'next/link'
 
 import { Meta } from '~/components/meta'
-import { MainLayout } from '~/layouts/main.layout'
+import { MainLayout } from '~/layouts/main'
 
 const custom404 = () => {
   return (

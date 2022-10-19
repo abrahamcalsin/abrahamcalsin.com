@@ -1,8 +1,8 @@
 import * as React from 'react'
-import { Box, Text } from '@chakra-ui/react'
+import { Box, Link, Text } from '@chakra-ui/react'
 import { ProjectsPageProps } from 'pages/projects'
 
-import { TitleSection } from '~/components/title-section'
+import { Introduction } from '~/components/introduction'
 import { WorkItem } from '~/components/work-item'
 
 export function Content<T extends Record<string, any>>(props: ProjectsPageProps<T>) {
@@ -10,16 +10,21 @@ export function Content<T extends Record<string, any>>(props: ProjectsPageProps<
 
   return (
     <Box mt={{ base: '0', sm: '20' }} mb={{ base: '0', sm: '8' }}>
-      <TitleSection
-        title="Proyectos"
-        externalLinkButton={true}
-        href="https://github.com/abrahamcalsin"
-        linkText="Puedes verlos todos en mi"
-        linkTextBold="GitHub"
-      />
-      <Text mt="1.5" px="0" fontWeight="medium" lineHeight={{ base: '6', sm: '8' }}>
-        En esta sección puedes ver algunos de mis proyectos más destacados.
-      </Text>
+      <Introduction title="Proyectos">
+        <Text fontWeight="medium" lineHeight={{ base: '6', sm: '8' }}>
+          En esta sección puedes ver algunos de mis proyectos más destacados.{' '}
+          <Link
+            href="https://github.com/abrahamcalsin"
+            className="link-underline"
+            _hover={{
+              textDecor: 'none',
+            }}
+            isExternal
+          >
+            Puedes verlos todos en mi GitHub.
+          </Link>
+        </Text>
+      </Introduction>
       <Box position="relative" my={{ base: '10', sm: '16' }}>
         {projects.map(project => (
           <WorkItem

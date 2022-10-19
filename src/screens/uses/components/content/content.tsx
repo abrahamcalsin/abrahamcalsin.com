@@ -2,7 +2,7 @@ import * as React from 'react'
 import { Box, Heading, Link, ListItem, Text, UnorderedList } from '@chakra-ui/react'
 import RouterLink from 'next/link'
 
-import { TitleSection } from '~/components/title-section'
+import { Introduction } from '~/components/introduction'
 
 interface HyperlinkProps {
   href: string
@@ -37,11 +37,12 @@ export function Content() {
       mb={{ base: '0', sm: '8' }}
       _dark={{ textColor: 'inherit' }}
     >
-      <TitleSection title="Usos" externalLinkButton={false} />
-      <Text>
-        En esta sección verás una lista de programas que uso actualmente para mi trabajo diario como{' '}
-        <b>Frontend Developer.</b>
-      </Text>
+      <Introduction title="Usos">
+        <Text>
+          En esta sección verás una lista de programas que uso actualmente para mi trabajo diario como{' '}
+          <b>Frontend Developer.</b>
+        </Text>
+      </Introduction>
       <Heading
         as="h3"
         fontSize="2xl"

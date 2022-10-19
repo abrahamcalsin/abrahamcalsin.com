@@ -2,7 +2,7 @@ import React from 'react'
 import { Container } from '@chakra-ui/react'
 import { motion } from 'framer-motion'
 
-import Footer from '~/components/footer'
+import { Footer } from './components/footer'
 
 type MainLayoutProps = {
   children: React.ReactNode

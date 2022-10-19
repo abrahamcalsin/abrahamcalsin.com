@@ -1,23 +1,19 @@
 import * as React from 'react'
+import { FaReact } from 'react-icons/fa'
 import { MdOutlineMarkEmailRead } from 'react-icons/md'
+import { SiNextdotjs, SiTypescript, SiVercel } from 'react-icons/si'
 import { TbBrandGithub, TbBrandLinkedin, TbBrandTwitter } from 'react-icons/tb'
-import { Box, Grid, Heading, Icon, Link, Text } from '@chakra-ui/react'
+import { Box, Flex, Grid, Heading, Icon, Link, Text } from '@chakra-ui/react'
 import RouterLink from 'next/link'
 
+import { Button } from '~/components/button'
+import { Introduction } from '~/components/introduction'
 import { PillContactLink } from '~/components/pill-contact-link'
-import { PillTechnologies } from '~/components/pill-technologies'
-import { TitleSection } from '~/components/title-section'
 
 export function Content() {
   return (
     <Box mt={{ base: '0', sm: '20' }} mb={{ base: '0', sm: '7' }}>
-      <TitleSection
-        title="Sobre Mi"
-        externalLinkButton={true}
-        href="https://resume.abrahamcalsin.com"
-        linkText="Para más detalles, consulta mi"
-        linkTextBold="CV"
-      />
+      <Introduction title="Sobre Mi" />
       <Text>
         Hey, hola! Soy Abraham Calsin una persona autodidacta, me apasiona la programación, actualmente me desempeño
         como desarrollador frontend, creo proyectos de código abierto.
@@ -52,7 +48,44 @@ export function Content() {
         Habilidades:
       </Heading>
       <p>Estas son algunas de mis tecnologías favoritas.</p>
-      <PillTechnologies />
+      <Flex flexWrap="wrap" gap={{ base: '2', sm: '2.5' }} mt="3">
+        <Button
+          variant="outline"
+          colorScheme="cyan"
+          as="a"
+          href="https://reactjs.org"
+          leftIcon={<Icon as={FaReact} mr="-1" />}
+        >
+          React.js
+        </Button>
+        <Button
+          variant="outline"
+          colorScheme="primary"
+          as="a"
+          href="https://nextjs.org"
+          leftIcon={<Icon as={SiNextdotjs} mr="-1" />}
+        >
+          Next.js
+        </Button>
+        <Button
+          variant="outline"
+          colorScheme="blue"
+          as="a"
+          href="https://www.typescriptlang.org"
+          leftIcon={<Icon as={SiTypescript} mr="-1" />}
+        >
+          TypeScript
+        </Button>
+        <Button
+          variant="outline"
+          colorScheme="primary"
+          as="a"
+          href="https://vercel.com"
+          leftIcon={<Icon as={SiVercel} mr="-1" />}
+        >
+          Vercel
+        </Button>
+      </Flex>
       <Heading
         as="h3"
         fontSize="2xl"

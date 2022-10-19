@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-import { MainLayout } from '~/layouts'
+import { MainLayout } from '~/layouts/main'
 import Article from '~/types/article'
 
 import { Content } from './components/content'

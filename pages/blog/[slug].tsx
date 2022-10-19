@@ -4,8 +4,8 @@ import ErrorPage from 'next/error'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
 
-import { ArticleBody } from '~/components/article-body'
-import { MainLayout } from '~/layouts'
+import { MainLayout } from '~/layouts/main'
+import { ArticleBody } from '~/screens/blog/components/article-body'
 
 interface ArticleProps {
   article: Blog
