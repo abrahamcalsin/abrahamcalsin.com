@@ -4,9 +4,9 @@ import { useMDXComponent } from 'next-contentlayer/hooks'
 
 import { TruncateText } from '~/components/truncate-text'
 
-import { Anchor } from './anchor'
-import { LinkedHeading } from './linked-heading'
-import { Table, TableCell, TableHead } from './table'
+import { Anchor } from './components/anchor'
+import { LinkedHeading } from './components/linked-heading'
+import { Table, TableCell, TableHead } from './components/table'
 
 const { chakra } = Chakra
 

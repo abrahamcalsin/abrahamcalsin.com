@@ -3,7 +3,7 @@ import { GoMarkGithub, GoPackage } from 'react-icons/go'
 import { TbExternalLink } from 'react-icons/tb'
 import { Badge, Box, Flex, Heading, Icon, Text } from '@chakra-ui/react'
 
-import { ButtonLink } from '~/components/button-link'
+import { Button } from '~/components/button'
 import { PackageDownloads } from '~/components/package-downloads'
 import { ProjectResponsePayload } from '~/typings'
 import { getRandomBadgeColors } from '~/utils'
@@ -84,7 +84,7 @@ export function WorkItem(props: WorkItemProps) {
           fontSize={{ base: 'xl', sm: '2xl' }}
           textColor="primary.700"
           fontWeight="black"
-          mb="2"
+          mb="3"
           _dark={{
             color: 'primary.300',
           }}
@@ -103,27 +103,55 @@ export function WorkItem(props: WorkItemProps) {
           {title}{' '}
           {packageDownloads && <PackageDownloads packageName="react-github-fork-banner" visible={packageDownloads} />}
         </Heading>
-        <Text fontWeight="medium">{description}</Text>
-        <Box fontFamily="robotoMono" mt="2.5" mb="1.5" display="flex" flexWrap="wrap" gap="2">
+        <Box fontFamily="robotoMono" mb="2.5" display="flex" flexWrap="wrap" gap="2">
           {tags.map(item => (
             <Badge key={item} fontSize="sm" variant="subtle" colorScheme={getRandomBadgeColors()} opacity="0.8">
               {item}
             </Badge>
           ))}
         </Box>
+        <Text fontWeight="medium" mb="3">
+          {description}
+        </Text>
         <Flex gap="2" flexWrap="wrap" fontSize={{ base: 'xs', sm: 'sm' }} fontWeight="bold">
           {webHref && (
-            <ButtonLink href={webHref} label="DEMO" icon={<Icon width="4" height="full" as={TbExternalLink} />} />
+            <Button
+              variant="ghost"
+              colorScheme="secondary"
+              as="a"
+              href={webHref}
+              rightIcon={<Icon width="4" height="full" ml="-1" as={TbExternalLink} />}
+            >
+              <Text as="span" textDecor="underline">
+                DEMO
+              </Text>
+            </Button>
           )}
           {repositoryHref && (
-            <ButtonLink
+            <Button
+              variant="ghost"
+              colorScheme="secondary"
+              as="a"
               href={repositoryHref}
-              label="REPOSITORIO"
-              icon={<Icon width="4" height="full" as={GoMarkGithub} />}
-            />
+              rightIcon={<Icon width="4" height="full" ml="-1" as={GoMarkGithub} />}
+            >
+              <Text as="span" textDecor="underline">
+                REPOSITORIO
+              </Text>
+            </Button>
           )}
           {packageHref && (
-            <ButtonLink href={packageHref} label="PAQUETE" icon={<Icon width="4" height="full" as={GoPackage} />} />
+            <Button
+              variant="ghost"
+              colorScheme="secondary"
+              as="a"
+              href={packageHref}
+              rightIcon={<Icon width="4" height="full" as={GoPackage} />}
+            >
+              <Text as="span" textDecor="underline">
+                PAQUETE
+              </Text>
+            </Button>
           )}
         </Flex>
       </Box>
