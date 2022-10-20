@@ -2,7 +2,9 @@ import * as React from 'react'
 import { Box, Text } from '@chakra-ui/react'
 
 import { Introduction } from '~/components/introduction'
+import { SearchBox } from '~/components/search-box'
 import { AllArticles } from '~/screens/blog/components/all-articles'
+import { ArticlePreview } from '~/screens/blog/components/article-preview'
 import Article from '~/types/article'
 
 export interface ContentProps {
@@ -20,7 +22,22 @@ export function Content(props: ContentProps) {
           prácticas. También escribo sobre diseño y experiencia de usuario/dev.
         </Text>
       </Introduction>
-      {articles.length >= 0 && <AllArticles articles={articles} />}
+      <SearchBox
+        data={articles}
+        filter="title"
+        placeholder="Escribe aquí para filtrar artículos..."
+        renderResultItem={article => (
+          <ArticlePreview
+            key={article.slug}
+            date={article.date}
+            title={article.title}
+            description={article.description}
+            readingTime={article.readingTime}
+            slug={article.slug}
+          />
+        )}
+        renderDefaultResults={<AllArticles articles={articles} />}
+      />
     </Box>
   )
 }

@@ -6,83 +6,72 @@ import { DateFormat } from '~/components/date-format'
 
 interface ArticlePreviewProps {
   title: string
+  description: string
   date: string
   slug: string
-  readingTime: string
+  readingTime: { text: string }
 }
 
 export function ArticlePreview(props: ArticlePreviewProps) {
-  const { title, date, slug, readingTime } = props
+  const { title, description, date, slug, readingTime } = props
 
   return (
-    <Box
-      textColor="primary.600"
-      borderBottom="2px"
-      borderColor="primary.300"
-      transitionProperty="opacity"
-      _hover={{
-        opacity: 0.8,
-      }}
-      _dark={{
-        color: 'primary.400',
-        borderColor: 'primary.800',
-      }}
-    >
-      <RouterLink href={`/blog/${slug}`} passHref>
-        <Link
-          display="flex"
-          justifyContent="space-between"
-          alignItems="center"
-          gap="4"
-          py="3"
-          textDecoration="none"
-          textColor="inherit"
-          _hover={{
-            textDecoration: 'none',
+    <RouterLink href={`/blog/${slug}`} passHref>
+      <Link
+        display="block"
+        textColor="primary.600"
+        transitionDuration=".4s"
+        transitionProperty="opacity transform"
+        rounded="md"
+        mb={{ base: '0.5', sm: '2' }}
+        _dark={{
+          color: 'primary.400',
+          _hover: {
+            bg: 'primary.800',
+          },
+        }}
+        py="3.5"
+        px={{ base: 'none', sm: '3.5' }}
+        textDecoration="none"
+        _hover={{
+          transform: 'scale(1.02)',
+          bg: 'primary.100',
+          textDecoration: 'none',
+        }}
+      >
+        <Heading
+          fontSize="xl"
+          textColor="primary.800"
+          _dark={{
+            textColor: 'primary.200',
           }}
         >
-          <Flex
-            w="full"
-            alignItems={{
-              base: 'flex-start',
-              sm: 'center',
-            }}
-            flexDirection={{ base: 'column', sm: 'row' }}
-          >
-            <Text w={{ base: 'auto', sm: '44' }} fontSize="sm" mb={{ base: '0', sm: '0.25' }}>
-              <DateFormat date={date} locale="es" />
-            </Text>
-            <Heading
-              as="h3"
-              w="full"
-              fontSize="lg"
-              textColor="inherit"
-              textDecoration={{ base: 'underline', sm: 'none' }}
-              fontWeight="bold"
-              overflow="hidden"
-              noOfLines={1}
-              m="0"
-              _hover={{
-                textDecoration: 'underline',
-              }}
-            >
-              {title}
-            </Heading>
-          </Flex>
-          <Text
-            w="28"
-            display={{ base: 'none', sm: 'flex' }}
-            alignItems="center"
-            gap="2"
-            fontSize="sm"
-            fontWeight="regular"
-            m="0"
-          >
-            <Icon w="4" height="full" as={CgCoffee} />
-            <Text as="span">{readingTime}</Text>
+          {title}
+        </Heading>
+        <Box
+          fontSize="sm"
+          display="flex"
+          alignItems="center"
+          gap="2"
+          lineHeight="none"
+          my={{ base: '2.5', sm: '3.5' }}
+          textColor="primary.500"
+        >
+          <Text as="span">
+            <DateFormat date={date} locale="es" />
           </Text>
-        </Link>
-      </RouterLink>
-    </Box>
+          <Text as="span" fontWeight="black">
+            •
+          </Text>
+          <Text as="span" display="flex" alignItems="center" gap="0.5" fontSize="sm">
+            <Icon w="4" as={CgCoffee} />
+            <Text as="span">{readingTime.text}</Text>
+          </Text>
+        </Box>
+        <Text fontSize="md" lineHeight={{ base: 'normal', sm: 'none' }} textColor="primary.500">
+          {description}
+        </Text>
+      </Link>
+    </RouterLink>
   )
 }

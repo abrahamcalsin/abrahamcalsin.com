@@ -46,7 +46,7 @@ export function MdxComponents(props: MdxComponentsProps) {
       ul: (props: any) => <chakra.ul apply="mdx.ul" {...props} />,
       ol: (props: any) => <chakra.ol apply="mdx.ul" {...props} />,
       li: (props: any) => <chakra.li pb="1" {...props} />,
-      blockquote: (props: any) => <chakra.blockquote apply="mdx.blockquote" {...props} />,
+      blockquote: (props: any) => <chakra.blockquote apply="mdx.blockquote" boxShadow="lg" {...props} />,
 
       // Table
       table: Table,
@@ -54,7 +54,7 @@ export function MdxComponents(props: MdxComponentsProps) {
       td: TableCell,
 
       // Image
-      img: (props: any) => <chakra.img apply="mdx.img" {...props} />,
+      img: (props: any) => <chakra.img apply="mdx.img" rounded="lg" {...props} />,
     }
   }, [])
 

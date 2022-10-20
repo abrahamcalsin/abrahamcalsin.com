@@ -30,5 +30,6 @@ module.exports = {
     'react/react-in-jsx-scope': RULES.OFF,
     'no-unused-vars': RULES.OFF,
     // '@typescript-eslint/no-unused-vars': RULES.WARN,
+    'react/no-children-prop': RULES.OFF,
   },
 }
