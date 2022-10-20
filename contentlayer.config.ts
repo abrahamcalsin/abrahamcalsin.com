@@ -16,6 +16,11 @@ export const Blog = defineDocumentType(() => ({
       description: 'The title of the article',
       required: true,
     },
+    description: {
+      type: 'string',
+      description: 'The description of the article',
+      required: true,
+    },
     date: {
       type: 'date',
       description: 'The date of the article',

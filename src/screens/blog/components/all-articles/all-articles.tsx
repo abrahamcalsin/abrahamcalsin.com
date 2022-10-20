@@ -11,14 +11,15 @@ export function AllArticles(props: AllArticlesProps) {
   const { articles } = props
 
   return (
-    <Box mt="10">
+    <Box mt="5">
       {articles.map(article => (
         <ArticlePreview
           key={article.slug}
           title={article.title}
+          description={article.description}
           date={article.date}
           slug={article.slug}
-          readingTime={article.readingTime.text}
+          readingTime={article.readingTime}
         />
       ))}
     </Box>
