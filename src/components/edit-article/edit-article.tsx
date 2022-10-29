@@ -1,9 +1,7 @@
 import { TbBrandGithub } from 'react-icons/tb'
 import { Flex, Icon, Link, Text } from '@chakra-ui/react'
 
-interface EditArticleProps {
-  slug: string
-}
+import { EditArticleProps } from '~/typings/components/edit-article'
 
 export function EditArticle(props: EditArticleProps) {
   const { slug } = props
@@ -13,6 +11,7 @@ export function EditArticle(props: EditArticleProps) {
       <Link
         href={`https://github.com/abrahamcalsin/abrahamcalsin.com/edit/main/data/blog/${slug}.mdx`}
         rel="nofollow noopener noreferrer"
+        role="link"
         display="flex"
         alignItems="center"
         columnGap="1.5"

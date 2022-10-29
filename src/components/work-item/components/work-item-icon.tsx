@@ -6,10 +6,7 @@ import { TbTemplate } from 'react-icons/tb'
 import { Icon } from '@chakra-ui/react'
 
 import { ProjectResponsePayload, ProjectTypeResponsePayload } from '~/typings'
-
-interface WorkItemIconProps {
-  projectType: ProjectResponsePayload['type']
-}
+import { WorkItemIconProps } from '~/typings/components/work-item'
 
 export function getWorkItemIcon(projectType: ProjectResponsePayload['type']) {
   switch (projectType) {

@@ -3,12 +3,8 @@ import { FiDownload } from 'react-icons/fi'
 import { Icon, Text, Tooltip } from '@chakra-ui/react'
 
 import { getAllPackageDownloads } from '~/services/get-all-package-downloads/get-all-package-downloads'
+import { PackageDownloadsProps } from '~/typings/components/package-downloads'
 import { numberFormat } from '~/utils/number-format'
-
-interface PackageDownloadsProps {
-  visible?: boolean
-  packageName: string
-}
 
 export function PackageDownloads(props: PackageDownloadsProps) {
   const { visible, packageName } = props

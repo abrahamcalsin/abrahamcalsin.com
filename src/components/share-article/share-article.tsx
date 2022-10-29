@@ -1,10 +1,7 @@
 import { TbBrandTwitter } from 'react-icons/tb'
 import { Flex, Icon, Link, Text } from '@chakra-ui/react'
 
-interface ShareArticleProps {
-  articleLink: string
-  articleTitle: string
-}
+import { ShareArticleProps } from '~/typings/components/share-article'
 
 export function ShareArticle(props: ShareArticleProps) {
   const { articleLink, articleTitle } = props

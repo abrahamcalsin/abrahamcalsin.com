@@ -1,10 +1,7 @@
 import * as React from 'react'
 import { Box, Heading } from '@chakra-ui/react'
 
-export interface IntroductionProps {
-  title: string
-  children?: React.ReactNode
-}
+import { IntroductionProps } from '~/typings/components/introduction'
 
 export function Introduction(props: IntroductionProps) {
   const { title, children } = props
@@ -12,6 +9,7 @@ export function Introduction(props: IntroductionProps) {
   return (
     <Box mb="4">
       <Heading
+        role="heading"
         as="h1"
         textColor="primary.800"
         fontWeight="black"

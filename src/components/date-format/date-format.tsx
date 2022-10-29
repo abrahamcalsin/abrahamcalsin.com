@@ -4,12 +4,8 @@ import 'dayjs/locale/es'
 import { Text } from '@chakra-ui/react'
 import dayjs from 'dayjs'
 
+import { DateFormatProps } from '~/typings/components/date-format'
 import { dateFormat } from '~/utils'
-
-interface DateFormatProps {
-  date: Parameters<typeof dayjs>['0']
-  locale: 'en' | 'es'
-}
 
 export function DateFormat(props: DateFormatProps) {
   const { date, locale } = props

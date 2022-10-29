@@ -1,10 +1,7 @@
 import * as React from 'react'
 import { Badge, Box } from '@chakra-ui/react'
 
-interface PreviewBoxProps {
-  children: React.ReactNode
-  previewVisible?: boolean
-}
+import { PreviewBoxProps } from '~/typings/components/preview-box'
 
 export function PreviewBox(props: PreviewBoxProps) {
   const { children, previewVisible = true } = props

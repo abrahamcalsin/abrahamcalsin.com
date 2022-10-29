@@ -3,16 +3,13 @@ import * as Chakra from '@chakra-ui/react'
 import { useMDXComponent } from 'next-contentlayer/hooks'
 
 import { TruncateText } from '~/components/truncate-text'
+import { MdxComponentsProps } from '~/typings/components/mdx-components'
 
 import { Anchor } from './components/anchor'
 import { LinkedHeading } from './components/linked-heading'
 import { Table, TableCell, TableHead } from './components/table'
 
 const { chakra } = Chakra
-
-interface MdxComponentsProps {
-  rawContent: string
-}
 
 export function MdxComponents(props: MdxComponentsProps) {
   const { rawContent } = props

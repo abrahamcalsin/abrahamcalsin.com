@@ -2,12 +2,7 @@ import * as React from 'react'
 import { MdVerified } from 'react-icons/md'
 import { Flex, Icon, Link, Text } from '@chakra-ui/react'
 
-interface PillContactLinkProps {
-  href: string
-  svgIcon: React.ReactElement
-  socialNetworkName: string
-  username: string
-}
+import { PillContactLinkProps } from '~/typings/components/pill-contact-link'
 
 export function PillContactLink(props: PillContactLinkProps) {
   const { svgIcon, socialNetworkName, href, username } = props

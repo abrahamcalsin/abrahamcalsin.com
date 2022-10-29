@@ -4,25 +4,12 @@ import { TbExternalLink } from 'react-icons/tb'
 import { Badge, Box, Flex, Heading, Icon, Text } from '@chakra-ui/react'
 
 import { Button } from '~/components/button'
+import { DateFormat } from '~/components/date-format'
 import { PackageDownloads } from '~/components/package-downloads'
-import { ProjectResponsePayload } from '~/typings'
+import { WorkItemProps } from '~/typings/components/work-item'
 import { getRandomBadgeColors } from '~/utils'
 
-import { DateFormat } from '../date-format'
-
 import { getWorkItemColors, WorkItemIcon } from './components'
-
-export interface WorkItemProps {
-  title: string
-  type: ProjectResponsePayload['type']
-  description: string
-  webHref?: string
-  repositoryHref?: string
-  packageHref?: string
-  tags?: string[]
-  packageDownloads?: boolean
-  startedAt: string
-}
 
 export function WorkItem(props: WorkItemProps) {
   const {
