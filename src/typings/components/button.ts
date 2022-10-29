@@ -12,12 +12,12 @@ interface ButtonProps {
   leftIcon?: ChakraButtonProps['leftIcon']
   rightIcon?: ChakraButtonProps['rightIcon']
   children?: ChakraButtonProps['children']
-  onClick?: () => void
+  handleClick?: () => void
 }
 
 type ButtonWrapperProps = Pick<
   ButtonProps,
-  'as' | 'type' | 'variant' | 'colorScheme' | 'size' | 'color' | 'href' | 'leftIcon' | 'rightIcon' | 'onClick'
+  'as' | 'type' | 'variant' | 'colorScheme' | 'size' | 'color' | 'href' | 'leftIcon' | 'rightIcon' | 'handleClick'
 > & {
   children: React.ReactNode
 }
