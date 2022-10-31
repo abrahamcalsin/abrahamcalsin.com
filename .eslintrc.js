@@ -29,7 +29,14 @@ module.exports = {
   rules: {
     'react/react-in-jsx-scope': RULES.OFF,
     'no-unused-vars': RULES.OFF,
-    // '@typescript-eslint/no-unused-vars': RULES.WARN,
+    '@typescript-eslint/no-unused-vars': RULES.OFF,
     'react/no-children-prop': RULES.OFF,
   },
+  overrides: [
+    {
+      files: ['**/__tests__/**/*.[jt]s?(x)', '**/?(*.)+(spec|test).[jt]s?(x)'],
+      env: { jest: true, node: true },
+      extends: ['plugin:testing-library/react'],
+    },
+  ],
 }

@@ -9,7 +9,7 @@ const customJestConfig = {
   displayName: '@abrahamcalsin/abrahamcalsin.com',
   setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],
   moduleNameMapper: {
-    '~/*': '<rootDir/src/$1>',
+    '^~/(.*)$': '<rootDir>/src/$1',
   },
   moduleDirectories: ['node_modules', '<rootDir>/'],
   testEnvironment: 'jest-environment-jsdom',
