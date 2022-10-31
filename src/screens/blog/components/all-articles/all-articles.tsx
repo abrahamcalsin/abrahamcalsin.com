@@ -1,7 +1,7 @@
 import { Box } from '@chakra-ui/react'
 
 import { ArticlePreview } from '~/screens/blog/components/article-preview'
-import Article from '~/types/article'
+import { Article } from '~/types/article'
 
 interface AllArticlesProps {
   articles: Article[]

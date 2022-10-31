@@ -7,7 +7,7 @@ export function SearchBoxContainer(props: SearchBoxContainerProps) {
   const { children } = props
 
   return (
-    <Box position="relative" maxW="full" mx="auto" zIndex="2">
+    <Box position="relative" maxW="full" mx="auto">
       {children}
     </Box>
   )

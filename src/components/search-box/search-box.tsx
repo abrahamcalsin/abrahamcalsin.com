@@ -8,7 +8,7 @@ import { SearchBoxInput } from './search-box-input'
 import { SearchBoxResults } from './search-box-results'
 
 export function SearchBox<T extends Record<string, any>>(props: SearchBoxProps<T>) {
-  const { placeholder, data, filter, renderResultItem, renderDefaultResults } = props
+  const { variant, placeholder, data, filter, renderResultItem, renderDefaultResults } = props
 
   const { searchTerm, searchSuggestions, handleSearch } = useSearch({
     data,
@@ -19,9 +19,10 @@ export function SearchBox<T extends Record<string, any>>(props: SearchBoxProps<T
   return (
     <SearchBoxContainer>
       <SearchBoxInput
+        variant={variant}
         placeholder={placeholder}
         value={searchTerm}
-        handleChange={handleSearch}
+        handleChange={e => handleSearch(e.target.value)}
         counter={searchSuggestions.length}
       />
       {searchSuggestions.length > 0 && (

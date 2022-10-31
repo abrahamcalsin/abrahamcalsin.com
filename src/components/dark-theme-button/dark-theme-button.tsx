@@ -9,6 +9,7 @@ export function DarkThemeButton() {
 
   return (
     <Box
+      role="button"
       as="button"
       p="0"
       _dark={{

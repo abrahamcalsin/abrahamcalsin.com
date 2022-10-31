@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-import { PreviewBox } from '../preview-box'
+import { PreviewBox } from '~/components/preview-box'
 
 interface TruncateTextProps {
   children: React.ReactElement

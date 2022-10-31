@@ -5,7 +5,7 @@ import { Introduction } from '~/components/introduction'
 import { SearchBox } from '~/components/search-box'
 import { AllArticles } from '~/screens/blog/components/all-articles'
 import { ArticlePreview } from '~/screens/blog/components/article-preview'
-import Article from '~/types/article'
+import { Article } from '~/types/article'
 
 export interface ContentProps {
   articles: Article[]
@@ -24,6 +24,7 @@ export function Content(props: ContentProps) {
       </Introduction>
       <SearchBox
         data={articles}
+        variant="filled"
         filter="title"
         placeholder="Escribe aquí para filtrar artículos..."
         renderResultItem={article => (
