@@ -5,7 +5,7 @@ import { ButtonWrapperProps } from '~/typings/components/button'
 import { ButtonWrapper } from './button-wrapper'
 
 export function Button(props: ButtonWrapperProps) {
-  const { as, type, variant, colorScheme, size, color, children, href, leftIcon, rightIcon, onClick } = props
+  const { as, type, variant, colorScheme, size, color, children, href, leftIcon, rightIcon, handleClick } = props
 
   return (
     <ButtonWrapper
@@ -18,7 +18,7 @@ export function Button(props: ButtonWrapperProps) {
       leftIcon={leftIcon}
       rightIcon={rightIcon}
       color={color}
-      onClick={onClick}
+      handleClick={handleClick}
     >
       {children}
     </ButtonWrapper>

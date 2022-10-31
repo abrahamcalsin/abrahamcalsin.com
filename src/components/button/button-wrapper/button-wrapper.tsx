@@ -4,12 +4,13 @@ import { Button } from '@chakra-ui/react'
 import { ButtonWrapperProps } from '~/typings/components/button'
 
 export function ButtonWrapper(props: ButtonWrapperProps) {
-  const { as, type, variant, size, colorScheme, color, href, leftIcon, rightIcon, children } = props
+  const { as, type, variant, size, colorScheme, color, href, leftIcon, rightIcon, children, handleClick } = props
 
   return (
     <Button
       as={as}
       type={type}
+      role="button"
       href={as === 'a' ? href : undefined}
       variant={variant}
       colorScheme={colorScheme}
@@ -22,6 +23,7 @@ export function ButtonWrapper(props: ButtonWrapperProps) {
       px="3"
       borderWidth={variant === 'outline' ? '1px' : undefined}
       borderRadius="md"
+      onClick={handleClick}
     >
       {children}
     </Button>
