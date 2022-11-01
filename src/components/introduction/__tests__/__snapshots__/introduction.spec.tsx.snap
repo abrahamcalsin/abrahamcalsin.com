@@ -1,0 +1,67 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Introduction renders introduction with children 1`] = `
+<body>
+  <div>
+    <div
+      class="css-1itv5e3"
+    >
+      <h1
+        class="chakra-heading css-1503d90"
+        role="heading"
+      />
+      <div
+        class="css-1fhgjcy"
+      >
+        <span
+          data-testid="children-element"
+        />
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`Introduction renders introduction with title 1`] = `
+<body>
+  <div>
+    <div
+      class="css-1itv5e3"
+    >
+      <h1
+        class="chakra-heading css-1503d90"
+        role="heading"
+      >
+        Home
+      </h1>
+      <div
+        class="css-1fhgjcy"
+      />
+    </div>
+  </div>
+</body>
+`;
+
+exports[`Introduction renders introduction with title and children 1`] = `
+<body>
+  <div>
+    <div
+      class="css-1itv5e3"
+    >
+      <h1
+        class="chakra-heading css-1503d90"
+        role="heading"
+      >
+        Home
+      </h1>
+      <div
+        class="css-1fhgjcy"
+      >
+        <span
+          data-testid="children-element"
+        />
+      </div>
+    </div>
+  </div>
+</body>
+`;

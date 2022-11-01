@@ -1,0 +1,107 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button clicks a button 1`] = `
+<body>
+  <div>
+    <button
+      class="chakra-button css-1lq6rfh"
+      role="button"
+      type="button"
+    >
+      Button
+    </button>
+  </div>
+</body>
+`;
+
+exports[`Button renders a button with left and right icon 1`] = `
+<body>
+  <div>
+    <button
+      class="chakra-button css-1lq6rfh"
+      role="button"
+      type="button"
+    >
+      <span
+        class="chakra-button__icon css-1wh2kri"
+      >
+        <span
+          aria-hidden="true"
+          data-testid="left-svg-icon"
+          focusable="false"
+        />
+      </span>
+      Button
+      <span
+        class="chakra-button__icon css-1hzyiq5"
+      >
+        <span
+          aria-hidden="true"
+          data-testid="right-svg-icon"
+          focusable="false"
+        />
+      </span>
+    </button>
+  </div>
+</body>
+`;
+
+exports[`Button renders a button with leftIcon 1`] = `
+<body>
+  <div>
+    <button
+      class="chakra-button css-1lq6rfh"
+      role="button"
+      type="button"
+    >
+      <span
+        class="chakra-button__icon css-1wh2kri"
+      >
+        <span
+          aria-hidden="true"
+          data-testid="left-svg-icon"
+          focusable="false"
+        />
+      </span>
+      Button
+    </button>
+  </div>
+</body>
+`;
+
+exports[`Button renders a button with rightIcon 1`] = `
+<body>
+  <div>
+    <button
+      class="chakra-button css-1lq6rfh"
+      role="button"
+      type="button"
+    >
+      Button
+      <span
+        class="chakra-button__icon css-1hzyiq5"
+      >
+        <span
+          aria-hidden="true"
+          data-testid="right-svg-icon"
+          focusable="false"
+        />
+      </span>
+    </button>
+  </div>
+</body>
+`;
+
+exports[`Button renders a button with text 1`] = `
+<body>
+  <div>
+    <button
+      class="chakra-button css-1lq6rfh"
+      role="button"
+      type="button"
+    >
+      Button
+    </button>
+  </div>
+</body>
+`;

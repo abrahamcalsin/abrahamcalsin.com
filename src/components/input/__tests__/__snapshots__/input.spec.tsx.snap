@@ -1,0 +1,109 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Input renders an input with left and right element 1`] = `
+<body>
+  <div>
+    <div
+      class="chakra-input__group css-4302v8"
+    >
+      <div
+        class="chakra-input__left-element css-1u2k0bl"
+      >
+        <span
+          data-testid="left-element"
+        />
+      </div>
+      <input
+        class="chakra-input css-0"
+        role="input"
+        value=""
+      />
+      <div
+        class="chakra-input__right-element css-1hx2jp8"
+      >
+        <span
+          data-testid="right-element"
+        />
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`Input renders an input with left element 1`] = `
+<body>
+  <div>
+    <div
+      class="chakra-input__group css-4302v8"
+    >
+      <div
+        class="chakra-input__left-element css-1u2k0bl"
+      >
+        <span
+          data-testid="left-element"
+        />
+      </div>
+      <input
+        class="chakra-input css-0"
+        role="input"
+        value=""
+      />
+    </div>
+  </div>
+</body>
+`;
+
+exports[`Input renders an input with right element 1`] = `
+<body>
+  <div>
+    <div
+      class="chakra-input__group css-4302v8"
+    >
+      <input
+        class="chakra-input css-0"
+        role="input"
+        value=""
+      />
+      <div
+        class="chakra-input__right-element css-1hx2jp8"
+      >
+        <span
+          data-testid="right-element"
+        />
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`Input renders the default input 1`] = `
+<body>
+  <div>
+    <div
+      class="chakra-input__group css-4302v8"
+    >
+      <input
+        class="chakra-input css-0"
+        role="input"
+        value=""
+      />
+    </div>
+  </div>
+</body>
+`;
+
+exports[`Input writes in input 1`] = `
+<body>
+  <div>
+    <div
+      class="chakra-input__group css-4302v8"
+    >
+      <input
+        class="chakra-input css-0"
+        role="input"
+        value=""
+      />
+    </div>
+  </div>
+</body>
+`;

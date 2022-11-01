@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DateFormat formats date with locale en 1`] = `
+<body>
+  <div>
+    <span
+      class="chakra-text css-ng62c8"
+    >
+      20 April, 2022
+    </span>
+  </div>
+</body>
+`;
+
+exports[`DateFormat formats date with locale es 1`] = `
+<body>
+  <div>
+    <span
+      class="chakra-text css-ng62c8"
+    >
+      20 abril, 2022
+    </span>
+  </div>
+</body>
+`;
