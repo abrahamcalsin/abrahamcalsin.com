@@ -2,7 +2,7 @@ import { allBlogs } from 'contentlayer/generated'
 
 import { Meta } from '~/components/meta'
 import { BlogScreen } from '~/screens/blog'
-import Article from '~/types/article'
+import { Article } from '~/types/article'
 
 interface BlogPageProps {
   articles: Article[]

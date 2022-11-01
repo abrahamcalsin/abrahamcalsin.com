@@ -1,14 +1,15 @@
-import { allBlogs, Blog } from 'contentlayer/generated'
+import { allBlogs } from 'contentlayer/generated'
 import { GetStaticPathsResult, GetStaticPropsContext, GetStaticPropsResult } from 'next'
 import ErrorPage from 'next/error'
-import Head from 'next/head'
 import { useRouter } from 'next/router'
 
+import { Meta } from '~/components/meta'
 import { MainLayout } from '~/layouts/main'
 import { ArticleBody } from '~/screens/blog/components/article-body'
+import { Article as ArticleTypes } from '~/types/article'
 
 interface ArticleProps {
-  article: Blog
+  article: ArticleTypes
 }
 
 const Article = (props: ArticleProps) => {
@@ -27,9 +28,7 @@ const Article = (props: ArticleProps) => {
         </div>
       ) : (
         <>
-          <Head>
-            <title>{article.title} | Blog</title>
-          </Head>
+          <Meta title={`${article.title} | Blog`} description={article.description} url="/blog" />
           <MainLayout>
             <article>
               <ArticleBody
@@ -86,5 +85,6 @@ export async function getStaticProps(
     props: {
       article,
     },
+    revalidate: 10,
   }
 }
