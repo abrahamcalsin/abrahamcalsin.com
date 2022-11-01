@@ -1,7 +1,7 @@
-export const formatter = Intl.NumberFormat('en', {
+const formatter = Intl.NumberFormat('en', {
   notation: 'compact',
 })
 
-export function numberFormat(number: any) {
+export function numberFormat(number: number) {
   return formatter.format(number)
 }
