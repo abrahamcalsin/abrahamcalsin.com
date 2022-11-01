@@ -1,10 +1,9 @@
-interface Article {
-  title: string
-  description: string
-  date: string
-  content: string
-  slug: string
-  readingTime: { text: string }
-}
+import type * as React from 'react'
+import { Blog } from 'contentlayer/generated'
 
-export default Article
+/**
+ * @Article Document(Blog) types
+ */
+type Article = Pick<Blog, '_raw' | 'type' | '_id' | 'title' | 'slug' | 'description' | 'date' | 'body' | 'readingTime'>
+
+export type { Article }
