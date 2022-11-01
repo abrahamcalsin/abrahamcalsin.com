@@ -35,3 +35,9 @@ jobs:
 
       - name: Install dependencies
         run: pnpm install
+
+      - name: Lint
+        run: pnpm run lint
+
+      - name: Unit Testing
+        run: pnpm run test:unit:ci
