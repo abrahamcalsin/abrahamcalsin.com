@@ -31,7 +31,9 @@ export function useSearch<T>(options: UseSearchOptions<T>) {
 
       const valueToFilter = item[filter] as unknown as string
 
-      const regex = new RegExp(value, 'gi')
+      const replaceSpecialChars = value.replace(/[^\w ]/g, '')
+
+      const regex = new RegExp(replaceSpecialChars, 'gi')
 
       return valueToFilter.match(regex)
     })
