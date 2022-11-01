@@ -1,1 +1,2 @@
-export * from './buttonStyles'
+export * from './button'
+export * from './input'
