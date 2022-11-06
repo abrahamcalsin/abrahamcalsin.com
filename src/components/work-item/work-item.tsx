@@ -24,9 +24,17 @@ export function WorkItem(props: WorkItemProps) {
     startedAt = new Date(),
   } = props
 
+  const [mounted, setMounted] = React.useState(false)
+
   const colors = React.useMemo(() => {
     return getWorkItemColors(type)
   }, [type])
+
+  React.useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  if (!mounted) return null
 
   return (
     <Flex gap={{ base: '5', sm: '7' }} mb="14">
