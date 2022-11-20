@@ -2,7 +2,7 @@ import type { NextApiRequest, NextApiResponse } from 'next'
 
 export default async function authMiddelware(req: NextApiRequest, res: NextApiResponse) {
   return new Promise<void>((resolve, reject) => {
-    const key = 'X-Api-Public-Key'
+    const key = 'x-api-public-key'
 
     const value = req.headers[key] || req.query[key]
 
