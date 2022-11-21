@@ -1,11 +1,11 @@
 import * as React from 'react'
 import { Box, Link, Text } from '@chakra-ui/react'
-import { ProjectsPageProps } from 'pages/projects'
 
 import { Introduction } from '~/components/introduction'
 import { WorkItem } from '~/components/work-item'
+import { ProjectsPageProps } from '~/typings/pages/projects'
 
-export function Content<T extends Record<string, any>>(props: ProjectsPageProps<T>) {
+export function Content(props: ProjectsPageProps) {
   const { projects } = props
 
   return (

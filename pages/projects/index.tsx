@@ -1,14 +1,12 @@
-import React from 'react'
+import * as React from 'react'
+import { GetStaticPropsResult } from 'next'
 
 import { Meta } from '~/components/meta'
 import { ProjectsScreen } from '~/screens/projects/projects'
-import isProduction from '~/utils/isProduction'
+import { DEFAULT_HEADERS } from '~/services'
+import { ProjectsPageProps } from '~/typings/pages/projects'
 
-export interface ProjectsPageProps<T> {
-  projects: T[]
-}
-
-function ProjectsPage<T extends Record<string, any>[]>(props: ProjectsPageProps<T>) {
+function ProjectsPage(props: ProjectsPageProps) {
   const { projects } = props
 
   return (
@@ -19,13 +17,11 @@ function ProjectsPage<T extends Record<string, any>[]>(props: ProjectsPageProps<
   )
 }
 
-export async function getStaticProps() {
-  const apiUrlDevelopment = 'http://localhost:3000/api/projects'
-  const apiUrlProduction = 'https://www.abrahamcalsin.com/api/projects'
+export async function getStaticProps(): Promise<GetStaticPropsResult<ProjectsPageProps>> {
+  const response = await fetch(`${process.env.API_ROUTE_URL}/projects`, {
+    headers: DEFAULT_HEADERS,
+  })
 
-  const response = await fetch(
-    `${isProduction ? apiUrlProduction : apiUrlDevelopment}?X-Api-Public-Key=${process.env.API_ROUTE_SECRET}`,
-  )
   const data = await response.json()
 
   if (!data) {
@@ -33,7 +29,6 @@ export async function getStaticProps() {
       notFound: true,
     }
   }
-
   return {
     props: {
       projects: data.results,

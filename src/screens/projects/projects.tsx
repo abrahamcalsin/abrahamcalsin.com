@@ -4,11 +4,11 @@ import { MainLayout } from '~/layouts/main'
 
 import { Content } from './components/content'
 
-interface ProjectsScreenProps<T> {
-  projects: T[]
+interface ProjectsScreenProps {
+  projects: any[]
 }
 
-export function ProjectsScreen<T extends Record<string, any>[]>(props: ProjectsScreenProps<T>) {
+export function ProjectsScreen(props: ProjectsScreenProps) {
   const { projects } = props
 
   return (

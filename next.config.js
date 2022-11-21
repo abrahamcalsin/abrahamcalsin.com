@@ -6,5 +6,6 @@ module.exports = withContentlayer({
   env: {
     APP_ENV: process.env.APP_ENV,
     API_ROUTE_SECRET: process.env.API_ROUTE_SECRET,
+    API_ROUTE: process.env.API_ROUTE_URL,
   },
 })
