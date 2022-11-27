@@ -1,0 +1,96 @@
+---
+title: 'Rutas absolutas y relativas - React'
+description: 'Que son las rutas absolutas y relativas en React'
+date: '2022-11-27T16:48:41.000Z'
+---
+
+Muchas veces nos pasó que al crear y mantener proyectos grandes o pequeños tuvimos una serie de problemas. Uno de ellos son las importaciones de módulos y/o componentes que hacemos.
+
+Al importar módulos y/o componentes en nuestro proyecto, lo hacemos de lo más común usando las importaciones absolutas conocidas por puntos desde el directorio activo y la dirección exacta del módulo y/componente a importar `./../../../tu-archivo.jsx`.
+
+Pero antes de entrar de lleno en esto veamos que y como son las rutas absolutas y relativas.
+
+## Rutas absolutas:
+
+Este tipo de importación se caracteriza por puntos empezando del directorio activo que vendría a ser el archivo donde estás.
+
+```tsx
+import { getAllCharacters } from "../../services/get-all-characters"
+import { useDarkTheme } from "../../hooks/use-dark-theme"
+
+import { Header } from "../components/header"
+import { Footer } from "../components/footer"
+```
+
+Este tipo de importación es típico en muchos proyectos, pero y si te fijas bien, esto podría llegar a ser un problema, por la dificultad de mantenimiento del proyecto, ya que debes fijarte bien en los puntos que estás poniendo para importar el archivo correctamente y si te equivocas en un punto de dirección, tu aplicación fallará porque no encontró el módulo y/o componente, esto es un problema también por la ilegibilidad del código.
+
+Y allí es donde entran las rutas relativas, veamos como este tipo de importación soluciona el problema de las rutas absolutas.
+
+## Rutas relativas:
+
+Este tipo de importación se caracteriza por la dirección exacta que se aplica a una importación, no importa en que archivo estés, apuntas a una dirección exacta del padre del archivo y lo importas, no hay necesidad de ver la ubicación del archivo por puntos.
+
+```tsx
+import { getAllCharacters } from "~/services/get-all-characters"
+import { useDarkTheme } from "~/hooks/use-dark-theme"
+
+import { Header } from "~/components/header"
+import { Footer } from "~/components/footer"
+```
+
+Este tipo de importación no se aplica por defecto a los proyectos que se inician con algún framework o librería, debemos configurarlo manualmente y esto puede llegar variar dependiendo de la tecnología que estés usando.
+
+En mi caso usaré [React + TypeScript](/blog/rutas-absolutas-y-relativas-react#configuración-en-react--typescript), pero también veremos como configurarlo en un Proyecto [React vanilla(create-react-app / cra)](/blog/rutas-absolutas-y-relativas-react#configuración-en-react-vanillacreate-react-app--cra).
+
+## Configuración en React + TypeScript:
+
+Configurar en un proyecto React + TS es muy sencillo, antes tú ya debes tener listo tu aplicación de [React + TypeScript](https://create-react-app.dev/docs/adding-typescript/).
+
+Bien, ahora procedemos a configurarlo. En tu proyecto accedes al archivo de configuración de TypeScript `tsconfig.json`, en la parte final de `compilerOptions` agregamos una opción de configuración en TS, `bseUrl: “.”` siguiendo la ***[doc. oficial](https://www.typescriptlang.org/tsconfig#baseUrl)*** de TypeScript, esta configuración nos permite establecer un directorio base para resolver nombres de módulos no absolutos, y como sabemos el directorio principal es `.`.
+
+Ahora agregamos una nueva opción de configuración para las importaciones que son las rutas o `paths` de la misma manera siguiendo la ***[doc. oficial](https://www.typescriptlang.org/tsconfig#paths)*** de TypeScript, debajo de `baseUrl` agregamos la siguiente configuración:
+
+```json
+"paths": {
+    "~/*": ["./src/*"]
+},
+```
+
+Ahora te explicaré que hace esta configuración.
+
+Los paths nos permiten definir una serie de entradas que reasignan las importaciones a ubicaciones de búsqueda relativas a la [`baseUrl`](https://www.notion.so/Rutas-absolutas-y-relativas-React-82f478164ea64c91880a78c3ad84ab43).
+
+En un principio asignamos `“~/*”` para indicar el tipo de importación que se hará, es decir, toda importación mayormente componentes debe empezar con una viñeta({"~"}) seguido de un slash(/) y luego todos los archivos de un determinado directorio. Este tipo de importación ({"~"}) es tu elección, puede ser una arroba(@), lo que desees, pero este tiene que ser legible, fácil de identificar y leer, pero mayormente se usa la viñeta.
+
+Después definimos la carpeta donde se aplicara este tipo de importación, `[”./src/”]`, el símbolo “*” indica que esta configuración se aplicara a todos los archivos que estén dentro de la carpeta `src`.
+
+Si tú quieres aplicar este tipo de importación en otras carpetas fuera `src`, simplemente agregas el directo como una nueva opción de configuración.
+
+## Configuración en React vanilla(create-react-app / cra):
+
+Bien, según la ***[doc. oficial](https://create-react-app.dev/docs/importing-a-component/#absolute-imports)*** de [Create React App](https://create-react-app.dev/) y hasta donde entendí, podemos configurar las rutas, más no como lo hacemos en un proyecto de [React con TypeScript](/blog/rutas-absolutas-y-relativas-react#configuración-en-react--typescript).
+
+En este caso se especifica un directorio como `baseUrl`, ahora intenté agregar los paths personalizados más, este me da un error por alguna razón, por lo tanto, no logré configurar el tipo de importación empezando con una viñeta.
+
+Con la configuración oficial, la importación seria de esta manera:
+
+```tsx
+import { getAllCharacters } from "services/get-all-characters"
+import { useDarkTheme } from "hooks/use-dark-theme"
+```
+
+Ahora procedemos a configurarlo, para hacerlo simplemente creamos un archivo llamado `jsconfig.json` en la ruta principal del proyecto, posteriormente agregamos una configuración predeterminada por la [doc.](https://create-react-app.dev/docs/importing-a-component/#absolute-imports)
+ de [create-react-app](https://create-react-app.dev/):
+
+```json
+{
+  "compilerOptions": {
+    "baseUrl": "src"
+  },
+  "include": ["src"]
+}
+```
+
+## Conclusión:
+
+Si bien vimos que las rutas absolutas nos pueden traer algunos problemas; sin embargo, tú no estás obligado a aplicar esta configuración, aplícalo a tu necesidad y a tu gusto.
