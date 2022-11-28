@@ -44,9 +44,9 @@ En mi caso usaré [React + TypeScript](/blog/rutas-absolutas-y-relativas-react#c
 
 ## Configuración en React + TypeScript:
 
-Configurar en un proyecto React + TS es muy sencillo, antes tú ya debes tener listo tu aplicación de [React + TypeScript](https://create-react-app.dev/docs/adding-typescript/).
+Configurar en un proyecto [React + TypeScript](https://create-react-app.dev/docs/adding-typescript/) es muy sencillo, antes tú ya debes tener listo e inicializado tu aplicación.
 
-Bien, ahora procedemos a configurarlo. En tu proyecto accedes al archivo de configuración de TypeScript `tsconfig.json`, en la parte final de `compilerOptions` agregamos una opción de configuración en TS, `bseUrl: “.”` siguiendo la ***[doc. oficial](https://www.typescriptlang.org/tsconfig#baseUrl)*** de TypeScript, esta configuración nos permite establecer un directorio base para resolver nombres de módulos no absolutos, y como sabemos el directorio principal es `.`.
+Bien, ahora procedemos a configurarlo. En tu proyecto accedes al archivo de configuración de TypeScript `tsconfig.json`, en la parte final de `compilerOptions` agregamos una opción de configuración, `baseUrl: "."` siguiendo la ***[doc. oficial](https://www.typescriptlang.org/tsconfig#baseUrl)*** de TypeScript, esta configuración nos permite establecer un directorio base para resolver nombres de módulos no absolutos, y como sabemos el directorio principal es `.`.
 
 Ahora agregamos una nueva opción de configuración para las importaciones que son las rutas o `paths` de la misma manera siguiendo la ***[doc. oficial](https://www.typescriptlang.org/tsconfig#paths)*** de TypeScript, debajo de `baseUrl` agregamos la siguiente configuración:
 
@@ -60,9 +60,9 @@ Ahora te explicaré que hace esta configuración.
 
 Los paths nos permiten definir una serie de entradas que reasignan las importaciones a ubicaciones de búsqueda relativas a la [`baseUrl`](https://www.notion.so/Rutas-absolutas-y-relativas-React-82f478164ea64c91880a78c3ad84ab43).
 
-En un principio asignamos `“~/*”` para indicar el tipo de importación que se hará, es decir, toda importación mayormente componentes debe empezar con una viñeta({"~"}) seguido de un slash(/) y luego todos los archivos de un determinado directorio. Este tipo de importación ({"~"}) es tu elección, puede ser una arroba(@), lo que desees, pero este tiene que ser legible, fácil de identificar y leer, pero mayormente se usa la viñeta.
+En un principio asignamos `~/*` para indicar el tipo de importación que se hará, es decir, toda importación mayormente componentes debe empezar con una viñeta({"~"}) seguido de un slash(/) y luego todos los archivos de un determinado directorio. Este tipo de importación ({"~"}) es tu elección, puede ser una arroba(@), lo que desees, pero este tiene que ser legible, fácil de identificar y leer, pero mayormente se usa la viñeta.
 
-Después definimos la carpeta donde se aplicara este tipo de importación, `[”./src/”]`, el símbolo “*” indica que esta configuración se aplicara a todos los archivos que estén dentro de la carpeta `src`.
+Después definimos la carpeta donde se aplicara este tipo de importación, `["./src/"]`, el símbolo `*`` indica que esta configuración se aplicara a todos los archivos que estén dentro de la carpeta `src`.
 
 Si tú quieres aplicar este tipo de importación en otras carpetas fuera `src`, simplemente agregas el directo como una nueva opción de configuración.
 
@@ -70,7 +70,7 @@ Si tú quieres aplicar este tipo de importación en otras carpetas fuera `src`, 
 
 Bien, según la ***[doc. oficial](https://create-react-app.dev/docs/importing-a-component/#absolute-imports)*** de [Create React App](https://create-react-app.dev/) y hasta donde entendí, podemos configurar las rutas, más no como lo hacemos en un proyecto de [React con TypeScript](/blog/rutas-absolutas-y-relativas-react#configuración-en-react--typescript).
 
-En este caso se especifica un directorio como `baseUrl`, ahora intenté agregar los paths personalizados más, este me da un error por alguna razón, por lo tanto, no logré configurar el tipo de importación empezando con una viñeta.
+En este caso se especifica un directorio como `baseUrl`, ahora intenté agregar los paths personalizados más, este me da un error por alguna razón, por lo tanto, no logré configurar el tipo de importación empezando con una viñeta, pero de igual forma soluciona el problema de las rutas absolutas.
 
 Con la configuración oficial, la importación seria de esta manera:
 
