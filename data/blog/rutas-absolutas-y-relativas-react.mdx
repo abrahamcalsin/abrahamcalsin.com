@@ -1,16 +1,16 @@
 ---
-title: 'Rutas absolutas y relativas - React'
-description: 'Que son las rutas absolutas y relativas en React'
+title: 'Rutas relativas y absolutas - React'
+description: 'Que son las rutas relativas y absolutas en React'
 date: '2022-11-27T16:48:41.000Z'
 ---
 
 Muchas veces nos pasó que al crear y mantener proyectos grandes o pequeños tuvimos una serie de problemas. Uno de ellos son las importaciones de módulos y/o componentes que hacemos.
 
-Al importar módulos y/o componentes en nuestro proyecto, lo hacemos de lo más común usando las importaciones absolutas conocidas por puntos desde el directorio activo y la dirección exacta del módulo y/componente a importar `./../../../tu-archivo.jsx`.
+Al importar módulos y/o componentes en nuestro proyecto, lo hacemos de lo más común usando las importaciones relativas conocidas por puntos desde el directorio actual a más niveles para importar un componente y/o módulo `./../../../tu-archivo.tsx`.
 
 Pero antes de entrar de lleno en esto veamos que y como son las rutas absolutas y relativas.
 
-## Rutas absolutas:
+## Rutas relativas:
 
 Este tipo de importación se caracteriza por puntos empezando del directorio activo que vendría a ser el archivo donde estás.
 
@@ -24,11 +24,11 @@ import { Footer } from "../components/footer"
 
 Este tipo de importación es típico en muchos proyectos, pero y si te fijas bien, esto podría llegar a ser un problema, por la dificultad de mantenimiento del proyecto, ya que debes fijarte bien en los puntos que estás poniendo para importar el archivo correctamente y si te equivocas en un punto de dirección, tu aplicación fallará porque no encontró el módulo y/o componente, esto es un problema también por la ilegibilidad del código.
 
-Y allí es donde entran las rutas relativas, veamos como este tipo de importación soluciona el problema de las rutas absolutas.
+Y allí es donde entran las rutas absolutas, veamos como este tipo de importación soluciona el problema de las rutas relativas.
 
-## Rutas relativas:
+## Rutas absolutas:
 
-Este tipo de importación se caracteriza por la dirección exacta que se aplica a una importación, no importa en que archivo estés, apuntas a una dirección exacta del padre del archivo y lo importas, no hay necesidad de ver la ubicación del archivo por puntos.
+Este tipo de importación se caracteriza por la dirección exacta que se aplica a una importación, no importa en que archivo estés, apuntas a una dirección exacta del padre del archivo y lo importas, no hay necesidad de ver la ubicación del archivo en niveles.
 
 ```tsx
 import { getAllCharacters } from "~/services/get-all-characters"
