@@ -1,10 +1,10 @@
 import * as React from 'react'
-import { Box, Heading } from '@chakra-ui/react'
+import { Box, Heading, Text } from '@chakra-ui/react'
 
 import { IntroductionProps } from '~/typings/components/introduction'
 
 export function Introduction(props: IntroductionProps) {
-  const { title, children } = props
+  const { title, additionalInfo, children } = props
 
   return (
     <Box mb="4">
@@ -18,7 +18,7 @@ export function Introduction(props: IntroductionProps) {
           color: 'primary.200',
         }}
       >
-        {title}
+        {title} <Box display="inline-block">{additionalInfo}</Box>
       </Heading>
       <Box mt="4">{children}</Box>
     </Box>

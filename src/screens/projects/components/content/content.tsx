@@ -10,7 +10,7 @@ export function Content(props: ProjectsPageProps) {
 
   return (
     <Box mt={{ base: '0', sm: '20' }} mb={{ base: '0', sm: '8' }}>
-      <Introduction title="Proyectos">
+      <Introduction title="Proyectos" additionalInfo={<Text as="span">({projects.length})</Text>}>
         <Text fontWeight="medium" lineHeight={{ base: '6', sm: '8' }}>
           En esta sección puedes ver algunos de mis proyectos más destacados.{' '}
           <Link
