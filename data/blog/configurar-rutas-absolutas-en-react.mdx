@@ -1,0 +1,102 @@
+---
+title: 'Configurar rutas absolutas en React'
+description: 'Cómo utilizar y configurar rutas absolutas para importar módulos y componentes en proyectos React'
+date: '2022-12-21T00:00:00.000Z'
+---
+
+En proyectos de [React](https://reactjs.org/), es común tener que importar módulos y componentes para utilizarlos en diferentes archivos. Una forma de hacerlo es utilizando `rutas relativas`, que se basan en la ubicación del archivo actual y se indican con puntos `../`. Por ejemplo:
+
+```tsx
+// Rutas relativas
+import { getAllCharacters } from "../../services/get-all-characters"
+import { useDarkTheme } from "../../hooks/use-dark-theme"
+
+import { Header } from "../src/components/header"
+import { Footer } from "../src/components/footer"
+```
+
+Sin embargo, esto puede ser problemático en proyectos grandes o complejos debido a la dificultad de mantenimiento y legibilidad del código.
+
+Para solucionar este problema, podemos utilizar las `rutas absolutas`, que indican la ubicación exacta del módulo o componente que queremos importar, independientemente de donde se encuentre el archivo. Esto hace que el código sea más sencillo de entender, y reduce la posibilidad de importar módulos y componentes.
+
+## Configurar rutas absolutas en React + TypeScript:
+
+En proyectos [React(cra) + TypeScript](https://create-react-app.dev/docs/adding-typescript/), podemos configurar el uso de rutas absolutas siguiendo la *[**doc. oficial**](https://www.typescriptlang.org/tsconfig#baseUrl)* de [TypeScript](https://www.typescriptlang.org/), antes ya debes tener listo e inicializado tu aplicación.
+
+1. Abrimos el archivo de configuración `tsconfig.json` del proyecto y agregamos la opción de configuración `baseUrl: “.”` en el apartado de `compilerOptions`. Esto establece un directorio base para resolver nombres de módulos no absolutos.
+2. Agregamos la opción de configuración `paths` de la misma manera en el apartado de `compilerOptions`. Esto nos permite definir rutas personalizadas para importar módulos y componentes de forma absoluta. Por ejemplo:
+
+```json:./tsconfig.json
+"paths": {
+  "~/*": ["src/*"]
+}
+```
+
+En un principio asignamos una ruta personalizada `~/*` para indicar el tipo de importación que se hará.
+
+Después definimos la carpeta donde se aplicara este tipo de importación, `["./src/"]`, el símbolo `*` indica que esta configuración se aplicara a todos los archivos que estén dentro de la carpeta `src`.
+
+Con esta configuración, podemos importar módulos y componentes de la siguiente manera:
+
+```tsx
+// Rutas absolutas
+import { getAllCharacters } from "~/services/get-all-characters"
+import { useDarkTheme } from "~/hooks/use-dark-theme"
+
+import { Header } from "~/components/header"
+import { Footer } from "~/components/footer"
+```
+
+Si tú quieres aplicar este tipo de importación en otras carpetas fuera `src`, simplemente agregas el directorio como una nueva opción de configuración. Por ejemplo:
+
+```json:./tsconfig.json {3}
+"paths": {
+  "~/*": ["src/*"]
+  "~/server*": ["./server*"]
+}
+```
+
+## Configurar rutas absolutas en React vanilla(create-react-app / cra):
+
+En proyectos [React vanilla (create-react-app / cra)](https://create-react-app.dev/), en su versión actual podemos configurar el uso de rutas absolutas modificando el archivo de configuración de Webpack (`webpack.config.js`).
+
+Para hacerlo, seguimos los siguientes pasos:
+
+1. Modificar el archivo de configuración de Webpack:
+
+```jsx:./webpack.config.js
+// Con la sintaxis de commonJS
+const path = require("path")
+
+// Con la sintaxis de ES Modules
+import path from "path"
+
+/* ****** */
+
+module.exports = {
+  // ...
+  resolve: {
+    alias: {
+      "~": path.resolve(__dirname, "src"),
+    },
+  },
+};
+```
+
+Con esta configuración, podemos importar módulos y componentes de la siguiente manera:
+
+```tsx
+import { getAllCharacters } from "~/services/get-all-characters"
+import { useDarkTheme } from "~/hooks/use-dark-theme"
+
+import { Header } from "~/components/header"
+import { Footer } from "~/components/footer"
+```
+
+Es importante tener en cuenta que este ejemplo es solo una forma de configurar el uso de rutas absolutas en un proyecto [React Vanilla (create-react-app / cra)](https://create-react-app.dev/). Puede haber otras formas de hacerlo dependiendo de la versión y configuración del proyecto.
+
+## Conslusión:
+
+En conclusión, el uso de rutas absolutas en proyectos de [React](https://reactjs.org/), o cualquier framework o librería, puede mejorar la legibilidad y eficiencia del código al reducir la posibilidad de errores al importar módulos y componentes.
+
+Es importante tener en cuenta que el uso de rutas absolutas puede tener ciertas ~"desventajas"~, como un mayor tiempo de configuración y la necesidad de utilizar una sintaxis específica para las importaciones. Sin embargo, en proyectos grandes o complejos, el uso de rutas absolutas puede ser muy beneficioso para mejorar la legibilidad y mantenibilidad del código. Aplícalo a tu necesidad y a tu gusto.
