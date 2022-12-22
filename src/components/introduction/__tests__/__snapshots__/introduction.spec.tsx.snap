@@ -9,7 +9,12 @@ exports[`Introduction renders introduction with children 1`] = `
       <h1
         class="chakra-heading css-1503d90"
         role="heading"
-      />
+      >
+         
+        <div
+          class="css-1baulvz"
+        />
+      </h1>
       <div
         class="css-1fhgjcy"
       >
@@ -33,6 +38,10 @@ exports[`Introduction renders introduction with title 1`] = `
         role="heading"
       >
         Home
+         
+        <div
+          class="css-1baulvz"
+        />
       </h1>
       <div
         class="css-1fhgjcy"
@@ -53,6 +62,10 @@ exports[`Introduction renders introduction with title and children 1`] = `
         role="heading"
       >
         Home
+         
+        <div
+          class="css-1baulvz"
+        />
       </h1>
       <div
         class="css-1fhgjcy"
