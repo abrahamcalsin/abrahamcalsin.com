@@ -68,7 +68,7 @@ export function ArticlePreview(props: ArticlePreviewProps) {
             <Text as="span">{readingTime.text}</Text>
           </Text>
         </Box>
-        <Text fontSize="md" lineHeight={{ base: 'normal', sm: 'none' }} textColor="primary.500">
+        <Text fontSize="md" lineHeight="normal" textColor="primary.500" noOfLines={{ base: 2, sm: 1 }}>
           {description}
         </Text>
       </Link>

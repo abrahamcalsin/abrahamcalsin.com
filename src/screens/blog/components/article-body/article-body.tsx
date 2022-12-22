@@ -44,6 +44,9 @@ export function ArticleBody(props: ArticleBodyProps) {
           }}
         >
           <div>
+            <Text as="span" fontWeight="black">
+              Última actualización:{' '}
+            </Text>
             <DateFormat date={date} locale="es" />
           </div>
           <Box display={{ base: 'none', sm: 'flex' }} alignItems="center" gap="2">
