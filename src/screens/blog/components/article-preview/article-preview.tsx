@@ -45,6 +45,7 @@ export function ArticlePreview(props: ArticlePreviewProps) {
           _dark={{
             textColor: 'primary.200',
           }}
+          noOfLines={2}
         >
           {title}
         </Heading>
@@ -68,7 +69,7 @@ export function ArticlePreview(props: ArticlePreviewProps) {
             <Text as="span">{readingTime.text}</Text>
           </Text>
         </Box>
-        <Text fontSize="md" lineHeight="normal" textColor="primary.500" noOfLines={{ base: 2, sm: 1 }}>
+        <Text fontSize="md" lineHeight="normal" textColor="primary.500" noOfLines={3}>
           {description}
         </Text>
       </Link>
