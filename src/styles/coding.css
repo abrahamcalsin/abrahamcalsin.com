@@ -117,6 +117,7 @@ code:not(:where([class*='language-']))::after {
 .token.cdata,
 .token.important {
   color: var(--comment);
+  font-style: italic;
 }
 
 .token.punctuation {
