@@ -1,0 +1,97 @@
+---
+title: 'Añadir una key de API personalizada para proteger una API route en Next.js'
+description: 'Como proteger una ruta de API en Next.js con una clave de API personalizada'
+date: '2022-12-29T08:00:00.000Z'
+---
+
+¿Has desarrollado una aplicación en **[Next.js](https://nextjs.org/)** y quieres proteger una de tus rutas de API para evitar el acceso no autorizado? Una forma de hacerlo es mediante la implementación de una clave o key de API personalizada.
+
+Existen varias formas de implementar esta configuración en Next.js. En este artículo, veremos cómo utilizar el paquete de Npm **[Nextjs Auth Middleware](https://www.npmjs.com/package/nextjs-auth-middleware)** para proteger una ruta de API utilizando una clave de API.
+
+> **Nota:** Antes de empezar, es importante mencionar que un middleware es un componente que se ejecuta entre la petición del usuario y la respuesta del servidor. En el contexto de **[Next.js](https://nextjs.org/docs/advanced-features/middleware)**, un middleware puede ser utilizado para agregar funcionalidades adicionales a una ruta de API, como la autenticación.
+
+## Configuracion:
+
+Para implementar la autenticación de API Key en Next.js con ****[Nextjs Auth Middleware](https://www.npmjs.com/package/nextjs-auth-middleware)****, sigue los siguientes pasos:
+
+1. Instala el paquete **[Nextjs Auth Middleware](https://www.npmjs.com/package/nextjs-auth-middleware)** utilizando el gestor de paquetes que prefieras. Por ejemplo, si estás utilizando **[pnpm](https://pnpm.io/)**:
+
+```powershell
+pnpm add nextjs-auth-middleware@latest
+```
+
+2. Abre el archivo de tu ruta de API, por ejemplo: **`pages/api/articles.{ts,js}`**. La estructura básica del archivo debería verse así:
+
+```tsx
+import { NextApiRequest, NextApiResponse } from 'next'
+
+export default function handler(req: NextApiRequest, res: NextApiResponse) {
+  res.status(200).json({ name: 'John Doe' })
+}
+```
+
+3. Dentro del archivo, importa el paquete **[Nextjs Auth Middleware](https://www.npmjs.com/package/nextjs-auth-middleware)** y utiliza su middleware para proteger la ruta de API. El paquete nos proporciona una opción como propiedad del módulo: **`processEnv`**, que nos permite especificar el nombre de la variable de entorno que guarda la clave de API. Esta propiedad es opcional, si no especificas un nombre, se utilizará el nombre predefinido por el módulo: **`API_ROUTE_PUBLIC_KEY`**. Ahora vamos a refactorizar el código para que el ejemplo tenga un uso más real. Por ejemplo:
+
+```tsx {7}
+import NextAuthMiddleware from 'nextjs-auth-middleware'
+
+import { notion } from '~/lib/notion'
+
+export default async function handler(req, res) {
+  // La variable de entorno es API_ROUTE_PUBLIC_KEY, puedes modificarlo a tu gusto
+  await NextAuthMiddleware(req, res)
+
+  const response = await notion({
+    notionApiKey: process.env.NOTION_API_KEY,
+    notionDatabaseId: process.env.NOTION_BLOG_DATABASE_ID,
+    sorts: [
+      {
+        property: 'startedAt',
+        direction: 'descending',
+      },
+    ],
+    filter: {
+      property: 'status',
+      select: { equals: 'published' },
+    },
+  })
+
+  res.status(200).json(response)
+}
+```
+
+En este ejemplo utilizamos la **[API de Notion](https://developers.notion.com/)** para obtener todos los artículos de la base de datos. En la línea 7, utilizamos el paquete **[Nextjs Auth Middleware](https://www.npmjs.com/package/nextjs-auth-middleware)** para ejecutar de forma asíncrona la función de autenticación.
+
+4. Genera una clave de API única y segura. Puedes hacerlo utilizando una herramienta de generación de claves de API o simplemente creando una cadena aleatoria de caracteres utilizando una combinación de letras, números y símbolos. En mi caso, usaré la terminal y ejecutaré el siguiente comando:
+
+```powershell
+node -e "console.log(crypto.randomBytes(20).toString('hex'))"
+```
+
+Este comando ejecuta una pequeña aplicación de Node.js que utiliza la función **[`crypto.randomBytes()`](https://nodejs.org/api/crypto.html#cryptorandombytessize-callback)** de la biblioteca de criptografía incluida en [**Node.js**](https://nodejs.org/) para generar (20 bytes) de datos aleatorios y luego los convierte en una cadena hexadecimal utilizando la función **[`toString()`](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Object/toString).**
+
+5. Crea una variable de entorno con el nombre especificado en el paso 3 y asigna a ella la clave de API generada en el paso 4. Por ejemplo, si utilizaste el nombre predeterminado **`API_ROUTE_PUBLIC_KEY`**, puedes crear la variable de entorno de la siguiente manera:
+
+```powershell
+API_ROUTE_PUBLIC_KEY=[mySecretApiKey]
+```
+
+Si utilizaste un nombre de variable de entorno diferente en el paso 3, reemplaza **`API_ROUTE_PUBLIC_KEY`** por el nombre que especificaste.
+
+6. Ya puedes utilizar la clave de API para proteger la ruta de API. Cada vez que un usuario haga una petición a la ruta de API, se le pedirá que proporcione la clave de API en el encabezado de la petición. Si la clave proporcionada es válida, se permitirá el acceso a la ruta de API. Si la clave es inválida, se rechazará la petición y se devolverá un error **[HTTP 401](https://developer.mozilla.org/es/docs/Web/HTTP/Status)** (no autorizado).
+
+Es importante tener en cuenta que esta es solo una forma de implementar la autenticación de API Key en Next.js. Existen otras formas de hacerlo, como utilizar la autenticación básica o **[JWT (JSON Web Token)](https://jwt.io/)**. Cada enfoque tiene sus propias ventajas y desventajas, y debes elegir el que mejor se adapte a tus necesidades.
+
+---
+
+¡Bien!, hemos terminado de configurar una clave en nuestra ruta de API. Ahora, solo nos queda desplegar nuestra aplicación en un hosting. Te recomiendo usar **[Vercel](https://vercel.com/)**, ya que es gratuito y fue diseñado específicamente para trabajar con aplicaciones Next.js, lo que nos permite aprovechar al máximo todas las características y ventajas de Next.js al desplegar en este servicio de **[hosting](https://developer.mozilla.org/es/docs/Learn/Getting_started_with_the_web/Publishing_your_website)**.
+
+No olvides agregar la key en tu variable de entorno. Por ejemplo en producción si es Vercel:
+
+![Add environment variables in vercel](https://res.cloudinary.com/abrahamcalsin/image/upload/v1672118576/projects/abrahamcalsin/blog/add-a-custom-api-key-to-protect-an-api-route-in-nextjs/add-environment-variables-in-vercel.png)
+
+Si estas en modo desarrollo, puedes agregar una variable de entorno simple y facil, ejm: `myLocalApiKey`, recuerda, estas en modo desarrollo. Sin embargo, ten cuidado al hacerlo en entornos de producción. Recuerda que en modo de desarrollo, la seguridad y la protección de la información pueden no ser tan importantes como en entornos de producción.
+
+## Conclusión:
+
+En conclusión, proteger las rutas de API es importante para evitar el acceso no autorizado y garantizar la seguridad de tu aplicación. Utilizar una clave de API personalizada es una forma eficaz de hacerlo, y el paquete **[Nextjs Auth Middleware](https://www.npmjs.com/package/nextjs-auth-middleware)** nos proporciona una solución fácil de usar para implementarla en Next.js.
