@@ -16,13 +16,13 @@ Para implementar la autenticación de API Key en Next.js con ****[Nextjs Auth Mi
 
 1. Instala el paquete **[Nextjs Auth Middleware](https://www.npmjs.com/package/nextjs-auth-middleware)** utilizando el gestor de paquetes que prefieras. Por ejemplo, si estás utilizando **[pnpm](https://pnpm.io/)**:
 
-```powershell
+```powershell:Terminal
 pnpm add nextjs-auth-middleware@latest
 ```
 
-2. Abre el archivo de tu ruta de API, por ejemplo: **`pages/api/articles.{ts,js}`**. La estructura básica del archivo debería verse así:
+2. Abre el archivo de tu ruta de API, por ejemplo: **`./pages/api/articles.{ts,js}`**. La estructura básica del archivo debería verse así:
 
-```tsx
+```tsx:./pages/api/articles.{ts,js}
 import { NextApiRequest, NextApiResponse } from 'next'
 
 export default function handler(req: NextApiRequest, res: NextApiResponse) {
@@ -32,7 +32,7 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
 
 3. Dentro del archivo, importa el paquete **[Nextjs Auth Middleware](https://www.npmjs.com/package/nextjs-auth-middleware)** y utiliza su middleware para proteger la ruta de API. El paquete nos proporciona una opción como propiedad del módulo: **`processEnv`**, que nos permite especificar el nombre de la variable de entorno que guarda la clave de API. Esta propiedad es opcional, si no especificas un nombre, se utilizará el nombre predefinido por el módulo: **`API_ROUTE_PUBLIC_KEY`**. Ahora vamos a refactorizar el código para que el ejemplo tenga un uso más real. Por ejemplo:
 
-```tsx {7}
+```tsx:./pages/api/articles.{ts,js} {7}
 import NextAuthMiddleware from 'nextjs-auth-middleware'
 
 import { notion } from '~/lib/notion'
@@ -64,7 +64,7 @@ En este ejemplo utilizamos la **[API de Notion](https://developers.notion.com/)*
 
 4. Genera una clave de API única y segura. Puedes hacerlo utilizando una herramienta de generación de claves de API o simplemente creando una cadena aleatoria de caracteres utilizando una combinación de letras, números y símbolos. En mi caso, usaré la terminal y ejecutaré el siguiente comando:
 
-```powershell
+```powershell:Terminal
 node -e "console.log(crypto.randomBytes(20).toString('hex'))"
 ```
 
