@@ -78,6 +78,10 @@ const mdx = {
     '& > * + *': {
       mt: '1',
     },
+
+    li: {
+      mb: '0',
+    },
   },
   img: {
     display: 'block',
