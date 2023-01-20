@@ -1,0 +1,120 @@
+---
+title: "Cómo implementar tema oscuro con Chakra UI en una aplicación Next.js"
+description: "Aprende a implementar el tema oscuro en tu aplicación Next.js con Chakra UI. Siguiendo los pasos este tutorial, podrás agregar un modo oscuro personalizado a tu proyecto."
+date: "2023-01-19T00:00:00.000Z"
+---
+
+En este artículo veremos **Cómo implementar tema oscuro con [Chakra UI](https://chakra-ui.com/) en una aplicación [Next.js](https://nextjs.org/)**. Primero, necesitas tener Chakra UI instalado en tu entorno de desarrollo. Si aún no lo tienes, instálalo **[siguiendo las instrucciones en su sitio web](https://chakra-ui.com/getting-started/nextjs-guide#installation)**.
+
+---
+
+En la documentación oficial de Chakra UI, busca la sección **[Color Mode](https://chakra-ui.com/docs/styled-system/color-mode)**. Esta es la guía que seguiremos para agregar el tema oscuro a nuestra aplicación.
+
+Antes de seguir con el proceso, debes tener ya creado tu propia configuración del tema principal de la aplicación con Chakra UI. Si aun no lo tienes, sigue estos pasos para hacerlo:
+
+1. Crea una nueva carpeta llamada `src`
+2. Dentro de `src`, crea otra carpeta llamada `themes`
+3. Dentro de `themes`, crea un nuevo archivo llamado `main-theme.ts`
+
+La estructura debería verse así: `src/themes/main-theme.ts` y la configuracion inicial del tema seria la siguiente:
+
+```tsx:./main-theme.ts
+import { extendTheme } from '@chakra-ui/react'
+
+const mainTheme = extendTheme({})
+
+export default mainTheme
+```
+
+Una vez que hayas agregado la configuración del tema principal, puedes agregar más opciones como colores, espacios, estilos para MDX, etc. siguiendo la **[documentación de Chakra UI](https://chakra-ui.com/docs/styled-system/customize-theme)**.
+
+---
+
+En este caso, sólo queremos agregar el modo de color a nuestra aplicación. Para ello, necesitamos agregar un "script del modo de color" (ColorModeScript) de Chakra UI dentro de la etiqueta body en nuestra aplicación.
+
+Para hacerlo, debemos dirigirnos a la carpeta `pages` y entrar al archivo `_document.tsx`. Dentro de la etiqueta body insertamos el `script`:
+
+```tsx:./_document.tsx {1, 12}
+import { ColorModeScript } from '@chakra-ui/react'
+import NextDocument, { Html, Head, Main, NextScript } from 'next/document'
+import mainTheme from "../src/themes/main-theme";
+
+export default class Document extends NextDocument {
+  render() {
+    return (
+      <Html lang='en'>
+        <Head />
+        <body>
+          {/* 👇 Aquí esta el script */}
+          <ColorModeScript initialColorMode={mainTheme.config.initialColorMode} />
+          <Main />
+          <NextScript />
+        </body>
+      </Html>
+    )
+  }
+}
+```
+
+Y listo, ya tienes el modo oscuro agregado en tu aplicación.
+
+---
+
+Ahora, para activarlo, debes agregar un botón o una opción en tu aplicación que permita al usuario cambiar entre los modos de color. Para ello debes crear un componente independiente, `dark-theme-button`. Chakra UI nos proporciona un hook para habilitar el modo oscuro de nuestra aplicacion, importamos el hook `useColorMode()`, y usamos las funciones `colorMode` y `toggleColorMode`, aqui te presento un ejemplo de lo que vendria a ser el boton:
+
+```tsx:./dark-theme-button.tsx
+import * as React from 'react'
+import { Box, useColorMode } from '@chakra-ui/react'
+
+import { MoonFillIcon } from './components/moon-fill-icon'
+import { SunFillIcon } from './components/sun-fill-icon'
+
+export function DarkThemeButton() {
+  const { colorMode, toggleColorMode } = useColorMode()
+
+  return (
+    <Button onClick={() => toggleColorMode()}>
+      {colorMode === 'dark' ? <SunFillIcon /> : <MoonFillIcon />}
+    </Button>
+  )
+}
+```
+
+---
+
+Para agregarlo a tu aplicación, debes importar el componente que acabas de crear y colocarlo en el lugar deseado en tu aplicación. Por ejemplo, si quieres agregarlo en la barra de navegación, podrías hacerlo de la siguiente manera:
+
+```tsx:./navbar.tsx {1, 9}
+import { DarkThemeButton } from "~/components/dark-theme-button";
+
+function Navbar() {
+  return (
+    <Flex as="nav">
+      <Link href="#">Home</Link>
+      <Link href="#">About</Link>
+      <Link href="#">Contact</Link>
+      <DarkThemeButton />
+    </Flex>
+  );
+}
+```
+
+Así, el usuario podrá cambiar entre el modo claro y el modo oscuro de tu aplicación con facilidad.
+
+Ten en cuenta que puedes personalizar el aspecto del botón desde su componente.
+
+---
+
+> **Nota:** Si te diste cuenta de que al importar el componente `DarkThemeButton` lo hacemos utilizando el símbolo de la viñeta (~), eso se conoce como rutas absolutas. Si deseas aplicarlo en tu proyecto, te invito a revisar mi articulo que escribi sobre cómo **[Configurar rutas absolutas en React](https://www.abrahamcalsin.com/blog/configurar-rutas-absolutas-en-react).**
+> 
+
+---
+
+En resumen, para agregar un tema oscuro a tu aplicación Next.js con Chakra UI, debes seguir los siguientes pasos:
+
+1. Instalar Chakra UI en tu entorno de desarrollo
+2. Crear una configuración del tema principal en tu aplicación
+3. Agregar el script del modo de color en la etiqueta body en tu archivo `_document.tsx`
+4. Agregar un botón o una opción para cambiar entre los modos de color utilizando un componente personalizado
+
+Espero que esta información te sea útil para agregar un tema oscuro en tu aplicación Next.js con Chakra UI.
