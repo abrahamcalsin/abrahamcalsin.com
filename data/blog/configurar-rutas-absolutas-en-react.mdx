@@ -24,17 +24,18 @@ Para solucionar este problema, podemos utilizar las `rutas absolutas`, que indic
 En proyectos [React(cra) + TypeScript](https://create-react-app.dev/docs/adding-typescript/), podemos configurar el uso de rutas absolutas siguiendo la *[**doc. oficial**](https://www.typescriptlang.org/tsconfig#baseUrl)* de [TypeScript](https://www.typescriptlang.org/), antes ya debes tener listo e inicializado tu aplicación.
 
 1. Abrimos el archivo de configuración `tsconfig.json` del proyecto y agregamos la opción de configuración `baseUrl: “.”` en el apartado de `compilerOptions`. Esto establece un directorio base para resolver nombres de módulos no absolutos.
+
 2. Agregamos la opción de configuración `paths` de la misma manera en el apartado de `compilerOptions`. Esto nos permite definir rutas personalizadas para importar módulos y componentes de forma absoluta. Por ejemplo:
 
-```json:./tsconfig.json
-"paths": {
-  "~/*": ["src/*"]
-}
-```
+    ```json:./tsconfig.json
+    "paths": {
+      "~/*": ["src/*"]
+    }
+    ```
 
-En un principio asignamos una ruta personalizada `~/*` para indicar el tipo de importación que se hará.
+    En un principio asignamos una ruta personalizada `~/*` para indicar el tipo de importación que se hará.
 
-Después definimos la carpeta donde se aplicara este tipo de importación, `["./src/"]`, el símbolo `*` indica que esta configuración se aplicara a todos los archivos que estén dentro de la carpeta `src`.
+    Después definimos la carpeta donde se aplicara este tipo de importación, `["./src/"]`, el símbolo `*` indica que esta configuración se aplicara a todos los archivos que estén dentro de la carpeta `src`.
 
 Con esta configuración, podemos importar módulos y componentes de la siguiente manera:
 
@@ -64,24 +65,24 @@ Para hacerlo, seguimos los siguientes pasos:
 
 1. Modificar el archivo de configuración de Webpack:
 
-```jsx:./webpack.config.js
-// Con la sintaxis de commonJS
-const path = require("path")
+    ```jsx:./webpack.config.js
+    // Con la sintaxis de commonJS
+    const path = require("path")
 
-// Con la sintaxis de ES Modules
-import path from "path"
+    // Con la sintaxis de ES Modules
+    import path from "path"
 
-/* ****** */
+    /* ****** */
 
-module.exports = {
-  // ...
-  resolve: {
-    alias: {
-      "~": path.resolve(__dirname, "src"),
-    },
-  },
-};
-```
+    module.exports = {
+      // ...
+      resolve: {
+        alias: {
+          "~": path.resolve(__dirname, "src"),
+        },
+      },
+    };
+    ```
 
 Con esta configuración, podemos importar módulos y componentes de la siguiente manera:
 

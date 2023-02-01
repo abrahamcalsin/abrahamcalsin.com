@@ -15,68 +15,67 @@ Existen varias formas de implementar esta configuración en Next.js. En este art
 Para implementar la autenticación de API Key en Next.js con ****[Nextjs Auth Middleware](https://www.npmjs.com/package/nextjs-auth-middleware)****, sigue los siguientes pasos:
 
 1. Instala el paquete **[Nextjs Auth Middleware](https://www.npmjs.com/package/nextjs-auth-middleware)** utilizando el gestor de paquetes que prefieras. Por ejemplo, si estás utilizando **[pnpm](https://pnpm.io/)**:
-
-```powershell:Terminal
-pnpm add nextjs-auth-middleware@latest
-```
+  
+    ```powershell:Terminal
+    pnpm add nextjs-auth-middleware@latest
+    ```
 
 2. Abre el archivo de tu ruta de API, por ejemplo: **`./pages/api/articles.{ts,js}`**. La estructura básica del archivo debería verse así:
 
-```tsx:./pages/api/articles.{ts,js}
-import { NextApiRequest, NextApiResponse } from 'next'
-
-export default function handler(req: NextApiRequest, res: NextApiResponse) {
-  res.status(200).json({ name: 'John Doe' })
-}
-```
+    ```tsx:./pages/api/articles.{ts,js}
+    import { NextApiRequest, NextApiResponse } from 'next'
+    export default function handler(req: NextApiRequest, res: NextApiResponse) {
+      res.status(200).json({ name: 'John Doe' })
+    }
+    ```
 
 3. Dentro del archivo, importa el paquete **[Nextjs Auth Middleware](https://www.npmjs.com/package/nextjs-auth-middleware)** y utiliza su middleware para proteger la ruta de API. El paquete nos proporciona una opción como propiedad del módulo: **`processEnv`**, que nos permite especificar el nombre de la variable de entorno que guarda la clave de API. Esta propiedad es opcional, si no especificas un nombre, se utilizará el nombre predefinido por el módulo: **`API_ROUTE_PUBLIC_KEY`**. Ahora vamos a refactorizar el código para que el ejemplo tenga un uso más real. Por ejemplo:
 
-```tsx:./pages/api/articles.{ts,js} {7}
-import NextAuthMiddleware from 'nextjs-auth-middleware'
+    ```tsx:./pages/api/articles.{ts,js} {7}
+    import NextAuthMiddleware from 'nextjs-auth-middleware'
 
-import { notion } from '~/lib/notion'
+    import { notion } from '~/lib/notion'
 
-export default async function handler(req, res) {
-  // La variable de entorno es API_ROUTE_PUBLIC_KEY, puedes modificarlo a tu gusto
-  await NextAuthMiddleware(req, res)
+    export default async function handler(req, res) {
+      // La variable de entorno es API_ROUTE_PUBLIC_KEY, puedes modificarlo a tu gusto
+      await NextAuthMiddleware(req, res)
 
-  const response = await notion({
-    notionApiKey: process.env.NOTION_API_KEY,
-    notionDatabaseId: process.env.NOTION_BLOG_DATABASE_ID,
-    sorts: [
-      {
-        property: 'startedAt',
-        direction: 'descending',
-      },
-    ],
-    filter: {
-      property: 'status',
-      select: { equals: 'published' },
-    },
-  })
+      const response = await notion({
+        notionApiKey: process.env.NOTION_API_KEY,
+        notionDatabaseId: process.env.NOTION_BLOG_DATABASE_ID,
+        sorts: [
+          {
+            property: 'startedAt',
+            direction: 'descending',
+          },
+        ],
+        filter: {
+          property: 'status',
+          select: { equals: 'published' },
+        },
+      })
 
-  res.status(200).json(response)
-}
-```
+      res.status(200).json(response)
+    }
+    ```
 
-En este ejemplo utilizamos la **[API de Notion](https://developers.notion.com/)** para obtener todos los artículos de la base de datos. En la línea 7, utilizamos el paquete **[Nextjs Auth Middleware](https://www.npmjs.com/package/nextjs-auth-middleware)** para ejecutar de forma asíncrona la función de autenticación.
+    En este ejemplo utilizamos la **[API de Notion](https://developers.notion.com/)** para obtener todos los artículos de la base de datos. En la línea 7, utilizamos el paquete **[Nextjs Auth Middleware](https://www.npmjs.com/package/nextjs-auth-middleware)** para ejecutar de forma asíncrona la función de autenticación.
 
 4. Genera una clave de API única y segura. Puedes hacerlo utilizando una herramienta de generación de claves de API o simplemente creando una cadena aleatoria de caracteres utilizando una combinación de letras, números y símbolos. En mi caso, usaré la terminal y ejecutaré el siguiente comando:
 
-```powershell:Terminal
-node -e "console.log(crypto.randomBytes(20).toString('hex'))"
-```
+    ```powershell:Terminal
+    node -e "console.log(crypto.randomBytes(20).toString('hex'))"
+    ```
 
-Este comando ejecuta una pequeña aplicación de Node.js que utiliza la función **[`crypto.randomBytes()`](https://nodejs.org/api/crypto.html#cryptorandombytessize-callback)** de la biblioteca de criptografía incluida en [**Node.js**](https://nodejs.org/) para generar (20 bytes) de datos aleatorios y luego los convierte en una cadena hexadecimal utilizando la función **[`toString()`](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Object/toString).**
+    Este comando ejecuta una pequeña aplicación de Node.js que utiliza la función **[`crypto.randomBytes()`](https://nodejs.org/api/crypto.html#cryptorandombytessize-callback)** de la biblioteca de criptografía incluida en [**Node.js**](https://nodejs.org/) para generar (20 bytes) de datos aleatorios y luego los convierte en una cadena hexadecimal utilizando la función **[`toString()`](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Object/toString).**
 
 5. Crea una variable de entorno con el nombre especificado en el paso 3 y asigna a ella la clave de API generada en el paso 4. Por ejemplo, si utilizaste el nombre predeterminado **`API_ROUTE_PUBLIC_KEY`**, puedes crear la variable de entorno de la siguiente manera:
 
-```powershell
-API_ROUTE_PUBLIC_KEY=[mySecretApiKey]
-```
+    ```powershell
+    API_ROUTE_PUBLIC_KEY=[mySecretApiKey]
+    ```
 
-Si utilizaste un nombre de variable de entorno diferente en el paso 3, reemplaza **`API_ROUTE_PUBLIC_KEY`** por el nombre que especificaste.
+    Si utilizaste un nombre de variable de entorno diferente en el paso 3, reemplaza **`API_ROUTE_PUBLIC_KEY`** por el nombre que especificaste.
 
 6. Ya puedes utilizar la clave de API para proteger la ruta de API. Cada vez que un usuario haga una petición a la ruta de API, se le pedirá que proporcione la clave de API en el encabezado de la petición. Si la clave proporcionada es válida, se permitirá el acceso a la ruta de API. Si la clave es inválida, se rechazará la petición y se devolverá un error **[HTTP 401](https://developer.mozilla.org/es/docs/Web/HTTP/Status)** (no autorizado).
 
