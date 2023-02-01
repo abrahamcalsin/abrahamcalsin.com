@@ -41,8 +41,8 @@ export function MdxComponents(props: MdxComponentsProps) {
       // Typography
       p: (props: any) => <chakra.p apply="mdx.p" {...props} />,
       ul: (props: any) => <chakra.ul apply="mdx.ul" {...props} />,
-      ol: (props: any) => <chakra.ol apply="mdx.ul" {...props} />,
-      li: (props: any) => <chakra.li pb="1" apply="mdx.p" {...props} />,
+      ol: (props: any) => <chakra.ol apply="mdx.ol" {...props} />,
+      li: (props: any) => <chakra.li pb="1" children={props.children} />,
       blockquote: (props: any) => <chakra.blockquote apply="mdx.blockquote" boxShadow="lg" {...props} />,
 
       // Table

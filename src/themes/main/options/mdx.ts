@@ -59,35 +59,93 @@ const mdx = {
     my: '8',
   },
   blockquote: {
-    backgroundColor: 'white',
+    bg: 'white',
     px: '6',
     py: '3.5',
     my: { base: '4', sm: '8' },
     fontStyle: 'italic',
-    borderRadius: 'md',
+    rounded: 'md',
     borderLeft: '4px solid',
     borderColor: 'primary.500',
     _dark: {
-      backgroundColor: 'primary.800',
+      bg: 'primary.800',
     },
   },
-  ul: {
+
+  ol: {
+    position: 'relative',
     mb: { base: '4', sm: '5' },
-    ml: '10',
+    ml: { base: '0.5', sm: '2' },
+    counterReset: 'li',
+    listStyle: 'none',
+    lineHeight: '1.5',
+    fontSize: { base: 'md', sm: 'lg' },
+
     'blockquote &': { mt: 0 },
+
     '& > * + *': {
       mt: '1',
     },
 
     li: {
-      mb: '0',
+      mt: '3',
+      ml: '3',
+      pt: '0',
+      pb: '1',
+      pl: { base: '6', sm: '8' },
+      pr: '0',
+      position: 'relative',
+      listStyle: 'none',
+      borderLeftWidth: '0.6px',
+      borderColor: 'primary.300',
+
+      '& > p': {
+        mb: '0',
+        pt: { base: '1', sm: '0' },
+      },
+
+      '& pre': {
+        lineHeight: '6',
+      },
+
+      _before: {
+        content: 'counter(li)',
+        counterIncrement: 'li',
+        position: 'absolute',
+        w: '8',
+        h: '8',
+        top: '0',
+        left: '-4',
+        mr: '2',
+        fontSize: { base: 'sm', sm: 'md' },
+        p: '1.5',
+        lineHeight: '1.3',
+        textAlign: 'center',
+        fontWeight: '600',
+        borderWidth: '0.5px',
+        borderColor: 'primary.300',
+        bg: '#fff',
+        rounded: 'full',
+      },
+    },
+
+    _dark: {
+      '& li': {
+        borderColor: 'primary.600',
+
+        _before: {
+          bg: 'primary.800',
+          borderColor: 'primary.600',
+        },
+      },
     },
   },
+
   img: {
     display: 'block',
     mx: 'auto',
     mb: '8',
-    borderRadius: '2',
+    rounded: '2',
   },
 }
 
