@@ -21,6 +21,7 @@ export function WorkItem(props: WorkItemProps) {
     packageHref,
     tags = [],
     packageDownloads,
+    packageName,
     startedAt = new Date(),
   } = props
 
@@ -95,8 +96,7 @@ export function WorkItem(props: WorkItemProps) {
           >
             <DateFormat date={startedAt} locale="es" />
           </Text>
-          {title}{' '}
-          {packageDownloads && <PackageDownloads packageName="react-github-fork-banner" visible={packageDownloads} />}
+          {title} {packageDownloads && <PackageDownloads packageName={packageName} visible={packageDownloads} />}
         </Heading>
         <Box fontFamily="robotoMono" mb="2.5" display="flex" flexWrap="wrap" gap="2">
           {tags.map(item => (

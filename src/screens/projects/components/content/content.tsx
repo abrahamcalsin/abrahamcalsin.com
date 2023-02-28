@@ -37,6 +37,7 @@ export function Content(props: ProjectsPageProps) {
             webHref={project.properties.webHref.url}
             repositoryHref={project.properties.repositoryHref.url}
             packageHref={project.properties.packageHref.url}
+            packageName={project.properties.packageName.rich_text[0]?.plain_text}
             packageDownloads={project.properties.type.select.name === 'package' && true}
           />
         ))}

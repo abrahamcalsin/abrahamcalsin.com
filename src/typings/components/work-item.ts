@@ -15,6 +15,7 @@ interface WorkItemProps {
   packageHref?: string
   tags?: string[]
   packageDownloads?: boolean
+  packageName: string
   startedAt: string
 }
 
