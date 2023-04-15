@@ -1,0 +1,213 @@
+---
+title: "Cómo instalar y configurar ESLint y Prettier en un proyecto Next.js y TypeScript"
+description: "En este tutorial, aprenderás a instalar y configurar ESLint + Prettier en un proyecto Next.js y TypeScript"
+date: "2023-04-14T22:02:00.000Z"
+---
+
+Empezamos creando nuestra aplicación con [**Next.js**](https://nextjs.org/) y [**TypeScript**](https://www.typescriptlang.org/), para eso nos vamos a la documentación de [Next.js](https://nextjs.org/docs) y buscamos [TypeScript](https://nextjs.org/docs/basic-features/typescript), en el apartado de Basic Features, nos dirigimos a la opción de TypeScript, luego ejecutamos uno de los comandos para crear nuestra aplicación, dependiendo al gestor de paquetes que uses ejecutas el comando, en mi caso usaré `pnpm`.
+
+---
+
+Una vez que hemos creado nuestra aplicación, es hora de configurar eslint y prettier en nuestro proyecto.
+
+## Configurar ESLint:
+
+[**ESLint**](https://eslint.org/) es una herramienta de linting de código para JavaScript. Su objetivo principal es detectar y reportar errores en el código, al mismo tiempo que se aplican reglas y convenciones de codificación que aseguran que el código sea legible, coherente y cumpla con ciertos estándares. Con ESLint, puedes garantizar la calidad del código, lo que facilita la detección temprana de errores y mejora la mantenibilidad y escalabilidad del código a largo plazo.
+
+1. Para configurar eslint, necesitamos inicializarlo. Para ello, podemos utilizar el comando [`npx eslint --init`](https://eslint.org/docs/latest/use/getting-started) que nos permitirá crear una configuración para eslint sin tener instalado eslint en nuestro sistema.
+
+2. Seguidamente tendras que elegir algunas opciones para tu configuracion de eslint, te recomiendo seleccionar las opciones que yo eliga ya que son las opciones estandares para una configuracion de eslint.
+
+    ```powershell:Terminal {1,7,10,17,23,26,27,30,37,44,54}
+    npx eslint --init
+    --------------------------------------------------------
+    You can also run this command directly using 'npm init @eslint/config'.
+    ? How would you like to use ESLint? ... 
+      To check syntax only
+      To check syntax and find problems
+    > To check syntax, find problems, and enforce code style
+    --------------------------------------------------------
+    ? What type of modules does your project use? ... 
+    > JavaScript modules (import/export)
+      CommonJS (require/exports)
+      None of these
+    --------------------------------------------------------
+    // En esta opcion puedes elegir el framework que uses, pero recuerda que en nuestro caso estamos usando React
+
+    ? Which framework does your project use? ... 
+    > React
+      Vue.js
+      None of these
+    --------------------------------------------------------
+    // En esta opción seleccionaremos la opcion No, ya que nosotros configuraremos el soporte para TypeScript manualmente
+
+    ? Does your project use TypeScript? » [No] / Yes
+    --------------------------------------------------------
+    ? Where does your code run? ...  (Press <space> to select, <a> to toggle all, <i> to invert selection)
+      √ Browser
+      √ Node
+    --------------------------------------------------------
+    ? How would you like to define a style for your project? ... 
+    > Use a popular style guide
+      Answer questions about your style
+    --------------------------------------------------------
+    // En este apartado tu puedes elegir la guia que mas te guste y se acomode a tus necesidades, en mi caso usare la guia Standard ya que es el mas usado por la comunidad
+
+    ? Which style guide do you want to follow? ... 
+      Airbnb: https://github.com/airbnb/javascript
+    > Standard: https://github.com/standard/standard
+      Google: https://github.com/google/eslint-config-google
+      XO: https://github.com/xojs/eslint-config-xo
+    --------------------------------------------------------
+    // En esta parte elige el fomato de archivo que mas te guste, en mi caso será JavaScript
+
+    ? What format do you want your config file to be in? ... 
+    > JavaScript
+      YAML
+      JSON
+    --------------------------------------------------------
+    // En este apartado seleccionamos la opcion No, debido a que nosotros instalaremos las dependencias manualmente dependiendo al gestor de paquetes que estemos usando.
+
+    Checking peerDependencies of eslint-config-standard@latest
+    The config that you've selected requires the following dependencies:
+
+    eslint-plugin-react@latest eslint-config-standard@latest eslint@^8.0.1 eslint-plugin-import@^2.25.2 eslint-plugin-n@^15.0.0 eslint-plugin-promise@^6.0.0
+    ? Would you like to install them now? » [No] / Yes
+    ```
+
+    Una vez completadas las opciones, se creará un archivo [**`.eslintrc.js`**](https://eslint.org/docs/latest/use/configure/configuration-files#configuration-file-formats) con una configuración básica de ESLint.
+
+3. Ahora, es necesario instalar las dependencias que faltan para el proyecto. Para ello, ejecuta el siguiente comando en la terminal:
+
+    ```powershell
+    pnpm add -D -E eslint-plugin-react eslint-config-standard eslint eslint-plugin-import eslint-plugin-n eslint-plugin-promise **@yonycalsin/eslint-plugin-import-sort**
+    ```
+
+    Además, instalaremos un paquete que permitirá ordenar automáticamente las importaciones de módulos y componentes. Esto mejorará la legibilidad del código y facilitará su mantenimiento. Para ello, asegúrate de incluir la siguiente dependencia en el comando anterior:
+
+    ```powershell
+    @yonycalsin/eslint-plugin-import-sort
+    ```
+
+4. Para brindar soporte a TypeScript, es necesario instalar ciertos módulos. Puede realizar la instalación de los mismos utilizando el siguiente comando en la Terminal:
+
+    ```powershell
+    pnpm add -D -E @typescript-eslint/eslint-plugin @typescript-eslint/parser
+    ```
+
+    Con esta instrucción se instalarán los módulos [**`@typescript-eslint/eslint-plugin`**](http://npmjs.com/package/@typescript-eslint/eslint-plugin) y [**`@typescript-eslint/parser`**](https://www.npmjs.com/package/@typescript-eslint/parser), los cuales son esenciales para el correcto funcionamiento de TypeScript en su proyecto. El flag **`-D`** se utiliza para instalarlos como dependencias de desarrollo y **`-E`** para asegurarse de que se instalen en la versión más reciente.
+
+5. Ahora configuramos el archivo `.eslintrc.js`, abrimos el archivo y realizamos algunas modificaciones.
+
+    ```jsx:.eslintrc.js {12,14,22,24,25,26,27}
+    module.exports = {
+      env: {
+        browser: true,
+        es2021: true,
+        node: true,
+      },
+      extends: [
+        'next/core-web-vitals',
+        'next',
+        'plugin:react/recommended',
+        'standard',
+        'plugin:@yonycalsin/import-sort/react',
+      ],
+      parser: '@typescript-eslint/parser',
+      overrides: [],
+      parserOptions: {
+        ecmaVersion: 'latest',
+        sourceType: 'module',
+      },
+      plugins: [
+        'react',
+        '@typescript-eslint'
+      ],
+      rules: {
+        'react/react-in-jsx-scope': 'off',
+        'no-undef': 'off',
+      },
+    }
+    ```
+
+    Las lineas de codigo resaltados, son cambios que nosotros realizamos en la configuracion. En primer lugar, se ha agregado el paquete [**`@yonycalsin/eslint-plugin-import-sort`**](https://www.npmjs.com/package/@yonycalsin/eslint-plugin-import-sort) como un plugin de eslint. Además, se han agregado los paquetes necesarios para dar soporte a TypeScript, junto con algunas reglas necesarias en la sección de **`rules:{…}`**. Cabe destacar que el resto de las configuraciones son las predeterminadas de eslint.
+
+6. Para ejecutar eslint en nuestro proyecto, es necesario agregar los scripts correspondientes en el archivo `package.json`.
+
+    ```json
+    "lint": "next lint",
+    "lint:fix": "pnpm run lint --fix",
+    ```
+
+    El primer script, **`"lint": "next lint"`**, se encarga de ejecutar la herramienta de linting en el proyecto. En este caso, utilizamos la herramienta de linting integrada de Next.js, que se ejecuta con el comando **`next lint`**.
+
+    El segundo script, **`"lint:fix": "pnpm run lint --fix"`**, se encarga de ejecutar la herramienta de linting y aplicar automáticamente las correcciones sugeridas. Utilizamos el comando **`pnpm run lint`** para ejecutar la herramienta de linting y la opción **`--fix`** para que la herramienta aplique las correcciones sugeridas automáticamente. De esta manera, podemos asegurarnos de que nuestro código cumple con los estándares de calidad y estilo establecidos.
+
+7. Ahora que hemos añadido los scripts necesarios, es hora de poner a prueba nuestra configuración de ESLint. Para ello, ejecutamos el comando **`pnpm run lint`**. Este comando verifica los errores que hay en nuestro código y nos muestra un informe detallado, como se muestra en la siguiente imagen:
+
+    ![pnpm-run-lint](https://res.cloudinary.com/abrahamcalsin/image/upload/v1681532405/projects/abrahamcalsin/blog/como-instalar-y-configurar-eslint-y-prettier-en-un-proyecto-nextjs-y-typescript/pnpm-run-lint.jpg)
+
+    En este ejemplo, podemos ver todos los errores que se encontraron en el código. Para corregir estos errores, seguiremos los pasos que se describen a continuación.
+
+8. Ahora ejecutamos el siguiente comando `pnpm run lint:fix` para corregir los errores de nuestro codigo automaticamente, ejm:
+
+    ![pnpm-run-lint-fix](https://res.cloudinary.com/abrahamcalsin/image/upload/v1681532473/projects/abrahamcalsin/blog/como-instalar-y-configurar-eslint-y-prettier-en-un-proyecto-nextjs-y-typescript/pnpm-run-lint-fix.jpg)
+
+---
+
+¡Genial! Ahora tenemos nuestra configuración de ESLint lista. Sin embargo, si tienes instalada la extensión de Prettier en tu editor(y deberias tenerlo), es posible que sigas experimentando problemas de formato en tu código. Esto se debe a que ESLint trata de realizar la tarea de Prettier y es ahí donde se genera un conflicto.
+
+No te preocupes si aún encuentras errores de formato en tu código, a continuación procederemos a configurar Prettier para que pueda trabajar en conjunto con ESLint sin conflictos.
+
+## Configurar Prettier:
+
+**[Prettier](https://prettier.io/)** es una herramienta de formateo de código que se utiliza para automatizar el proceso de dar formato a un código fuente.
+
+1. Para comenzar con la configuración, primero instalamos algunas dependencias de desarrollo de Prettier. La mayoria de las despendencias no son propios de Prettier, fueron creados por la comunidad.
+
+    ```powershell
+    pnpm add -D -E prettier eslint-config-prettier eslint-plugin-prettier @yonycalsin/prettier-config-react-typescript
+    ```
+
+    A continuación, se detalla el uso de cada una de estas dependencias:
+
+    - El paquete [`eslint-config-prettier`](https://www.npmjs.com/package/eslint-config-prettier) es una configuración de ESLint que desactiva todas las reglas de ESLint que pueden entrar en conflicto con las reglas de formato de código de Prettier.
+    - El paquete [`eslint-plugin-prettier`](https://www.npmjs.com/package/eslint-plugin-prettier) es un plugin para ESLint, que es una herramienta de análisis de código estático para JavaScript. Este plugin se utiliza para asegurar que el código de JavaScript siga las reglas de formato establecidas por Prettier, que es una herramienta de formateo de código.
+    - El paquete [`@yonycalsin/prettier-config-react-typescript`](https://www.npmjs.com/package/@yonycalsin/prettier-config-react-typescript) es una configuración preestablecida para Prettier, específicamente para proyectos que utilizan [**React**](https://react.dev/) y [**TypeScript**](https://www.typescriptlang.org/).
+
+2. A continuación, accedemos a la configuración de ESLint en el archivo [`.eslintrc.js`](https://eslint.org/docs/latest/use/configure/configuration-files) y realizamos un cambio para evitar conflictos con ESLint. Agregamos **`prettier`** en la sección de **`extends:[]`**.
+
+    ```jsx:.eslintrc.js {4}
+    module.exports = {
+      extends: [
+        ...
+        'prettier',
+      ],
+      parser: '...',
+      overrides: [],
+      parserOptions: {
+        ecmaVersion: '...',
+        sourceType: '...',
+      },
+      plugins: ['...'],
+      rules: {...},
+    }
+    ```
+
+    Al agregar **`'prettier'`** en la sección **`extends`**, estamos indicando que queremos usar las reglas de formato definidas en Prettier junto con las reglas de ESLint, lo que nos ayudará a evitar conflictos entre ambas herramientas.
+
+3. Ahora debemos crear un archivo de configuración de Prettier para poder personalizar su comportamiento. Este archivo debe llevar el nombre de [`.prettierrc.js`](https://prettier.io/docs/en/configuration.html). Puedes agregar tu propia configuración de Prettier con soporte para React y TypeScript, aunque existen paquetes que lo hacen por nosotros, como el que hemos instalado: [`@yonycalsin/prettier-config-react-typescript`](https://www.npmjs.com/package/@yonycalsin/prettier-config-react-typescript).
+
+    Este paquete ya tiene una configuración establecida para el soporte de React y TypeScript, por lo que en este caso utilizaremos esta opción. La configuración de Prettier se vería así:
+
+    ```jsx
+    module.exports = require('@yonycalsin/prettier-config-react-typescript');
+    ```
+
+    ¡Eso es todo! Con este simple archivo de configuración, ya tendremos Prettier configurado para trabajar con React y TypeScript.
+
+---
+
+## - En conlusión:
+
+En conclusión, la configuración de [**ESLint**](https://eslint.org/) y [**Prettier**](https://prettier.io/) en nuestros proyectos tiene un gran impacto en la legibilidad de nuestro código y nos ayuda a prevenir errores malintencionados. Utilizar estas herramientas es altamente recomendado por expertos en programación y se considera una buena práctica. Incorporar ESLint y Prettier en nuestro flujo de trabajo nos permitirá escribir código más limpio y consistente, lo que a su vez puede mejorar la calidad y mantenibilidad del software que desarrollamos.
