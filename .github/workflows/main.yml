@@ -20,7 +20,7 @@ jobs:
 
     steps:
       - name: Check Code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Install Pnpm
         uses: pnpm/action-setup@v2.2.2
